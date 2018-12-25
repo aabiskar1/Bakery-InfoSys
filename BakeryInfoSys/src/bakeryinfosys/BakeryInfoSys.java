@@ -8,6 +8,7 @@ package bakeryinfosys;
 import java.awt.Color;
 import java.awt.GraphicsEnvironment;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -23,6 +24,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         initComponents();
         fileMenuPanel.setVisible(false);
         editMenuPanel.setVisible(false);
+        helpMenuPanel.setVisible(false);
     }
 
     /**
@@ -43,11 +45,11 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         minimizeIcon = new javax.swing.JLabel();
         closeIcon = new javax.swing.JLabel();
         menuBar = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        filesMenu = new javax.swing.JLabel();
+        editMenu = new javax.swing.JLabel();
+        helpMenu = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
@@ -75,7 +77,15 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         fileMenuPanel = new javax.swing.JPanel();
+        openMenuItem = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        exitMenuItem = new javax.swing.JLabel();
         editMenuPanel = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        helpMenuPanel = new javax.swing.JPanel();
+        helpUsMenuItem = new javax.swing.JLabel();
+        aboutMenuItem = new javax.swing.JLabel();
+        jSeparator3 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -164,33 +174,51 @@ public class BakeryInfoSys extends javax.swing.JFrame {
 
         menuBar.setBackground(new java.awt.Color(243, 194, 114));
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/file.png"))); // NOI18N
-        jLabel10.setText(" Files ");
-        jLabel10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
+        filesMenu.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
+        filesMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/file.png"))); // NOI18N
+        filesMenu.setText(" Files ");
+        filesMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        filesMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel10MouseClicked(evt);
+                filesMenuMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel10MouseEntered(evt);
+                filesMenuMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel10MouseExited(evt);
+                filesMenuMouseExited(evt);
             }
         });
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/edit.png"))); // NOI18N
-        jLabel11.setText("Edit");
-        jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+        editMenu.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
+        editMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/edit.png"))); // NOI18N
+        editMenu.setText("Edit");
+        editMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        editMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel11MouseClicked(evt);
+                editMenuMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel11MouseEntered(evt);
+                editMenuMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel11MouseExited(evt);
+                editMenuMouseExited(evt);
+            }
+        });
+
+        helpMenu.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
+        helpMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/help.png"))); // NOI18N
+        helpMenu.setText("Help");
+        helpMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        helpMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                helpMenuMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                helpMenuMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                helpMenuMouseExited(evt);
             }
         });
 
@@ -199,10 +227,12 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         menuBarLayout.setHorizontalGroup(
             menuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menuBarLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(jLabel10)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel11)
+                .addGap(49, 49, 49)
+                .addComponent(filesMenu)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(editMenu)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(helpMenu)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         menuBarLayout.setVerticalGroup(
@@ -210,8 +240,9 @@ public class BakeryInfoSys extends javax.swing.JFrame {
             .addGroup(menuBarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(menuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel10))
+                    .addComponent(editMenu)
+                    .addComponent(filesMenu)
+                    .addComponent(helpMenu))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -228,7 +259,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
                 .addComponent(menuBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(309, 309, 309)
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 522, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 199, Short.MAX_VALUE)
                 .addComponent(operationsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -245,22 +276,15 @@ public class BakeryInfoSys extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(249, 224, 184));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/bakery.jpg"))); // NOI18N
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(128, 128, 128))
+            .addGap(0, 212, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addGap(0, 13, Short.MAX_VALUE))
+            .addGap(0, 177, Short.MAX_VALUE)
         );
 
         jPanel4.setBackground(new java.awt.Color(249, 224, 184));
@@ -408,43 +432,51 @@ public class BakeryInfoSys extends javax.swing.JFrame {
                 .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(inputPanelLayout.createSequentialGroup()
                         .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(inputPanelLayout.createSequentialGroup()
+                                .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel8))
+                                .addGap(81, 81, 81))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inputPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addGap(18, 18, 18)))
+                        .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtPrepTime)
+                            .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(categoryBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(inputPanelLayout.createSequentialGroup()
+                                    .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jRadioButton1)
+                                        .addComponent(jRadioButton3))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jRadioButton4)
+                                        .addComponent(jRadioButton2))
+                                    .addGap(95, 95, 95)))))
+                    .addGroup(inputPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addContainerGap(293, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(inputPanelLayout.createSequentialGroup()
+                        .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(jLabel4)
                             .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8))
-                        .addGap(18, 18, 18)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(32, 32, 32)
                         .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(inputPanelLayout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                .addContainerGap())
                             .addGroup(inputPanelLayout.createSequentialGroup()
                                 .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(txtItemName)
                                         .addComponent(txtItemNum)
-                                        .addComponent(priceTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
-                                        .addComponent(txtPrepTime))
-                                    .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(inputPanelLayout.createSequentialGroup()
-                                            .addComponent(jRadioButton3)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jRadioButton4))
-                                        .addGroup(inputPanelLayout.createSequentialGroup()
-                                            .addComponent(jRadioButton1)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jRadioButton2))
-                                        .addComponent(categoryBox, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(inputPanelLayout.createSequentialGroup()
-                                .addComponent(jScrollPane1)
-                                .addContainerGap())))
-                    .addGroup(inputPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                                        .addComponent(priceTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE))
+                                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 125, Short.MAX_VALUE))))))
         );
         inputPanelLayout.setVerticalGroup(
             inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -467,37 +499,34 @@ public class BakeryInfoSys extends javax.swing.JFrame {
                     .addGroup(inputPanelLayout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addComponent(jLabel5)))
-                .addGap(37, 37, 37)
-                .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(inputPanelLayout.createSequentialGroup()
-                        .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(txtPrepTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(30, 30, 30)
-                        .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(categoryBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(jRadioButton1)
-                            .addComponent(jRadioButton2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel9)
-                            .addComponent(jRadioButton3)
-                            .addComponent(jRadioButton4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE))
-                    .addGroup(inputPanelLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)))
+                .addGap(22, 22, 22)
+                .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(txtPrepTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(categoryBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(jRadioButton1)
+                    .addComponent(jRadioButton2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(jRadioButton3)
+                    .addComponent(jRadioButton4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(131, 131, 131))
+                .addGap(143, 143, 143))
         );
 
+        fileMenuPanel.setBackground(new java.awt.Color(243, 194, 114));
         fileMenuPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         fileMenuPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -505,18 +534,72 @@ public class BakeryInfoSys extends javax.swing.JFrame {
             }
         });
 
+        openMenuItem.setBackground(new java.awt.Color(255, 255, 255));
+        openMenuItem.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
+        openMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/open.png"))); // NOI18N
+        openMenuItem.setText("Open");
+        openMenuItem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        openMenuItem.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                openMenuItemMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                openMenuItemMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                openMenuItemMouseExited(evt);
+            }
+        });
+
+        exitMenuItem.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
+        exitMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/exitMenuItem.png"))); // NOI18N
+        exitMenuItem.setText("Exit");
+        exitMenuItem.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        exitMenuItem.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                exitMenuItemMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                exitMenuItemMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                exitMenuItemMouseExited(evt);
+            }
+        });
+
         javax.swing.GroupLayout fileMenuPanelLayout = new javax.swing.GroupLayout(fileMenuPanel);
         fileMenuPanel.setLayout(fileMenuPanelLayout);
         fileMenuPanelLayout.setHorizontalGroup(
             fileMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 98, Short.MAX_VALUE)
+            .addComponent(jSeparator1)
+            .addGroup(fileMenuPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(fileMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(exitMenuItem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(fileMenuPanelLayout.createSequentialGroup()
+                        .addComponent(openMenuItem)
+                        .addGap(0, 19, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         fileMenuPanelLayout.setVerticalGroup(
             fileMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 98, Short.MAX_VALUE)
+            .addGroup(fileMenuPanelLayout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(openMenuItem)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(exitMenuItem)
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
+        editMenuPanel.setBackground(new java.awt.Color(243, 194, 114));
         editMenuPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        editMenuPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                editMenuPanelMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout editMenuPanelLayout = new javax.swing.GroupLayout(editMenuPanel);
         editMenuPanel.setLayout(editMenuPanelLayout);
@@ -529,6 +612,70 @@ public class BakeryInfoSys extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/bakery.jpg"))); // NOI18N
+
+        helpMenuPanel.setBackground(new java.awt.Color(243, 194, 114));
+        helpMenuPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        helpMenuPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                helpMenuPanelMouseClicked(evt);
+            }
+        });
+
+        helpUsMenuItem.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
+        helpUsMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/helpMenuItem.png"))); // NOI18N
+        helpUsMenuItem.setText("Help Us");
+        helpUsMenuItem.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                helpUsMenuItemMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                helpUsMenuItemMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                helpUsMenuItemMouseExited(evt);
+            }
+        });
+
+        aboutMenuItem.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
+        aboutMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/about.png"))); // NOI18N
+        aboutMenuItem.setText("About");
+        aboutMenuItem.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                aboutMenuItemMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                aboutMenuItemMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                aboutMenuItemMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout helpMenuPanelLayout = new javax.swing.GroupLayout(helpMenuPanel);
+        helpMenuPanel.setLayout(helpMenuPanelLayout);
+        helpMenuPanelLayout.setHorizontalGroup(
+            helpMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(helpMenuPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(helpMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(helpUsMenuItem)
+                    .addComponent(aboutMenuItem))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        helpMenuPanelLayout.setVerticalGroup(
+            helpMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(helpMenuPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(helpUsMenuItem)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(aboutMenuItem)
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -538,10 +685,15 @@ public class BakeryInfoSys extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
                         .addComponent(fileMenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(119, 119, 119)
+                        .addGap(116, 116, 116)
                         .addComponent(editMenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37)
+                        .addGap(85, 85, 85)
+                        .addComponent(helpMenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -556,8 +708,10 @@ public class BakeryInfoSys extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editMenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
                     .addComponent(fileMenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(editMenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(helpMenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -660,25 +814,25 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton4ActionPerformed
 
-    private void jLabel10MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseEntered
-        // TODO add your handling code here:
+    private void filesMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_filesMenuMouseEntered
+        filesMenu.setForeground(Color.WHITE);
         menuBar.setBackground(new Color(238, 170, 55));
-    }//GEN-LAST:event_jLabel10MouseEntered
+    }//GEN-LAST:event_filesMenuMouseEntered
 
-    private void jLabel10MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseExited
-        // TODO add your handling code here:
+    private void filesMenuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_filesMenuMouseExited
+        filesMenu.setForeground(Color.BLACK);
         menuBar.setBackground(new Color(243, 194, 114));
-    }//GEN-LAST:event_jLabel10MouseExited
+    }//GEN-LAST:event_filesMenuMouseExited
 
-    private void jLabel11MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseEntered
-        // TODO add your handling code here:
+    private void editMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editMenuMouseEntered
+        editMenu.setForeground(Color.WHITE);
         menuBar.setBackground(new Color(238, 170, 55));
-    }//GEN-LAST:event_jLabel11MouseEntered
+    }//GEN-LAST:event_editMenuMouseEntered
 
-    private void jLabel11MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseExited
-        // TODO add your handling code here:
+    private void editMenuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editMenuMouseExited
+        editMenu.setForeground(Color.BLACK);
         menuBar.setBackground(new Color(243, 194, 114));
-    }//GEN-LAST:event_jLabel11MouseExited
+    }//GEN-LAST:event_editMenuMouseExited
 
     private void inputPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inputPanelMouseEntered
         inputPanel.setBackground(new Color(243, 194, 114));
@@ -709,32 +863,124 @@ public class BakeryInfoSys extends javax.swing.JFrame {
     private void fileMenuPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fileMenuPanelMouseClicked
         // TODO add your handling code here:
 
+
     }//GEN-LAST:event_fileMenuPanelMouseClicked
 
-    private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
+    private void filesMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_filesMenuMouseClicked
         if (fileMenuCheck) {
             editMenuPanel.setVisible(false);
+            helpMenuPanel.setVisible(false);
             fileMenuPanel.setVisible(true);
             fileMenuCheck = false;
             editMenuCheck = true;
+            helpMenuCheck = true;
         } else {
             fileMenuPanel.setVisible(false);
             fileMenuCheck = true;
 
         }
-    }//GEN-LAST:event_jLabel10MouseClicked
+    }//GEN-LAST:event_filesMenuMouseClicked
 
-    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+    private void editMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editMenuMouseClicked
         // TODO add your handling code here:
-            if (editMenuCheck) {
+        if (editMenuCheck) {
+            helpMenuPanel.setVisible(false);
             fileMenuPanel.setVisible(false);
             editMenuPanel.setVisible(true);
             editMenuCheck = false;
             fileMenuCheck = true;
+            helpMenuCheck = true;
         } else {
             editMenuPanel.setVisible(false);
-            editMenuCheck = true;}
-    }//GEN-LAST:event_jLabel11MouseClicked
+            editMenuCheck = true;
+        }
+    }//GEN-LAST:event_editMenuMouseClicked
+
+    private void openMenuItemMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_openMenuItemMouseEntered
+        // TODO add your handling code here:
+        openMenuItem.setForeground(Color.RED);
+    }//GEN-LAST:event_openMenuItemMouseEntered
+
+    private void openMenuItemMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_openMenuItemMouseExited
+        // TODO add your handling code here:
+        openMenuItem.setForeground(Color.BLACK);
+    }//GEN-LAST:event_openMenuItemMouseExited
+
+    private void openMenuItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_openMenuItemMouseClicked
+        JOptionPane.showMessageDialog(this, "Test Message");
+    }//GEN-LAST:event_openMenuItemMouseClicked
+
+    private void editMenuPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editMenuPanelMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editMenuPanelMouseClicked
+
+    private void helpMenuPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_helpMenuPanelMouseClicked
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_helpMenuPanelMouseClicked
+
+    private void helpMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_helpMenuMouseClicked
+        if (helpMenuCheck) {
+            helpMenuPanel.setVisible(true);
+            fileMenuPanel.setVisible(false);
+            editMenuPanel.setVisible(false);
+            editMenuCheck = true;
+            fileMenuCheck = true;
+            helpMenuCheck = false;
+        } else {
+            helpMenuPanel.setVisible(false);
+            helpMenuCheck = true;
+        }
+    }//GEN-LAST:event_helpMenuMouseClicked
+
+    private void exitMenuItemMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMenuItemMouseEntered
+        exitMenuItem.setForeground(Color.RED);
+    }//GEN-LAST:event_exitMenuItemMouseEntered
+
+    private void exitMenuItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMenuItemMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_exitMenuItemMouseClicked
+
+    private void exitMenuItemMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMenuItemMouseExited
+        exitMenuItem.setForeground(Color.BLACK);
+    }//GEN-LAST:event_exitMenuItemMouseExited
+
+    private void helpMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_helpMenuMouseEntered
+        // TODO add your handling code here:
+        helpMenu.setForeground(Color.WHITE);
+        menuBar.setBackground(new Color(238, 170, 55));
+    }//GEN-LAST:event_helpMenuMouseEntered
+
+    private void helpMenuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_helpMenuMouseExited
+        // TODO add your handling code here:
+        helpMenu.setForeground(Color.BLACK);
+        menuBar.setBackground(new Color(243, 194, 114));
+    }//GEN-LAST:event_helpMenuMouseExited
+
+    private void helpUsMenuItemMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_helpUsMenuItemMouseEntered
+        helpUsMenuItem.setForeground(Color.RED);
+    }//GEN-LAST:event_helpUsMenuItemMouseEntered
+
+    private void helpUsMenuItemMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_helpUsMenuItemMouseExited
+        helpUsMenuItem.setForeground(Color.BLACK);
+    }//GEN-LAST:event_helpUsMenuItemMouseExited
+
+    private void aboutMenuItemMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutMenuItemMouseEntered
+        aboutMenuItem.setForeground(Color.RED);
+    }//GEN-LAST:event_aboutMenuItemMouseEntered
+
+    private void aboutMenuItemMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutMenuItemMouseExited
+        aboutMenuItem.setForeground(Color.BLACK);
+    }//GEN-LAST:event_aboutMenuItemMouseExited
+
+    private void helpUsMenuItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_helpUsMenuItemMouseClicked
+        JOptionPane.showMessageDialog(this, "Test Message");
+    }//GEN-LAST:event_helpUsMenuItemMouseClicked
+
+    private void aboutMenuItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutMenuItemMouseClicked
+        JOptionPane.showMessageDialog(this, "Bakery InfoSys ©\nDeveloped by Aabishkar Aryal(Lead GUI Designer), \nNishan Timalsina ,"
+                + "                  \nJubeen Amatya\n Any unauthorized use or reproduction/copying of this software is stricly prohibited \n This software is developed as part of the coursework assigned by London Metropolitian University to the developers mentions above");
+    }//GEN-LAST:event_aboutMenuItemMouseClicked
 
     /**
      * @param args the command line arguments
@@ -742,6 +988,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
     static boolean maximized = true;
     static boolean fileMenuCheck = true;
     static boolean editMenuCheck = true;
+    static boolean helpMenuCheck = true;
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -777,17 +1024,22 @@ public class BakeryInfoSys extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel aboutMenuItem;
     private javax.swing.JComboBox<String> categoryBox;
     private javax.swing.JLabel closeIcon;
+    private javax.swing.JLabel editMenu;
     private javax.swing.JPanel editMenuPanel;
+    private javax.swing.JLabel exitMenuItem;
     private javax.swing.JPanel fileMenuPanel;
+    private javax.swing.JLabel filesMenu;
+    private javax.swing.JLabel helpMenu;
+    private javax.swing.JPanel helpMenuPanel;
+    private javax.swing.JLabel helpUsMenuItem;
     private javax.swing.JPanel inputPanel;
     private javax.swing.JTextArea itemDescTxt;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -807,12 +1059,15 @@ public class BakeryInfoSys extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTable jTable3;
     private javax.swing.JLabel maximizeIcon;
     private javax.swing.JPanel menuBar;
     private javax.swing.JLabel minimizeIcon;
     private javax.swing.ButtonGroup nutContains;
+    private javax.swing.JLabel openMenuItem;
     private javax.swing.JPanel operationsPanel;
     private javax.swing.JTextField priceTxt;
     private javax.swing.ButtonGroup sugarFree;
