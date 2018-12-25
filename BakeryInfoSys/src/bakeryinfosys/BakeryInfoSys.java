@@ -16,14 +16,13 @@ import javax.swing.table.DefaultTableModel;
  */
 public class BakeryInfoSys extends javax.swing.JFrame {
 
-    
     /**
      * Creates new form BakeryInfoSys
      */
     public BakeryInfoSys() {
         initComponents();
-        fileMenu.setVisible(false);
-        editMenu.setVisible(false);
+        fileMenuPanel.setVisible(false);
+        editMenuPanel.setVisible(false);
     }
 
     /**
@@ -49,7 +48,6 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        editMenu = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
@@ -76,7 +74,8 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        fileMenu = new javax.swing.JPanel();
+        fileMenuPanel = new javax.swing.JPanel();
+        editMenuPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -169,6 +168,9 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         jLabel10.setText(" Files ");
         jLabel10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel10MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel10MouseEntered(evt);
             }
@@ -181,6 +183,9 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         jLabel11.setText("Edit");
         jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel11MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel11MouseEntered(evt);
             }
@@ -223,7 +228,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
                 .addComponent(menuBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(309, 309, 309)
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 522, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
                 .addComponent(operationsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -242,38 +247,20 @@ public class BakeryInfoSys extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/bakery.jpg"))); // NOI18N
 
-        editMenu.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-
-        javax.swing.GroupLayout editMenuLayout = new javax.swing.GroupLayout(editMenu);
-        editMenu.setLayout(editMenuLayout);
-        editMenuLayout.setHorizontalGroup(
-            editMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        editMenuLayout.setVerticalGroup(
-            editMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(editMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(142, 142, 142)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(128, 128, 128))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(editMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addContainerGap())
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addGap(0, 13, Short.MAX_VALUE))
         );
 
         jPanel4.setBackground(new java.awt.Color(249, 224, 184));
@@ -511,17 +498,35 @@ public class BakeryInfoSys extends javax.swing.JFrame {
                 .addGap(131, 131, 131))
         );
 
-        fileMenu.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        fileMenuPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        fileMenuPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                fileMenuPanelMouseClicked(evt);
+            }
+        });
 
-        javax.swing.GroupLayout fileMenuLayout = new javax.swing.GroupLayout(fileMenu);
-        fileMenu.setLayout(fileMenuLayout);
-        fileMenuLayout.setHorizontalGroup(
-            fileMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout fileMenuPanelLayout = new javax.swing.GroupLayout(fileMenuPanel);
+        fileMenuPanel.setLayout(fileMenuPanelLayout);
+        fileMenuPanelLayout.setHorizontalGroup(
+            fileMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 98, Short.MAX_VALUE)
         );
-        fileMenuLayout.setVerticalGroup(
-            fileMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        fileMenuPanelLayout.setVerticalGroup(
+            fileMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 98, Short.MAX_VALUE)
+        );
+
+        editMenuPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+
+        javax.swing.GroupLayout editMenuPanelLayout = new javax.swing.GroupLayout(editMenuPanel);
+        editMenuPanel.setLayout(editMenuPanelLayout);
+        editMenuPanelLayout.setHorizontalGroup(
+            editMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        editMenuPanelLayout.setVerticalGroup(
+            editMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -533,8 +538,10 @@ public class BakeryInfoSys extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(fileMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(fileMenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(119, 119, 119)
+                        .addComponent(editMenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37)
                         .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -549,7 +556,8 @@ public class BakeryInfoSys extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fileMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fileMenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editMenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -677,7 +685,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
     }//GEN-LAST:event_inputPanelMouseEntered
 
     private void inputPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inputPanelMouseExited
-        inputPanel.setBackground(new Color(253,204,125));
+        inputPanel.setBackground(new Color(253, 204, 125));
     }//GEN-LAST:event_inputPanelMouseExited
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -698,14 +706,45 @@ public class BakeryInfoSys extends javax.swing.JFrame {
             priceTxt.getText(), txtPrepTime.getText(), nutContains, sugarFreeContains});
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void fileMenuPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fileMenuPanelMouseClicked
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_fileMenuPanelMouseClicked
+
+    private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
+        if (fileMenuCheck) {
+            editMenuPanel.setVisible(false);
+            fileMenuPanel.setVisible(true);
+            fileMenuCheck = false;
+            editMenuCheck = true;
+        } else {
+            fileMenuPanel.setVisible(false);
+            fileMenuCheck = true;
+
+        }
+    }//GEN-LAST:event_jLabel10MouseClicked
+
+    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+        // TODO add your handling code here:
+            if (editMenuCheck) {
+            fileMenuPanel.setVisible(false);
+            editMenuPanel.setVisible(true);
+            editMenuCheck = false;
+            fileMenuCheck = true;
+        } else {
+            editMenuPanel.setVisible(false);
+            editMenuCheck = true;}
+    }//GEN-LAST:event_jLabel11MouseClicked
+
     /**
      * @param args the command line arguments
-     */    static boolean maximized = true;
-    static boolean dropmenuCheck = true;
-    static boolean dropmenuCheck1 = true;
+     */
+    static boolean maximized = true;
+    static boolean fileMenuCheck = true;
+    static boolean editMenuCheck = true;
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-        
 
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -740,8 +779,8 @@ public class BakeryInfoSys extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> categoryBox;
     private javax.swing.JLabel closeIcon;
-    private javax.swing.JPanel editMenu;
-    private javax.swing.JPanel fileMenu;
+    private javax.swing.JPanel editMenuPanel;
+    private javax.swing.JPanel fileMenuPanel;
     private javax.swing.JPanel inputPanel;
     private javax.swing.JTextArea itemDescTxt;
     private javax.swing.JButton jButton1;
