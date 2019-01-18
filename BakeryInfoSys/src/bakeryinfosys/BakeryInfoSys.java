@@ -31,15 +31,97 @@ public class BakeryInfoSys extends javax.swing.JFrame {
      */
     public BakeryInfoSys() {
         initComponents();
+        BakeryInfoSys.this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         fileMenuPanel.setVisible(false);
         editMenuPanel.setVisible(false);
         helpMenuPanel.setVisible(false);
+
         contentTable.setBackground(Color.decode("#F9E0B8")); //sets background color of jtable cell
         JTableHeader header = contentTable.getTableHeader(); //gets the table header contents
-
         header.setForeground(new Color(253, 176, 50)); //changes font color of table header
         header.setFont(new Font("Pristina", Font.BOLD, 20));//sets font size, tyoe and faimly of the the header titles
 
+        ////////////////////////////////
+        String[] list1 = {"1", "BlackForst", "Cake", "This cake conatins chocolates and cream", "1200", "120", "No", "No"};
+        String[] list2 = {"2", "WhiteForst", "Cake", "This cake contains lots of white chocolate", "1050", "120", "No", "No"};
+        String[] list3 = {"3", "White Bread", "Breads", "This bread is made  of wheat", "45", "5", "No", "No"};
+        String[] list4 = {"4", "Brown Bread", "Breads", "This bread is gluten free and made of whole grain wheat", "100", "5", "No", "No"};
+        String[] list5 = {"5", "Loaf Bread", "Breads", "This is a loaf of a bread", "175", "6", "No", "No"};
+        String[] list6 = {"6", "Choco Chip Cookies", "Cookies", "This cookie contains choco chips ", "250", "10", "Yes", "No"};
+        String[] list7 = {"7", "Vanilla Pastry", "Pastries", "This pastry is  vanilla flavoured", "55", "5", "No", "No"};
+        String[] list8 = {"8", "BlackForst", "Cake", "This cake contains lots of chocolate", "1000", "120", "No", "No"};
+        String[] list9 = {"9", "Pineapple pastry", "Pastries", "This pastry is pineapple flavoured", "1000", "5", "No", "No"};
+        String[] list10 = {"10", "Mushroom Pizza", "Pizza", "This Pizza contains mushroom with lots of cheese", "550", "10", "No", "No"};
+        String[] list11 = {"11", "Rice Pudding", "Pudding", "This pudding is made up of milk and rice", "500", "15", "Yes", "No"};
+        String[] list12 = {"12", "Sugarfree Rice Pudding", "Pudding", "This pudding is sugarfree", "575", "15", "Yes", "Yes"};
+        String[] list13 = {"13", "Potato Cracker", "Cracker", " This cracker is made up of potato and lightly salted ", "80", "5", "No", "No"};
+        String[] list14 = {"14", "Jelly Beans", "Sweets", "Soft Jelly Beans with fruits flavour", "100", "5", "No", "No"};
+        String[] list15 = {"15", "Apple pie", "Pie", "This pie is apple flavoured", "225", "10", "yes", "No"};
+        String[] list16 = {"16", "Blueberry Muffin", "Muffin", "This muffin contains Blueberry flavour", "200", "10", "No", "No"};
+        String[] list17 = {"17", "Mac and Cheese", "Breakfast", "This is made of macaroni and cheese", "435", "10", "No", "No"};
+        String[] list18 = {"18", "Burgar", "Breakfast", "A flat round paties of minced beef that is fried or grilled and typically served in a bread roll", "370", "15", "No", "No"};
+        String[] list19 = {"19", "Fruit Yogurt", "Desert", "This contains sweet yogurt and small pieces of fruits", "90", "10", "Yes", "No"};
+        String[] list20 = {"20", "Americano", "Drinks", "Coffee made with coffee beans inported from arabia", "175", "5", "No", "No"};
+        String[] list21 = {"21", "Green Tea", "Drinks", "Made of leaves grown in himalayas", "225", "5", "No", "No"};
+        String[] list22 = {"22", "Cinamon Tea", "Drinks", "This tea contains cinamon", "190", "5", "No", "No"};
+        String[] list23 = {"23", "Milkshake","Drinks","This Drink contains milk and nuts","250","5","Yes", "No"};
+        String[] list24 = {"24", "Cheese Coffee cake", "Cake", "This cake contains cheese and coffee flavour", "1500", "120", "No", "No"};
+        String[] list25 = {"25", "Chocolate Cupcake", "Muffin", "This cupcake is made of chocolate with nuts", "150", "5", "Yes", "No"};
+        
+
+        int rowCount = contentTable.getRowCount();
+        int colCount = contentTable.getColumnCount();
+        boolean emptyFlag = false;
+        int nextRow = 0;
+
+        for (int i = 0; i < 8; i++) {
+
+            for (int a = 0; a < 8; a++) {
+                contentTable.setValueAt(list1[i], 0, i);
+                contentTable.setValueAt(list2[i], 1, i);
+                contentTable.setValueAt(list3[i], 2, i);
+                contentTable.setValueAt(list4[i], 3, i);
+                contentTable.setValueAt(list5[i], 4, i);
+                contentTable.setValueAt(list6[i], 5, i);
+                contentTable.setValueAt(list7[i], 6, i);
+                contentTable.setValueAt(list8[i], 7, i);
+                contentTable.setValueAt(list9[i], 8, i);
+                contentTable.setValueAt(list10[i], 9, i);
+                contentTable.setValueAt(list11[i], 10, i);
+                contentTable.setValueAt(list12[i], 11, i);
+                contentTable.setValueAt(list13[i], 12, i);
+                contentTable.setValueAt(list14[i], 13, i);
+                contentTable.setValueAt(list15[i], 14, i);
+                contentTable.setValueAt(list16[i], 15, i);
+                contentTable.setValueAt(list17[i], 16, i);
+                contentTable.setValueAt(list18[i], 17, i);
+                contentTable.setValueAt(list19[i], 18, i);
+                contentTable.setValueAt(list20[i], 19, i);
+                contentTable.setValueAt(list21[i], 20, i);
+                contentTable.setValueAt(list22[i], 21, i);
+                contentTable.setValueAt(list23[i], 22, i);
+                contentTable.setValueAt(list24[i], 23, i);
+                contentTable.setValueAt(list25[i], 24, i);
+                
+            }
+
+            /**
+             * contentTable.setValueAt(list1[i], nextRow, i);
+             * contentTable.setValueAt(list2[i], nextRow, i);
+             * contentTable.setValueAt(list3[i], nextRow, i);
+             * contentTable.setValueAt(list4[i], nextRow, i);
+             * contentTable.setValueAt(list5[i], nextRow, i);
+             * contentTable.setValueAt(list6[i], nextRow, i);
+             * contentTable.setValueAt(list7[i], nextRow, i);
+             * contentTable.setValueAt(list8[i], nextRow, i);
+             * contentTable.setValueAt(list9[i], nextRow, i);
+             * contentTable.setValueAt(list10[i], nextRow, i);
+             * contentTable.setValueAt(list11[i], nextRow, i);
+             *
+             */
+        }
+
+        /////////////////
     }
 
     /**
@@ -651,7 +733,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(57, 57, 57)
                 .addComponent(searchPriceBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -716,7 +798,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
                 .addComponent(searchCatagoryComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(searchCatagoryBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -766,19 +848,14 @@ public class BakeryInfoSys extends javax.swing.JFrame {
                                     .addComponent(clearBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(inputPanelLayout.createSequentialGroup()
-                        .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(inputPanelLayout.createSequentialGroup()
                                 .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(inputPanelLayout.createSequentialGroup()
-                                        .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel7)
-                                            .addComponent(jLabel8))
-                                        .addGap(81, 81, 81))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inputPanelLayout.createSequentialGroup()
-                                        .addComponent(jLabel6)
-                                        .addGap(18, 18, 18)))
-                                .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(categoryBox, 0, 270, Short.MAX_VALUE)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel8))
+                                .addGap(81, 81, 81)
+                                .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(categoryBox, 0, 287, Short.MAX_VALUE)
                                     .addGroup(inputPanelLayout.createSequentialGroup()
                                         .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jRadioButton1)
@@ -787,9 +864,12 @@ public class BakeryInfoSys extends javax.swing.JFrame {
                                         .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jRadioButton4)
                                             .addComponent(jRadioButton2))
-                                        .addGap(95, 95, 95))
-                                    .addComponent(txtPrepTime)))
-                            .addComponent(jLabel9))
+                                        .addGap(95, 95, 95))))
+                            .addComponent(jLabel9)
+                            .addGroup(inputPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtPrepTime)))
                         .addContainerGap())))
             .addGroup(inputPanelLayout.createSequentialGroup()
                 .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1147,7 +1227,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
 
     private void minimizeIconMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeIconMousePressed
         // TODO add your handling code here:
-        operationsPanel.setBackground(new Color(255, 127, 39)); 
+        operationsPanel.setBackground(new Color(255, 127, 39));
     }//GEN-LAST:event_minimizeIconMousePressed
 
     private void txtItemNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtItemNumActionPerformed
@@ -1211,7 +1291,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         } else if (jRadioButton4.isSelected()) {
             sugarFreeContains = jRadioButton4.getText();
         }
-        DefaultTableModel model = (DefaultTableModel) contentTable.getModel();
+        // DefaultTableModel model = (DefaultTableModel) contentTable.getModel();
         //model.addRow(new Object[]{txtItemNum.getText(), txtItemName.getText(), categoryBox.getSelectedItem(), itemDescTxt.getText(),
         // priceTxt.getText(), txtPrepTime.getText(), nutContains, sugarFreeContains});
 
@@ -1222,24 +1302,36 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         String itemDescTxtValue = itemDescTxt.getText();
         String priceValue = priceTxt.getText();
         String prepTime = txtPrepTime.getText();
+        if (itemNumValue.isEmpty() || itemNameValue.isEmpty() || itemDescTxtValue.isEmpty() || priceValue.isEmpty() || prepTime.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter the details", "Details missing!!", JOptionPane.ERROR_MESSAGE, null);
+        } else {
+            if (categoryBoxValue != "-----" && nutContains != null && sugarFreeContains != null) {
+                if (categoryBoxValue != "-----") {
+                    String[] info = {itemNumValue, itemNameValue, categoryBoxValue, itemDescTxtValue, priceValue, prepTime, nutContains, sugarFreeContains};
+                    int rowCount = contentTable.getRowCount();
+                    int colCount = contentTable.getColumnCount();
 
-        String[] info = {itemNumValue, itemNameValue, categoryBoxValue, itemDescTxtValue, priceValue, prepTime, nutContains, sugarFreeContains};
-        int rowCount = contentTable.getRowCount();
-        int colCount = contentTable.getColumnCount();
-        System.out.println(rowCount);
-        System.out.println(colCount);
-        int nextRow = 0;
-        boolean emptyFlag = false;
-        if (rowCount != 0) {
-            do {
-                if ((contentTable.getValueAt(nextRow, 0)) != null) {
-                    nextRow++;
+                    int nextRow = 0;
+                    boolean emptyFlag = false;
+                    if (rowCount != 0) {
+                        do {
+                            if ((contentTable.getValueAt(nextRow, 0)) != null) {
+                                nextRow++;
+                            } else {
+                                emptyFlag = true;
+                            }
+                        } while (nextRow < rowCount && !emptyFlag);
+                        for (int i = 0; i < colCount; i++) {
+                            contentTable.setValueAt(info[i], nextRow, i);
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Select the catagory please");
+                    }
                 } else {
-                    emptyFlag = true;
+                    JOptionPane.showMessageDialog(this, "Please select the catagory");
                 }
-            } while (nextRow < rowCount && !emptyFlag);
-            for (int i = 0; i < colCount; i++) {
-                contentTable.setValueAt(info[i], nextRow, i);
+            } else {
+                JOptionPane.showMessageDialog(this, "Please selects the contains");
             }
         }
     }//GEN-LAST:event_enterBtnActionPerformed
@@ -1308,16 +1400,21 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         JFileChooser chooser = new JFileChooser();
         chooser.showOpenDialog(this);
         Desktop desktop = Desktop.getDesktop();
-        File f = chooser.getSelectedFile();
-        String location = f.getAbsolutePath();
+
         /**
          * handling the file opening process. This try catch blocks opens the
          * file
          */
         try {
+            File f = chooser.getSelectedFile();
+            String location = f.getAbsolutePath();
             desktop.open(f);
+
         } catch (IOException ex) {
-            Logger.getLogger(BakeryInfoSys.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BakeryInfoSys.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        } catch (NullPointerException ex) {
+            JOptionPane.showMessageDialog(this, "No files selected");
         }
 
 
@@ -1495,14 +1592,13 @@ public class BakeryInfoSys extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    static boolean maximized = true;
+    static boolean maximized = false;
     static boolean fileMenuCheck = true;
     static boolean editMenuCheck = true;
     static boolean helpMenuCheck = true;
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
@@ -1512,16 +1608,24 @@ public class BakeryInfoSys extends javax.swing.JFrame {
                 if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(BakeryInfoSys.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BakeryInfoSys.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(BakeryInfoSys.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BakeryInfoSys.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(BakeryInfoSys.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BakeryInfoSys.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(BakeryInfoSys.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BakeryInfoSys.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
