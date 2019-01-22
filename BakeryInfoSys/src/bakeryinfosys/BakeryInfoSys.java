@@ -11,6 +11,7 @@ import java.awt.Font;
 import java.awt.GraphicsEnvironment;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
@@ -32,29 +33,30 @@ public class BakeryInfoSys extends javax.swing.JFrame {
     public BakeryInfoSys() {
         initComponents();
         BakeryInfoSys.this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        jScrollPane3.getViewport().setBackground(new Color(254,233,197));
         fileMenuPanel.setVisible(false);
         editMenuPanel.setVisible(false);
         helpMenuPanel.setVisible(false);
-
+        DefaultTableModel model = (DefaultTableModel) contentTable.getModel();
         contentTable.setBackground(Color.decode("#F9E0B8")); //sets background color of jtable cell
         JTableHeader header = contentTable.getTableHeader(); //gets the table header contents
         header.setForeground(new Color(253, 176, 50)); //changes font color of table header
         header.setFont(new Font("Pristina", Font.BOLD, 20));//sets font size, tyoe and faimly of the the header titles
 
         ////////////////////////////////
-        String[] list1 = {"1", "BlackForst", "Cake", "This cake conatins chocolates and cream", "1200", "120", "No", "No"};
-        String[] list2 = {"2", "WhiteForst", "Cake", "This cake contains lots of white chocolate", "1050", "120", "No", "No"};
+        String[] list1 = {"1", "BlackForest", "Cake", "This cake conatins chocolates and cream", "1200", "120", "No", "No"};
+        String[] list2 = {"2", "WhiteForest", "Cake", "This cake contains lots of white chocolate", "1050", "120", "No", "No"};
         String[] list3 = {"3", "White Bread", "Breads", "This bread is made  of wheat", "45", "5", "No", "No"};
         String[] list4 = {"4", "Brown Bread", "Breads", "This bread is gluten free and made of whole grain wheat", "100", "5", "No", "No"};
         String[] list5 = {"5", "Loaf Bread", "Breads", "This is a loaf of a bread", "175", "6", "No", "No"};
         String[] list6 = {"6", "Choco Chip Cookies", "Cookies", "This cookie contains choco chips ", "250", "10", "Yes", "No"};
         String[] list7 = {"7", "Vanilla Pastry", "Pastries", "This pastry is  vanilla flavoured", "55", "5", "No", "No"};
-        String[] list8 = {"8", "BlackForst", "Cake", "This cake contains lots of chocolate", "1000", "120", "No", "No"};
+        String[] list8 = {"8", "Fruit Cake", "Cake", "This cake contains lots of fruits", "1000", "120", "No", "No"};
         String[] list9 = {"9", "Pineapple pastry", "Pastries", "This pastry is pineapple flavoured", "1000", "5", "No", "No"};
         String[] list10 = {"10", "Mushroom Pizza", "Pizza", "This Pizza contains mushroom with lots of cheese", "550", "10", "No", "No"};
         String[] list11 = {"11", "Rice Pudding", "Pudding", "This pudding is made up of milk and rice", "500", "15", "Yes", "No"};
         String[] list12 = {"12", "Sugarfree Rice Pudding", "Pudding", "This pudding is sugarfree", "575", "15", "Yes", "Yes"};
-        String[] list13 = {"13", "Potato Cracker", "Cracker", " This cracker is made up of potato and lightly salted ", "80", "5", "No", "No"};
+        String[] list13 = {"13", "Potato Cracker", "Crackers", " This cracker is made up of potato and lightly salted ", "80", "5", "No", "No"};
         String[] list14 = {"14", "Jelly Beans", "Sweets", "Soft Jelly Beans with fruits flavour", "100", "5", "No", "No"};
         String[] list15 = {"15", "Apple pie", "Pie", "This pie is apple flavoured", "225", "10", "yes", "No"};
         String[] list16 = {"16", "Blueberry Muffin", "Muffin", "This muffin contains Blueberry flavour", "200", "10", "No", "No"};
@@ -64,15 +66,16 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         String[] list20 = {"20", "Americano", "Drinks", "Coffee made with coffee beans inported from arabia", "175", "5", "No", "No"};
         String[] list21 = {"21", "Green Tea", "Drinks", "Made of leaves grown in himalayas", "225", "5", "No", "No"};
         String[] list22 = {"22", "Cinamon Tea", "Drinks", "This tea contains cinamon", "190", "5", "No", "No"};
-        String[] list23 = {"23", "Milkshake","Drinks","This Drink contains milk and nuts","250","5","Yes", "No"};
+        String[] list23 = {"23", "Milkshake", "Drinks", "This Drink contains milk and nuts", "250", "5", "Yes", "No"};
         String[] list24 = {"24", "Cheese Coffee cake", "Cake", "This cake contains cheese and coffee flavour", "1500", "120", "No", "No"};
         String[] list25 = {"25", "Chocolate Cupcake", "Muffin", "This cupcake is made of chocolate with nuts", "150", "5", "Yes", "No"};
-        
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////
         int rowCount = contentTable.getRowCount();
         int colCount = contentTable.getColumnCount();
         boolean emptyFlag = false;
-        int nextRow = 0;
+        int nextRow
+                = 0;
 
         for (int i = 0; i < 8; i++) {
 
@@ -102,26 +105,41 @@ public class BakeryInfoSys extends javax.swing.JFrame {
                 contentTable.setValueAt(list23[i], 22, i);
                 contentTable.setValueAt(list24[i], 23, i);
                 contentTable.setValueAt(list25[i], 24, i);
-                
+
             }
 
-            /**
-             * contentTable.setValueAt(list1[i], nextRow, i);
-             * contentTable.setValueAt(list2[i], nextRow, i);
-             * contentTable.setValueAt(list3[i], nextRow, i);
-             * contentTable.setValueAt(list4[i], nextRow, i);
-             * contentTable.setValueAt(list5[i], nextRow, i);
-             * contentTable.setValueAt(list6[i], nextRow, i);
-             * contentTable.setValueAt(list7[i], nextRow, i);
-             * contentTable.setValueAt(list8[i], nextRow, i);
-             * contentTable.setValueAt(list9[i], nextRow, i);
-             * contentTable.setValueAt(list10[i], nextRow, i);
-             * contentTable.setValueAt(list11[i], nextRow, i);
-             *
-             */
         }
 
         /////////////////
+    }
+
+    public void sorting() {
+        ArrayList li = new ArrayList();
+        String userItem = (String) searchCatagoryComboBox.getSelectedItem();
+        String valueFromTable;
+        String itemInTable ;
+        int itemcount = 0;
+        int rowCount = contentTable.getRowCount();
+        int colCount = contentTable.getColumnCount();
+        for (int i = 0; i < rowCount; i++) {
+            valueFromTable = contentTable.getValueAt(i, 2).toString();
+           
+            System.out.println(valueFromTable+"khjlkjolhkj");
+            if (userItem.equals(valueFromTable)) {
+                li.add(contentTable.getValueAt(i, 1));
+                itemcount++;
+
+            } else {
+
+            }
+
+        }
+        if(li.isEmpty()){
+            JOptionPane.showMessageDialog(this, "There are no items in this catagory");
+        }
+        else{
+        JOptionPane.showMessageDialog(this,"There are " + itemcount + " items in " + userItem + " catagory" 
+        + "\n and they are:\n"+li.toString().replace(",","\n").replace("["," ").replace("]",""));}
     }
 
     /**
@@ -405,6 +423,9 @@ public class BakeryInfoSys extends javax.swing.JFrame {
 
         tablePanel.setBackground(new java.awt.Color(249, 224, 184));
 
+        jScrollPane3.setBackground(new java.awt.Color(254, 233, 197));
+
+        contentTable.setBackground(new java.awt.Color(254, 233, 197));
         contentTable.setBorder(new javax.swing.border.LineBorder(java.awt.SystemColor.windowBorder, 2, true));
         contentTable.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         contentTable.setForeground(new java.awt.Color(0, 153, 153));
@@ -434,88 +455,14 @@ public class BakeryInfoSys extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Item No.", "Item Name", "Catagory", "Item Description", "Price", "Prepration Time(Min)", "Contain Nuts", "Sugar Free"
+                "ItemNo", "ItemName", "Catagory", "ItemDescription", "Price", "PreprationTime", "ContainNuts", "SugarFree"
             }
         ));
         contentTable.setRowHeight(25);
+        contentTable.setSelectionBackground(new java.awt.Color(252, 222, 168));
         jScrollPane3.setViewportView(contentTable);
         if (contentTable.getColumnModel().getColumnCount() > 0) {
             contentTable.getColumnModel().getColumn(0).setPreferredWidth(25);
@@ -602,7 +549,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
 
         categoryBox.setBackground(new java.awt.Color(254, 233, 197));
         categoryBox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        categoryBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----", "Cake", "Pie", "Pastry", "Sweet", "Cookies", "Breads", "Desert", "Crackers", "Pizza", "Pudding", "Baked Items", "Ice-Cream", "Drinks" }));
+        categoryBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----", "Cake", "Pie", "Pastries", "Sweets", "Cookies", "Breads", "Desert", "Crackers", "Pizza", "Pudding", "Baked Items", "Ice-Cream", "Drinks", "Muffin", "Waffle" }));
         categoryBox.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         categoryBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -759,7 +706,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
 
         searchCatagoryComboBox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         searchCatagoryComboBox.setForeground(new java.awt.Color(0, 153, 153));
-        searchCatagoryComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----", "Cake", "Pie", "Pastry", "Sweet", "Cookies", "Breads", "Desert", "Crackers", "Pizza", "Pudding", "Baked Items", "Ice-Cream", "Drinks" }));
+        searchCatagoryComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----", "Cake", "Pie", "Pastries", "Sweets", "Cookies", "Breads", "Desert", "Crackers", "Pizza", "Pudding", "Baked Items", "Ice-Cream", "Drinks", "Muffin", "Waffle" }));
 
         searchCatagoryBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/searchBtn.png"))); // NOI18N
         searchCatagoryBtn.setText("Search");
@@ -1279,6 +1226,8 @@ public class BakeryInfoSys extends javax.swing.JFrame {
     }//GEN-LAST:event_inputPanelMouseExited
 
     private void enterBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterBtnActionPerformed
+        DefaultTableModel model = (DefaultTableModel) contentTable.getModel();
+        
         String nutContains = null;
         String sugarFreeContains = null;
         if (jRadioButton1.isSelected()) {
@@ -1295,7 +1244,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         //model.addRow(new Object[]{txtItemNum.getText(), txtItemName.getText(), categoryBox.getSelectedItem(), itemDescTxt.getText(),
         // priceTxt.getText(), txtPrepTime.getText(), nutContains, sugarFreeContains});
 
-        // TODO add your handling code here:
+        // valaditing and adding values to the table 
         String itemNumValue = txtItemNum.getText();
         String itemNameValue = txtItemName.getText();
         String categoryBoxValue = (String) categoryBox.getSelectedItem();
@@ -1307,22 +1256,23 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         } else {
             if (categoryBoxValue != "-----" && nutContains != null && sugarFreeContains != null) {
                 if (categoryBoxValue != "-----") {
+                    model.addRow(new Object[]{null,null,null,null});
                     String[] info = {itemNumValue, itemNameValue, categoryBoxValue, itemDescTxtValue, priceValue, prepTime, nutContains, sugarFreeContains};
-                    int rowCount = contentTable.getRowCount();
-                    int colCount = contentTable.getColumnCount();
+                    int rowCount = model.getRowCount();
+                    int colCount = model.getColumnCount();
 
                     int nextRow = 0;
                     boolean emptyFlag = false;
                     if (rowCount != 0) {
                         do {
-                            if ((contentTable.getValueAt(nextRow, 0)) != null) {
+                            if ((model.getValueAt(nextRow, 0)) != null) {
                                 nextRow++;
                             } else {
                                 emptyFlag = true;
                             }
                         } while (nextRow < rowCount && !emptyFlag);
                         for (int i = 0; i < colCount; i++) {
-                            contentTable.setValueAt(info[i], nextRow, i);
+                            model.setValueAt(info[i], nextRow, i);
                         }
                     } else {
                         JOptionPane.showMessageDialog(this, "Select the catagory please");
@@ -1499,7 +1449,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
     }//GEN-LAST:event_aboutMenuItemMouseClicked
 
     private void searchPriceBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchPriceBtnActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_searchPriceBtnActionPerformed
 
     private void searchPriceBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchPriceBtnMouseEntered
@@ -1526,7 +1476,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
     }//GEN-LAST:event_searchPriceBtnMouseClicked
 
     private void searchCatagoryBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchCatagoryBtnMouseClicked
-        JOptionPane.showMessageDialog(this, "Test Message");
+        sorting();
     }//GEN-LAST:event_searchCatagoryBtnMouseClicked
 
     private void searchCatagoryBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchCatagoryBtnMouseEntered
@@ -1546,7 +1496,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
     }//GEN-LAST:event_searchCatagoryBtnMouseReleased
 
     private void searchCatagoryBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchCatagoryBtnActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_searchCatagoryBtnActionPerformed
 
     private void enterBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enterBtnMouseEntered
