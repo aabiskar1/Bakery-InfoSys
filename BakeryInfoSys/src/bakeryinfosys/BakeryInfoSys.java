@@ -702,7 +702,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         jPanel6.setBackground(new java.awt.Color(252, 199, 114));
 
         jLabel14.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
-        jLabel14.setText("Catagory");
+        jLabel14.setText("Category");
 
         searchCatagoryComboBox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         searchCatagoryComboBox.setForeground(new java.awt.Color(0, 153, 153));
