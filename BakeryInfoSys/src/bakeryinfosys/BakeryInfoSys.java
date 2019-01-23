@@ -1256,12 +1256,27 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         } else {
             if (categoryBoxValue != "-----" && nutContains != null && sugarFreeContains != null) {
                 if (categoryBoxValue != "-----") {
+                    int nextRow = 0;
+                     for (int i = 0; i <= nextRow - 1; i++)
+                     {
+                         checker = false;
+                            String previous_no = String.valueOf(contentTable.getValueAt(i, 0));
+                            String temp = itemNumValue;
+                            if (temp.equals(previous_no)) {
+                                checker = true;
+                                break;
+                            }
+                     }
+                     if (checker) {
+                            JOptionPane.showMessageDialog(this, "please enter difffrent item number");
+                        }
+                     else{
                     model.addRow(new Object[]{null, null, null, null});
                     String[] info = {itemNumValue, itemNameValue, categoryBoxValue, itemDescTxtValue, priceValue, prepTime, nutContains, sugarFreeContains};
                     int rowCount = model.getRowCount();
                     int colCount = model.getColumnCount();
 
-                    int nextRow = 0;
+                    
                     boolean emptyFlag = false;
                     if (rowCount != 0) {
                         do {
@@ -1272,7 +1287,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
                             }
 
                         } while (nextRow < rowCount && !emptyFlag);
-                        for (int i = 0; i <= nextRow - 1; i++) {
+                       /** for (int i = 0; i <= nextRow - 1; i++) {
                             checker = false;
                             String previous_no = String.valueOf(contentTable.getValueAt(i, 0));
                             String temp = itemNumValue;
@@ -1287,10 +1302,11 @@ public class BakeryInfoSys extends javax.swing.JFrame {
                             for (int i = 0; i < colCount; i++) {
                                 model.setValueAt(info[i], nextRow, i);
                             }
-                        }
+                        }**/
                     } else {
                         JOptionPane.showMessageDialog(this, "Select the catagory please");
                     }
+                     }
                 } else {
                     JOptionPane.showMessageDialog(this, "Please select the catagory");
                 }
