@@ -33,7 +33,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
     public BakeryInfoSys() {
         initComponents();
         BakeryInfoSys.this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        jScrollPane3.getViewport().setBackground(new Color(254, 233, 197));
+        jScrollPane3.getViewport().setBackground(new Color(254,233,197));
         fileMenuPanel.setVisible(false);
         editMenuPanel.setVisible(false);
         helpMenuPanel.setVisible(false);
@@ -117,14 +117,14 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         ArrayList li = new ArrayList();
         String userItem = (String) searchCatagoryComboBox.getSelectedItem();
         String valueFromTable;
-        String itemInTable;
+        String itemInTable ;
         int itemcount = 0;
         int rowCount = contentTable.getRowCount();
         int colCount = contentTable.getColumnCount();
         for (int i = 0; i < rowCount; i++) {
             valueFromTable = contentTable.getValueAt(i, 2).toString();
-
-            System.out.println(valueFromTable + "khjlkjolhkj");
+           
+            System.out.println(valueFromTable+"khjlkjolhkj");
             if (userItem.equals(valueFromTable)) {
                 li.add(contentTable.getValueAt(i, 1));
                 itemcount++;
@@ -134,14 +134,42 @@ public class BakeryInfoSys extends javax.swing.JFrame {
             }
 
         }
-        if (li.isEmpty()) {
+        if(li.isEmpty()){
             JOptionPane.showMessageDialog(this, "There are no items in this catagory");
-        } else {
-            JOptionPane.showMessageDialog(this, "There are " + itemcount + " items in " + userItem + " catagory"
-                    + "\n and they are:\n" + li.toString().replace(",", "\n").replace("[", " ").replace("]", ""));
         }
+        else{
+        JOptionPane.showMessageDialog(this,"There are " + itemcount + " items in " + userItem + " catagory" 
+        + "\n and they are:\n"+li.toString().replace(",","\n").replace("["," ").replace("]",""),"Search",JOptionPane.INFORMATION_MESSAGE, null);}
     }
-
+    public static boolean isItemIdOk;
+    public void checkItemId(){
+        
+        ArrayList li = new ArrayList();
+        String userNum = txtItemNum.getText().toString();
+        String valueFromTable;
+  
+        String itemInTable ;
+        int itemcount = 0;
+        int rowCount = contentTable.getRowCount();
+        int colCount = contentTable.getColumnCount();
+        boolean flagOk =true;
+        
+        for (int i = 0; i < rowCount; i++) {
+            valueFromTable = contentTable.getValueAt(i, 0).toString();
+            while (flagOk){           
+            
+            if (userNum.equals(valueFromTable)) {
+                isItemIdOk = false;
+                System.out.println("item id is not ok Please check");
+                flagOk =false;
+                
+            } else {
+                   isItemIdOk = true;
+                   System.out.println("item id iOk!!!");
+            }}}
+    
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -1227,7 +1255,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
 
     private void enterBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterBtnActionPerformed
         DefaultTableModel model = (DefaultTableModel) contentTable.getModel();
-        boolean checker = true;
+        
         String nutContains = null;
         String sugarFreeContains = null;
         if (jRadioButton1.isSelected()) {
@@ -1251,32 +1279,19 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         String itemDescTxtValue = itemDescTxt.getText();
         String priceValue = priceTxt.getText();
         String prepTime = txtPrepTime.getText();
+        checkItemId();
         if (itemNumValue.isEmpty() || itemNameValue.isEmpty() || itemDescTxtValue.isEmpty() || priceValue.isEmpty() || prepTime.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please enter the details", "Details missing!!", JOptionPane.ERROR_MESSAGE, null);
         } else {
-            if (categoryBoxValue != "-----" && nutContains != null && sugarFreeContains != null) {
+            if(isItemIdOk == true){
+            if (nutContains != null && sugarFreeContains != null) {
                 if (categoryBoxValue != "-----") {
-                    int nextRow = 0;
-                     for (int i = 0; i <= nextRow - 1; i++)
-                     {
-                         checker = false;
-                            String previous_no = String.valueOf(contentTable.getValueAt(i, 0));
-                            String temp = itemNumValue;
-                            if (temp.equals(previous_no)) {
-                                checker = true;
-                                break;
-                            }
-                     }
-                     if (checker) {
-                            JOptionPane.showMessageDialog(this, "please enter difffrent item number");
-                        }
-                     else{
-                    model.addRow(new Object[]{null, null, null, null});
+                    model.addRow(new Object[]{null,null,null,null});// adding new row
                     String[] info = {itemNumValue, itemNameValue, categoryBoxValue, itemDescTxtValue, priceValue, prepTime, nutContains, sugarFreeContains};
                     int rowCount = model.getRowCount();
                     int colCount = model.getColumnCount();
 
-                    
+                    int nextRow = 0;
                     boolean emptyFlag = false;
                     if (rowCount != 0) {
                         do {
@@ -1285,28 +1300,13 @@ public class BakeryInfoSys extends javax.swing.JFrame {
                             } else {
                                 emptyFlag = true;
                             }
-
                         } while (nextRow < rowCount && !emptyFlag);
-                       /** for (int i = 0; i <= nextRow - 1; i++) {
-                            checker = false;
-                            String previous_no = String.valueOf(contentTable.getValueAt(i, 0));
-                            String temp = itemNumValue;
-                            if (temp.equals(previous_no)) {
-                                checker = true;
-                                break;
-                            }
+                        for (int i = 0; i < colCount; i++) {
+                            model.setValueAt(info[i], nextRow, i);
                         }
-                        if (checker) {
-                            JOptionPane.showMessageDialog(this, "please enter difffrent item number");
-                        } else {
-                            for (int i = 0; i < colCount; i++) {
-                                model.setValueAt(info[i], nextRow, i);
-                            }
-                        }**/
                     } else {
                         JOptionPane.showMessageDialog(this, "Select the catagory please");
                     }
-                     }
                 } else {
                     JOptionPane.showMessageDialog(this, "Please select the catagory");
                 }
@@ -1314,6 +1314,10 @@ public class BakeryInfoSys extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Please selects the contains");
             }
         }
+            else{
+            JOptionPane.showMessageDialog(this, "Id already exists");}
+        }
+        
     }//GEN-LAST:event_enterBtnActionPerformed
 
     private void fileMenuPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fileMenuPanelMouseClicked
@@ -1389,6 +1393,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
             File f = chooser.getSelectedFile();
             String location = f.getAbsolutePath();
             desktop.open(f);
+            
 
         } catch (IOException ex) {
             Logger.getLogger(BakeryInfoSys.class
@@ -1396,6 +1401,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         } catch (NullPointerException ex) {
             JOptionPane.showMessageDialog(this, "No files selected");
         }
+        
 
 
     }//GEN-LAST:event_openMenuItemMouseClicked
@@ -1470,12 +1476,19 @@ public class BakeryInfoSys extends javax.swing.JFrame {
     }//GEN-LAST:event_aboutMenuItemMouseExited
 
     private void helpUsMenuItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_helpUsMenuItemMouseClicked
-        JOptionPane.showMessageDialog(this, "Test Message");
+//F:\islington\Emerging Programming Platforms and Technologies\CourseWork 1\helpFile.docx
+        try {
+        
+        Desktop desktop = Desktop.getDesktop();
+            desktop.open(new File("helpFile.docx"));
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Help file not found");
+        }
     }//GEN-LAST:event_helpUsMenuItemMouseClicked
 
     private void aboutMenuItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutMenuItemMouseClicked
-        JOptionPane.showMessageDialog(this, "Bakery InfoSys ©\nDeveloped by Aabishkar Aryal(Lead GUI Designer), \nNishan Timalsina ,"
-                + "                  \nJubeen Amatya\n Any unauthorized use or reproduction/copying of this software is stricly prohibited \n This software is developed as part of the coursework assigned by London Metropolitian University to the developers mentions above");
+        JOptionPane.showMessageDialog(this, "Bakery InfoSys ©\nDeveloped by Aabishkar Aryal & Nishan Timalsina"
+                + "                  \nAny unauthorized use or reproduction/copying of this software is stricly prohibited \n This software is developed as part of the coursework assigned by London Metropolitian University to the developers mentions above");
     }//GEN-LAST:event_aboutMenuItemMouseClicked
 
     private void searchPriceBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchPriceBtnActionPerformed
