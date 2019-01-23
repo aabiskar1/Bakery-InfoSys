@@ -663,6 +663,11 @@ public class BakeryInfoSys extends javax.swing.JFrame {
                 clearBtnMouseReleased(evt);
             }
         });
+        clearBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearBtnActionPerformed(evt);
+            }
+        });
 
         jTabbedPane1.setBackground(new java.awt.Color(252, 199, 114));
 
@@ -857,7 +862,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
                         .addComponent(jSeparator2))
                     .addGroup(inputPanelLayout.createSequentialGroup()
                         .addGap(32, 32, 32)
-                        .addComponent(jTabbedPane1)))
+                        .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 489, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inputPanelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -1619,6 +1624,20 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         clearMenuItem.setForeground(Color.BLACK);
     }//GEN-LAST:event_clearMenuItemMouseExited
 
+    private void clearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBtnActionPerformed
+       clearInputFields();
+    }//GEN-LAST:event_clearBtnActionPerformed
+public void clearInputFields()
+{
+     txtItemName.setText("");
+       txtItemNum.setText("");
+       txtPrepTime.setText("");
+       nutContains.clearSelection();
+       sugarFree.clearSelection();
+       categoryBox.setSelectedIndex(0);
+       priceTxt.setText("");
+       itemDescTxt.setText("");
+}
     /**
      * @param args the command line arguments
      */
