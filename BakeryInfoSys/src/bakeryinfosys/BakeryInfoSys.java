@@ -1000,6 +1000,9 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         clearMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/clearMenu.png"))); // NOI18N
         clearMenuItem.setText("Clear All");
         clearMenuItem.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clearMenuItemMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 clearMenuItemMouseEntered(evt);
             }
@@ -1627,6 +1630,10 @@ public class BakeryInfoSys extends javax.swing.JFrame {
     private void clearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBtnActionPerformed
        clearInputFields();
     }//GEN-LAST:event_clearBtnActionPerformed
+
+    private void clearMenuItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearMenuItemMouseClicked
+        clearInputFields();
+    }//GEN-LAST:event_clearMenuItemMouseClicked
 public void clearInputFields()
 {
      txtItemName.setText("");
