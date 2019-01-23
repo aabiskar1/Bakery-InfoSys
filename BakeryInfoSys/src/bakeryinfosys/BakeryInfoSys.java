@@ -1258,6 +1258,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
     }//GEN-LAST:event_inputPanelMouseExited
 
     private void enterBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterBtnActionPerformed
+      
         DefaultTableModel model = (DefaultTableModel) contentTable.getModel();
 
         String nutContains = null;
@@ -1284,6 +1285,16 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         String priceValue = priceTxt.getText();
         String prepTime = txtPrepTime.getText();
         checkItemId();
+        
+        if(!idValidation(itemNumValue)  )
+        {
+            JOptionPane.showMessageDialog(this, "Enter valid id");
+        }
+        else if(!priceValidation(priceValue))
+        {
+            JOptionPane.showMessageDialog(this, "Enter valid price");
+        }
+        else{
         if (itemNumValue.isEmpty() || itemNameValue.isEmpty() || itemDescTxtValue.isEmpty() || priceValue.isEmpty() || prepTime.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please enter the details", "Details missing!!", JOptionPane.ERROR_MESSAGE, null);
         } else {
@@ -1320,7 +1331,9 @@ public class BakeryInfoSys extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Id already exists");
             }
         }
-
+      
+    }
+      
     }//GEN-LAST:event_enterBtnActionPerformed
 
     private void fileMenuPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fileMenuPanelMouseClicked
@@ -1406,7 +1419,30 @@ public class BakeryInfoSys extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_openMenuItemMouseClicked
-
+   
+    public boolean idValidation(String id)
+    {
+        for (int i = 0; i < id.length(); i++) 
+        if (Character.isDigit(id.charAt(i))  
+            == false) 
+        {
+            //txtItemNum.setEditable(false);
+            return false;
+        }
+        return true;
+    }
+    public boolean priceValidation(String price)
+    {
+        for (int i = 0; i < price.length(); i++) 
+        if (Character.isDigit(price.charAt(i))  
+            == false) 
+        {
+            //txtItemNum.setEditable(false);
+            return false;
+        }
+        return true;
+    }
+    
     private void editMenuPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editMenuPanelMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_editMenuPanelMouseClicked
