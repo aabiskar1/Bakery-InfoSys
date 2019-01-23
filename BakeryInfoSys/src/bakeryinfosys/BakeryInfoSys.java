@@ -43,7 +43,9 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         header.setForeground(new Color(253, 176, 50)); //changes font color of table header
         header.setFont(new Font("Pristina", Font.BOLD, 20));//sets font size, tyoe and faimly of the the header titles
 
-        ////////////////////////////////
+        /**
+         * Creating lists to enter values in table
+         */
         String[] list1 = {"1", "BlackForest", "Cake", "This cake conatins chocolates and cream", "1200", "120", "No", "No"};
         String[] list2 = {"2", "WhiteForest", "Cake", "This cake contains lots of white chocolate", "1050", "120", "No", "No"};
         String[] list3 = {"3", "White Bread", "Breads", "This bread is made  of wheat", "45", "5", "No", "No"};
@@ -70,7 +72,9 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         String[] list24 = {"24", "Cheese Coffee cake", "Cake", "This cake contains cheese and coffee flavour", "1500", "120", "No", "No"};
         String[] list25 = {"25", "Chocolate Cupcake", "Muffin", "This cupcake is made of chocolate with nuts", "150", "5", "Yes", "No"};
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /**
+         * Inserting Values in the table
+         */
         int rowCount = contentTable.getRowCount();
         int colCount = contentTable.getColumnCount();
         boolean emptyFlag = false;
@@ -110,10 +114,12 @@ public class BakeryInfoSys extends javax.swing.JFrame {
 
         }
 
-        /////////////////
     }
 
-    public void sorting() {
+    /**
+     * Searching items via category
+     */
+    public void searchByCatagory() {
         ArrayList li = new ArrayList();
         String userItem = (String) searchCatagoryComboBox.getSelectedItem();
         String valueFromTable;
@@ -138,9 +144,13 @@ public class BakeryInfoSys extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "There are no items in this catagory");
         } else {
             JOptionPane.showMessageDialog(this, "There are " + itemcount + " items in " + userItem + " catagory"
-                    + "\n and they are:\n" + li.toString().replace(",", "\n").replace("[", " ").replace("]", ""), "Search", JOptionPane.INFORMATION_MESSAGE, null);
+                    + "\n List of found items:\n" + li.toString().replace(",", "\n").replace("[", " ").replace("]", ""), "Search by Catagory", JOptionPane.INFORMATION_MESSAGE, null);
         }
     }
+
+    /**
+     * Validating if the item id is already present in the table
+     */
     public static boolean isItemIdOk; //sets the boolean value for this method weather if this is true or not
 
     public void checkItemId() {   //checks if item value already exists
@@ -170,6 +180,35 @@ public class BakeryInfoSys extends javax.swing.JFrame {
                     break;
                 }
             }
+        }
+
+    }
+
+    /**
+     * This method is used to open jFileChooser and open a file
+     */
+    public void chooseFiles() {
+        /**
+         * Opens jFileChooser
+         */
+        JFileChooser chooser = new JFileChooser();
+        chooser.showOpenDialog(this);
+        Desktop desktop = Desktop.getDesktop();
+
+        /**
+         * handling the file opening process. This try catch blocks opens the
+         * file
+         */
+        try {
+            File f = chooser.getSelectedFile();
+            String location = f.getAbsolutePath();
+            desktop.open(f);
+
+        } catch (IOException ex) {
+            Logger.getLogger(BakeryInfoSys.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        } catch (NullPointerException ex) {
+            JOptionPane.showMessageDialog(this, "No files selected");
         }
 
     }
@@ -1188,12 +1227,12 @@ public class BakeryInfoSys extends javax.swing.JFrame {
     }//GEN-LAST:event_minimizeIconMouseClicked
 
     private void minimizeIconMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeIconMouseEntered
-        // TODO add your handling code here
+        // Changes the color when mouse enters
         operationsPanel.setBackground(new Color(13, 163, 255));
     }//GEN-LAST:event_minimizeIconMouseEntered
 
     private void minimizeIconMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeIconMouseExited
-        // TODO add your handling code here:
+        // Changes the color when mouse exits
         operationsPanel.setBackground(new Color(253, 204, 125));
     }//GEN-LAST:event_minimizeIconMouseExited
 
@@ -1213,7 +1252,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
     }//GEN-LAST:event_maximizeIconMouseClicked
 
     private void minimizeIconMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeIconMousePressed
-        // TODO add your handling code here:
+        // Changes the color when close is pressed
         operationsPanel.setBackground(new Color(255, 127, 39));
     }//GEN-LAST:event_minimizeIconMousePressed
 
@@ -1238,35 +1277,45 @@ public class BakeryInfoSys extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButton4ActionPerformed
 
     private void filesMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_filesMenuMouseEntered
+        //Changes the color when mouse enters
         filesMenu.setForeground(Color.WHITE);
         menuBar.setBackground(new Color(238, 170, 55));
     }//GEN-LAST:event_filesMenuMouseEntered
 
     private void filesMenuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_filesMenuMouseExited
+        //Changes the color when mouse exits
         filesMenu.setForeground(Color.BLACK);
         menuBar.setBackground(new Color(243, 194, 114));
     }//GEN-LAST:event_filesMenuMouseExited
 
     private void editMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editMenuMouseEntered
-        editMenu.setForeground(Color.WHITE);
+        //Changes the color when mouse enters
+
         menuBar.setBackground(new Color(238, 170, 55));
     }//GEN-LAST:event_editMenuMouseEntered
 
     private void editMenuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editMenuMouseExited
+        //Changes the color when mouse exits
         editMenu.setForeground(Color.BLACK);
         menuBar.setBackground(new Color(243, 194, 114));
     }//GEN-LAST:event_editMenuMouseExited
 
     private void inputPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inputPanelMouseEntered
+        //Changes the color when mouse enters
+
         inputPanel.setBackground(new Color(243, 194, 114));
     }//GEN-LAST:event_inputPanelMouseEntered
 
     private void inputPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inputPanelMouseExited
+        //Changes the color when mouse exits
         inputPanel.setBackground(new Color(253, 204, 125));
     }//GEN-LAST:event_inputPanelMouseExited
 
     private void enterBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterBtnActionPerformed
-      
+        /**
+         * This method adds value to the table and also performs various
+         * validation functions
+         */
         DefaultTableModel model = (DefaultTableModel) contentTable.getModel();
 
         String nutContains = null;
@@ -1293,55 +1342,51 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         String priceValue = priceTxt.getText();
         String prepTime = txtPrepTime.getText();
         checkItemId();
-        
-        if(!idValidation(itemNumValue)  )
-        {
+//validating item id  and price for wrong data type
+        if (!idValidation(itemNumValue)) {
             JOptionPane.showMessageDialog(this, "Enter valid id");
-        }
-        else if(!priceValidation(priceValue))
-        {
+        } else if (!priceValidation(priceValue)) {
             JOptionPane.showMessageDialog(this, "Enter valid price");
-        }
-        else{
-        if (itemNumValue.isEmpty() || itemNameValue.isEmpty() || itemDescTxtValue.isEmpty() || priceValue.isEmpty() || prepTime.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please enter the details", "Details missing!!", JOptionPane.ERROR_MESSAGE, null);
         } else {
-            if (isItemIdOk) {
-                if (nutContains != null && sugarFreeContains != null) {
-                    if (categoryBoxValue != "-----") {
-                        model.addRow(new Object[]{null, null, null, null});// adding new row
-                        String[] info = {itemNumValue, itemNameValue, categoryBoxValue, itemDescTxtValue, priceValue, prepTime, nutContains, sugarFreeContains};
-                        int rowCount = model.getRowCount();
-                        int colCount = model.getColumnCount();
-                        int nextRow = 0;
-                        boolean emptyFlag = false;
-                        if (rowCount != 0) {
-                            do {
-                                if ((model.getValueAt(nextRow, 0)) != null) {
-                                    nextRow++;
-                                } else {
-                                    emptyFlag = true;
+            if (itemNumValue.isEmpty() || itemNameValue.isEmpty() || itemDescTxtValue.isEmpty() || priceValue.isEmpty() || prepTime.isEmpty()) {           //validatiing for empty fields
+                JOptionPane.showMessageDialog(this, "Please enter the details", "Details missing!!", JOptionPane.ERROR_MESSAGE, null);
+            } else {
+                if (isItemIdOk) {
+                    if (nutContains != null && sugarFreeContains != null) {    //validating for unchecked radio buttons
+                        if (categoryBoxValue != "-----") {      //validating for unselected combobox
+                            model.addRow(new Object[]{null, null, null, null});// adding new row
+                            String[] info = {itemNumValue, itemNameValue, categoryBoxValue, itemDescTxtValue, priceValue, prepTime, nutContains, sugarFreeContains};  //adding values to an array
+                            int rowCount = model.getRowCount();
+                            int colCount = model.getColumnCount();
+                            int nextRow = 0;
+                            boolean emptyFlag = false;
+                            if (rowCount != 0) {
+                                do {
+                                    if ((model.getValueAt(nextRow, 0)) != null) {
+                                        nextRow++;
+                                    } else {
+                                        emptyFlag = true;
+                                    }
+                                } while (nextRow < rowCount && !emptyFlag);
+                                for (int i = 0; i < colCount; i++) {
+                                    model.setValueAt(info[i], nextRow, i);
                                 }
-                            } while (nextRow < rowCount && !emptyFlag);
-                            for (int i = 0; i < colCount; i++) {
-                                model.setValueAt(info[i], nextRow, i);
+                            } else {
+                                JOptionPane.showMessageDialog(this, "Select the catagory please");
                             }
                         } else {
-                            JOptionPane.showMessageDialog(this, "Select the catagory please");
+                            JOptionPane.showMessageDialog(this, "Please select the catagory");
                         }
                     } else {
-                        JOptionPane.showMessageDialog(this, "Please select the catagory");
+                        JOptionPane.showMessageDialog(this, "Please selects the contains");
                     }
                 } else {
-                    JOptionPane.showMessageDialog(this, "Please selects the contains");
+                    JOptionPane.showMessageDialog(this, "Id already exists");
                 }
-            } else {
-                JOptionPane.showMessageDialog(this, "Id already exists");
             }
+
         }
-      
-    }
-      
+
     }//GEN-LAST:event_enterBtnActionPerformed
 
     private void fileMenuPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fileMenuPanelMouseClicked
@@ -1392,65 +1437,46 @@ public class BakeryInfoSys extends javax.swing.JFrame {
     }//GEN-LAST:event_editMenuMouseClicked
 
     private void openMenuItemMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_openMenuItemMouseEntered
-        // TODO add your handling code here:
+        //Changes the color when mouse enters
+
         openMenuItem.setForeground(Color.RED);
     }//GEN-LAST:event_openMenuItemMouseEntered
 
     private void openMenuItemMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_openMenuItemMouseExited
-        // TODO add your handling code here:
+
+        //Changes the color when mouse exits
         openMenuItem.setForeground(Color.BLACK);
     }//GEN-LAST:event_openMenuItemMouseExited
 
     private void openMenuItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_openMenuItemMouseClicked
-        /**
-         * Opens jFileChooser
-         */
-        JFileChooser chooser = new JFileChooser();
-        chooser.showOpenDialog(this);
-        Desktop desktop = Desktop.getDesktop();
-
-        /**
-         * handling the file opening process. This try catch blocks opens the
-         * file
-         */
-        try {
-            File f = chooser.getSelectedFile();
-            String location = f.getAbsolutePath();
-            desktop.open(f);
-
-        } catch (IOException ex) {
-            Logger.getLogger(BakeryInfoSys.class
-                    .getName()).log(Level.SEVERE, null, ex);
-        } catch (NullPointerException ex) {
-            JOptionPane.showMessageDialog(this, "No files selected");
-        }
-
+        chooseFiles();  //calling chooseFiles method
 
     }//GEN-LAST:event_openMenuItemMouseClicked
-   
-    public boolean idValidation(String id)
-    {
-        for (int i = 0; i < id.length(); i++) 
-        if (Character.isDigit(id.charAt(i))  
-            == false) 
-        {
-            //txtItemNum.setEditable(false);
-            return false;
+    /**
+     * Validating if the data entered by user is in string or number
+     */
+    public boolean idValidation(String id) {
+        for (int i = 0; i < id.length(); i++) {
+            if (Character.isDigit(id.charAt(i))
+                    == false) {
+                //txtItemNum.setEditable(false);
+                return false;
+            }
         }
         return true;
     }
-    public boolean priceValidation(String price)
-    {
-        for (int i = 0; i < price.length(); i++) 
-        if (Character.isDigit(price.charAt(i))  
-            == false) 
-        {
-            //txtItemNum.setEditable(false);
-            return false;
+
+    public boolean priceValidation(String price) {
+        for (int i = 0; i < price.length(); i++) {
+            if (Character.isDigit(price.charAt(i))
+                    == false) {
+                //txtItemNum.setEditable(false);
+                return false;
+            }
         }
         return true;
     }
-    
+
     private void editMenuPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editMenuPanelMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_editMenuPanelMouseClicked
@@ -1521,6 +1547,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
     }//GEN-LAST:event_aboutMenuItemMouseExited
 
     private void helpUsMenuItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_helpUsMenuItemMouseClicked
+        //Opening Help file
 //F:\islington\Emerging Programming Platforms and Technologies\CourseWork 1\helpFile.docx
         try {
 
@@ -1564,7 +1591,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
     }//GEN-LAST:event_searchPriceBtnMouseClicked
 
     private void searchCatagoryBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchCatagoryBtnMouseClicked
-        sorting();
+        searchByCatagory();  //calling searchByCatagory method
     }//GEN-LAST:event_searchCatagoryBtnMouseClicked
 
     private void searchCatagoryBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchCatagoryBtnMouseEntered
@@ -1628,23 +1655,25 @@ public class BakeryInfoSys extends javax.swing.JFrame {
     }//GEN-LAST:event_clearMenuItemMouseExited
 
     private void clearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBtnActionPerformed
-       clearInputFields();
+        clearInputFields();
     }//GEN-LAST:event_clearBtnActionPerformed
 
     private void clearMenuItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearMenuItemMouseClicked
-        clearInputFields();
+        clearInputFields(); //calling clear input fields
     }//GEN-LAST:event_clearMenuItemMouseClicked
-public void clearInputFields()
-{
-     txtItemName.setText("");
-       txtItemNum.setText("");
-       txtPrepTime.setText("");
-       nutContains.clearSelection();
-       sugarFree.clearSelection();
-       categoryBox.setSelectedIndex(0);
-       priceTxt.setText("");
-       itemDescTxt.setText("");
-}
+    public void clearInputFields() {
+        /**
+         * method to clear all input field
+         */
+        txtItemName.setText("");
+        txtItemNum.setText("");
+        txtPrepTime.setText("");
+        nutContains.clearSelection();
+        sugarFree.clearSelection();
+        categoryBox.setSelectedIndex(0);
+        priceTxt.setText("");
+        itemDescTxt.setText("");
+    }
     /**
      * @param args the command line arguments
      */
