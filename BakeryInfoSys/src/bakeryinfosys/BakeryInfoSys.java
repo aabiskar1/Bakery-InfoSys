@@ -166,6 +166,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
             } else {
                    isItemIdOk = true;
                    System.out.println("item id iOk!!!");
+                   break;
             }}}
     
     }
