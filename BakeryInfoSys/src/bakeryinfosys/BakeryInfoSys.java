@@ -33,7 +33,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
     public BakeryInfoSys() {
         initComponents();
         BakeryInfoSys.this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        jScrollPane3.getViewport().setBackground(new Color(254,233,197));
+        jScrollPane3.getViewport().setBackground(new Color(254, 233, 197));
         fileMenuPanel.setVisible(false);
         editMenuPanel.setVisible(false);
         helpMenuPanel.setVisible(false);
@@ -117,14 +117,14 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         ArrayList li = new ArrayList();
         String userItem = (String) searchCatagoryComboBox.getSelectedItem();
         String valueFromTable;
-        String itemInTable ;
+        String itemInTable;
         int itemcount = 0;
         int rowCount = contentTable.getRowCount();
         int colCount = contentTable.getColumnCount();
         for (int i = 0; i < rowCount; i++) {
             valueFromTable = contentTable.getValueAt(i, 2).toString();
-           
-            System.out.println(valueFromTable+"khjlkjolhkj");
+
+            System.out.println(valueFromTable + "khjlkjolhkj");
             if (userItem.equals(valueFromTable)) {
                 li.add(contentTable.getValueAt(i, 1));
                 itemcount++;
@@ -134,12 +134,12 @@ public class BakeryInfoSys extends javax.swing.JFrame {
             }
 
         }
-        if(li.isEmpty()){
+        if (li.isEmpty()) {
             JOptionPane.showMessageDialog(this, "There are no items in this catagory");
+        } else {
+            JOptionPane.showMessageDialog(this, "There are " + itemcount + " items in " + userItem + " catagory"
+                    + "\n and they are:\n" + li.toString().replace(",", "\n").replace("[", " ").replace("]", ""));
         }
-        else{
-        JOptionPane.showMessageDialog(this,"There are " + itemcount + " items in " + userItem + " catagory" 
-        + "\n and they are:\n"+li.toString().replace(",","\n").replace("["," ").replace("]",""));}
     }
 
     /**
@@ -1227,7 +1227,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
 
     private void enterBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterBtnActionPerformed
         DefaultTableModel model = (DefaultTableModel) contentTable.getModel();
-        
+        boolean checker = true;
         String nutContains = null;
         String sugarFreeContains = null;
         if (jRadioButton1.isSelected()) {
@@ -1256,7 +1256,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         } else {
             if (categoryBoxValue != "-----" && nutContains != null && sugarFreeContains != null) {
                 if (categoryBoxValue != "-----") {
-                    model.addRow(new Object[]{null,null,null,null});
+                    model.addRow(new Object[]{null, null, null, null});
                     String[] info = {itemNumValue, itemNameValue, categoryBoxValue, itemDescTxtValue, priceValue, prepTime, nutContains, sugarFreeContains};
                     int rowCount = model.getRowCount();
                     int colCount = model.getColumnCount();
@@ -1270,9 +1270,23 @@ public class BakeryInfoSys extends javax.swing.JFrame {
                             } else {
                                 emptyFlag = true;
                             }
+
                         } while (nextRow < rowCount && !emptyFlag);
-                        for (int i = 0; i < colCount; i++) {
-                            model.setValueAt(info[i], nextRow, i);
+                        for (int i = 0; i <= nextRow - 1; i++) {
+                            checker = false;
+                            String previous_no = String.valueOf(contentTable.getValueAt(i, 0));
+                            String temp = itemNumValue;
+                            if (temp.equals(previous_no)) {
+                                checker = true;
+                                break;
+                            }
+                        }
+                        if (checker) {
+                            JOptionPane.showMessageDialog(this, "please enter difffrent item number");
+                        } else {
+                            for (int i = 0; i < colCount; i++) {
+                                model.setValueAt(info[i], nextRow, i);
+                            }
                         }
                     } else {
                         JOptionPane.showMessageDialog(this, "Select the catagory please");
