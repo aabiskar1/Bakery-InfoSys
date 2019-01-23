@@ -1287,14 +1287,13 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         if (itemNumValue.isEmpty() || itemNameValue.isEmpty() || itemDescTxtValue.isEmpty() || priceValue.isEmpty() || prepTime.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please enter the details", "Details missing!!", JOptionPane.ERROR_MESSAGE, null);
         } else {
-            if (isItemIdOk == true) {
+            if (isItemIdOk) {
                 if (nutContains != null && sugarFreeContains != null) {
                     if (categoryBoxValue != "-----") {
                         model.addRow(new Object[]{null, null, null, null});// adding new row
                         String[] info = {itemNumValue, itemNameValue, categoryBoxValue, itemDescTxtValue, priceValue, prepTime, nutContains, sugarFreeContains};
                         int rowCount = model.getRowCount();
                         int colCount = model.getColumnCount();
-
                         int nextRow = 0;
                         boolean emptyFlag = false;
                         if (rowCount != 0) {
