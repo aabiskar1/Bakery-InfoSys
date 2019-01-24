@@ -213,28 +213,12 @@ public class BakeryInfoSys extends javax.swing.JFrame {
 
     }
 
-    /**
-     * Setting row count
-     */
-    public void resetTableRow() {
-        DefaultTableModel model = (DefaultTableModel) contentTable.getModel();
-        int rowCount = contentTable.getRowCount() - 1;
-
-        //model.removeRow(13);
-        for (int i = 0; i < rowCount; i--) {
-            model.removeRow(i);
-            System.out.println(i);
-
-        }
-
-    }
 
     /**
      * This method is used to remove item from the table
      */
     public void deleteItem() {
         int rowCount = contentTable.getRowCount() - 1; //self explanatory
-        int colCount = contentTable.getColumnCount();//self explanatory
         boolean flagOk = true;//checks if the condition is tue
         String userNum = txtItemDel.getText();
         DefaultTableModel model = (DefaultTableModel) contentTable.getModel();
@@ -242,7 +226,6 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         String temp = contentTable.getValueAt(rowCount, 0).toString();
         for (int i = 0; i < rowCount; i++) { //checks for the condition if the id exists or not
             valueFromTable = contentTable.getValueAt(i, 0).toString();
-            System.out.println(valueFromTable);
             while (flagOk) {
 
                 if (userNum.equals(valueFromTable)) {
@@ -255,7 +238,6 @@ public class BakeryInfoSys extends javax.swing.JFrame {
                     flagOk = false;
                 } else {
                     isItemIdOk = true;
-                    System.out.println("item id iOk!!!");
                     break;
                 }
             }
@@ -1641,7 +1623,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         try {
 
             Desktop desktop = Desktop.getDesktop();
-            desktop.open(new File("helpFile.docx"));
+            desktop.open(new File("helpFile.pdf"));
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "Help file not found");
         }
