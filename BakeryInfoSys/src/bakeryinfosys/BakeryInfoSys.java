@@ -155,7 +155,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
     public void checkItemId() {   //checks if item value already exists
 
         ArrayList li = new ArrayList();   //adding all data to arraylist
-        String userNum = txtItemName.getText().toString();  // the item number that user types
+        String userNum = txtItemNum.getText();  // the item number that user types
         String valueFromTable; //value of item id that exists in the table
 
         String itemInTable; //not needed
@@ -165,7 +165,8 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         boolean flagOk = true;//checks if the condition is tue
 
         for (int i = 0; i < rowCount; i++) { //checks for the condition if the id already exists or not
-            valueFromTable = contentTable.getValueAt(i, 0).toString();
+            valueFromTable = contentTable.getValueAt(i,0).toString();
+            System.out.println(valueFromTable);
             while (flagOk) {
 
                 if (userNum.equals(valueFromTable)) {
@@ -228,6 +229,34 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         }
 
     }
+    /** This method is used to remove item from the table */ 
+    public void deleteItem(){
+        int rowCount = contentTable.getRowCount(); //self explanatory
+        int colCount = contentTable.getColumnCount();//self explanatory
+        boolean flagOk = true;//checks if the condition is tue
+        String userNum = txtItemDel.getText();
+    DefaultTableModel model = (DefaultTableModel) contentTable.getModel();
+         String valueFromTable;
+
+        for (int i = 0; i < rowCount; i++) { //checks for the condition if the id exists or not
+            valueFromTable = contentTable.getValueAt(i,0).toString();
+            System.out.println(valueFromTable);
+            while (flagOk) {
+
+                if (userNum.equals(valueFromTable)) {
+                    isItemIdOk = false;
+                    model.removeRow(i);
+                    flagOk = false;
+                   
+
+                } else {
+                    isItemIdOk = true;
+                    System.out.println("item id iOk!!!");
+                    break;
+                }
+            }
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -257,7 +286,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         contentTable = new javax.swing.JTable();
         inputPanel = new javax.swing.JPanel();
         txtItemNum = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        lblItemNumber = new javax.swing.JLabel();
         txtItemName = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -270,7 +299,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         categoryBox = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
+        nutsYes = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         jLabel9 = new javax.swing.JLabel();
         jRadioButton3 = new javax.swing.JRadioButton();
@@ -291,7 +320,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtItemDel = new javax.swing.JTextField();
         searchPriceBtn1 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         fileMenuPanel = new javax.swing.JPanel();
@@ -596,8 +625,8 @@ public class BakeryInfoSys extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("MV Boli", 0, 18)); // NOI18N
-        jLabel2.setText("Item Number");
+        lblItemNumber.setFont(new java.awt.Font("MV Boli", 0, 18)); // NOI18N
+        lblItemNumber.setText("Item Number");
 
         txtItemName.setBackground(new java.awt.Color(254, 233, 197));
         txtItemName.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
@@ -653,12 +682,12 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("MV Boli", 0, 18)); // NOI18N
         jLabel8.setText("Contains Nuts");
 
-        jRadioButton1.setBackground(new java.awt.Color(253, 204, 125));
-        nutContains.add(jRadioButton1);
-        jRadioButton1.setText("Yes");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        nutsYes.setBackground(new java.awt.Color(253, 204, 125));
+        nutContains.add(nutsYes);
+        nutsYes.setText("Yes");
+        nutsYes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                nutsYesActionPerformed(evt);
             }
         });
 
@@ -879,16 +908,16 @@ public class BakeryInfoSys extends javax.swing.JFrame {
                 .addGap(0, 0, 0))
         );
 
-        jTabbedPane1.addTab("By Price", jPanel5);
+        jTabbedPane1.addTab("Searching", jPanel5);
 
         jPanel6.setBackground(new java.awt.Color(252, 199, 114));
 
         jLabel12.setFont(new java.awt.Font("Cambria Math", 0, 36)); // NOI18N
         jLabel12.setText("Item Id");
 
-        jTextField2.setBackground(new java.awt.Color(254, 233, 197));
-        jTextField2.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(0, 153, 153));
+        txtItemDel.setBackground(new java.awt.Color(254, 233, 197));
+        txtItemDel.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
+        txtItemDel.setForeground(new java.awt.Color(0, 153, 153));
 
         searchPriceBtn1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/searchBtn.png"))); // NOI18N
         searchPriceBtn1.setText("Search");
@@ -924,7 +953,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
+                .addComponent(txtItemDel, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
                 .addGap(26, 26, 26)
                 .addComponent(searchPriceBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(55, 55, 55))
@@ -937,7 +966,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(searchPriceBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtItemDel, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                         .addComponent(jLabel12)
@@ -965,7 +994,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
                             .addGroup(inputPanelLayout.createSequentialGroup()
                                 .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblItemNumber, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addComponent(jLabel4)
                                     .addComponent(jLabel5)
@@ -991,7 +1020,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
                                         .addComponent(categoryBox, 0, 287, Short.MAX_VALUE)
                                         .addGroup(inputPanelLayout.createSequentialGroup()
                                             .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jRadioButton1)
+                                                .addComponent(nutsYes)
                                                 .addComponent(jRadioButton3))
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1016,7 +1045,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
             .addGroup(inputPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblItemNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtItemNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1043,7 +1072,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jRadioButton1)
+                    .addComponent(nutsYes)
                     .addComponent(jRadioButton2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1553,7 +1582,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
     }//GEN-LAST:event_helpUsMenuItemMouseClicked
 
     private void aboutMenuItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutMenuItemMouseClicked
-        resetTableRow();
+        checkItemId();
         JOptionPane.showMessageDialog(this, "Bakery InfoSys ©\nDeveloped by Aabishkar Aryal & Nishan Timalsina"
                 + "                  \nAny unauthorized use or reproduction/copying of this software is stricly prohibited \n This software is developed as part of the coursework assigned by London Metropolitian University to the developers mentions above");
     }//GEN-LAST:event_aboutMenuItemMouseClicked
@@ -1634,8 +1663,8 @@ public class BakeryInfoSys extends javax.swing.JFrame {
 
         String nutContains = null;
         String sugarFreeContains = null;
-        if (jRadioButton1.isSelected()) {
-            nutContains = jRadioButton1.getText();
+        if (nutsYes.isSelected()) {
+            nutContains = nutsYes.getText();
         } else if (jRadioButton2.isSelected()) {
             nutContains = jRadioButton2.getText();
         }
@@ -1722,9 +1751,9 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton4ActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void nutsYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutsYesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_nutsYesActionPerformed
 
     private void categoryBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoryBoxActionPerformed
         // TODO add your handling code here:
@@ -1770,7 +1799,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
     }//GEN-LAST:event_searchCatagoryComboBoxActionPerformed
 
     private void searchPriceBtn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchPriceBtn1MouseClicked
-        // TODO add your handling code here:
+        deleteItem();
     }//GEN-LAST:event_searchPriceBtn1MouseClicked
 
     private void searchPriceBtn1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchPriceBtn1MouseEntered
@@ -1878,7 +1907,6 @@ public class BakeryInfoSys extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1890,7 +1918,6 @@ public class BakeryInfoSys extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JRadioButton jRadioButton4;
@@ -1903,12 +1930,13 @@ public class BakeryInfoSys extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JLabel lblItemNumber;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JLabel maximizeIcon;
     private javax.swing.JPanel menuBar;
     private javax.swing.JLabel minimizeIcon;
     private javax.swing.ButtonGroup nutContains;
+    private javax.swing.JRadioButton nutsYes;
     private javax.swing.JLabel openMenuItem;
     private javax.swing.JPanel operationsPanel;
     private javax.swing.JTextField priceTxt;
@@ -1919,6 +1947,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
     private javax.swing.ButtonGroup sugarFree;
     private javax.swing.JPanel tablePanel;
     private javax.swing.JPanel topPanel;
+    private javax.swing.JTextField txtItemDel;
     private javax.swing.JTextField txtItemName;
     private javax.swing.JTextField txtItemNum;
     private javax.swing.JTextField txtPrepTime;
