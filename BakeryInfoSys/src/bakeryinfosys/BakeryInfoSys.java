@@ -155,7 +155,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
     public void checkItemId() {   //checks if item value already exists
 
         ArrayList li = new ArrayList();   //adding all data to arraylist
-        String userNum = txtItemNum.getText().toString();  // the item number that user types
+        String userNum = txtItemName.getText().toString();  // the item number that user types
         String valueFromTable; //value of item id that exists in the table
 
         String itemInTable; //not needed
@@ -217,10 +217,12 @@ public class BakeryInfoSys extends javax.swing.JFrame {
      */
     public void resetTableRow() {
         DefaultTableModel model = (DefaultTableModel) contentTable.getModel();
-        int rowCount = model.getRowCount()-1;
-        model.removeRow(13);
-        for (int i = 0; i <= rowCount; i++) {
-            //model.removeRow(i);
+        int rowCount = contentTable.getRowCount()-1;
+ 
+        //model.removeRow(13);
+
+        for (int i = 0; i < rowCount; i--) {
+            model.removeRow(i);
             System.out.println(i);
             
         }
@@ -278,13 +280,19 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         clearBtn = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel5 = new javax.swing.JPanel();
+        jTabbedPane2 = new javax.swing.JTabbedPane();
+        jPanel1 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         searchPriceBtn = new javax.swing.JButton();
-        jPanel6 = new javax.swing.JPanel();
-        jLabel14 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         searchCatagoryComboBox = new javax.swing.JComboBox<>();
         searchCatagoryBtn = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        searchPriceBtn1 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         fileMenuPanel = new javax.swing.JPanel();
         openMenuItem = new javax.swing.JLabel();
@@ -478,7 +486,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
                 .addComponent(menuBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(309, 309, 309)
                 .addComponent(companyTitleTop, javax.swing.GroupLayout.PREFERRED_SIZE, 522, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 209, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(operationsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         topPanelLayout.setVerticalGroup(
@@ -499,7 +507,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         backgroundPanel.setLayout(backgroundPanelLayout);
         backgroundPanelLayout.setHorizontalGroup(
             backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 204, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         backgroundPanelLayout.setVerticalGroup(
             backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -560,7 +568,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         tablePanel.setLayout(tablePanelLayout);
         tablePanelLayout.setHorizontalGroup(
             tablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
         tablePanelLayout.setVerticalGroup(
             tablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -726,7 +734,11 @@ public class BakeryInfoSys extends javax.swing.JFrame {
 
         jPanel5.setBackground(new java.awt.Color(252, 199, 114));
 
-        jLabel11.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
+        jTabbedPane2.setBackground(new java.awt.Color(252, 199, 114));
+
+        jPanel1.setBackground(new java.awt.Color(252, 199, 114));
+
+        jLabel11.setFont(new java.awt.Font("Cambria Math", 0, 36)); // NOI18N
         jLabel11.setText("Price");
 
         jTextField1.setBackground(new java.awt.Color(254, 233, 197));
@@ -759,44 +771,42 @@ public class BakeryInfoSys extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57)
-                .addComponent(searchPriceBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(searchPriceBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44))
         );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(searchPriceBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11))
+                .addContainerGap(21, Short.MAX_VALUE))
+            .addComponent(searchPriceBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("By Price", jPanel5);
+        jTabbedPane2.addTab("Price", jPanel1);
 
-        jPanel6.setBackground(new java.awt.Color(252, 199, 114));
-
-        jLabel14.setFont(new java.awt.Font("Cambria Math", 0, 24)); // NOI18N
-        jLabel14.setText("Category");
+        jPanel2.setBackground(new java.awt.Color(252, 199, 114));
 
         searchCatagoryComboBox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         searchCatagoryComboBox.setForeground(new java.awt.Color(0, 153, 153));
         searchCatagoryComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----", "Cake", "Pie", "Pastries", "Sweets", "Cookies", "Breads", "Desert", "Crackers", "Pizza", "Pudding", "Baked Items", "Ice-Cream", "Drinks", "Muffin", "Waffle" }));
+        searchCatagoryComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchCatagoryComboBoxActionPerformed(evt);
+            }
+        });
 
         searchCatagoryBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/searchBtn.png"))); // NOI18N
         searchCatagoryBtn.setText("Search");
@@ -824,103 +834,182 @@ public class BakeryInfoSys extends javax.swing.JFrame {
             }
         });
 
+        jLabel14.setFont(new java.awt.Font("Cambria Math", 0, 36)); // NOI18N
+        jLabel14.setText("Category");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(searchCatagoryComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(searchCatagoryBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchCatagoryComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(26, Short.MAX_VALUE))
+            .addComponent(searchCatagoryBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+        );
+
+        jTabbedPane2.addTab("Catagory", jPanel2);
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
+        );
+
+        jTabbedPane1.addTab("By Price", jPanel5);
+
+        jPanel6.setBackground(new java.awt.Color(252, 199, 114));
+
+        jLabel12.setFont(new java.awt.Font("Cambria Math", 0, 36)); // NOI18N
+        jLabel12.setText("Item Id");
+
+        jTextField2.setBackground(new java.awt.Color(254, 233, 197));
+        jTextField2.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
+        jTextField2.setForeground(new java.awt.Color(0, 153, 153));
+
+        searchPriceBtn1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/searchBtn.png"))); // NOI18N
+        searchPriceBtn1.setText("Search");
+        searchPriceBtn1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.lightGray, null, null));
+        searchPriceBtn1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                searchPriceBtn1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                searchPriceBtn1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                searchPriceBtn1MouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                searchPriceBtn1MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                searchPriceBtn1MouseReleased(evt);
+            }
+        });
+        searchPriceBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchPriceBtn1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(searchCatagoryComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(searchCatagoryBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addComponent(jLabel12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
+                .addGap(26, 26, 26)
+                .addComponent(searchPriceBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(searchCatagoryComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27))
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(searchCatagoryBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(searchPriceBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                        .addComponent(jLabel12)
+                        .addGap(21, 21, 21))))
         );
 
-        jTabbedPane1.addTab("By catagory", jPanel6);
+        jTabbedPane1.addTab("Delete Item", jPanel6);
 
         jLabel10.setFont(new java.awt.Font("MV Boli", 0, 18)); // NOI18N
-        jLabel10.setText("Search");
+        jLabel10.setText("Additional");
 
         javax.swing.GroupLayout inputPanelLayout = new javax.swing.GroupLayout(inputPanel);
         inputPanel.setLayout(inputPanelLayout);
         inputPanelLayout.setHorizontalGroup(
             inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(inputPanelLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(inputPanelLayout.createSequentialGroup()
-                        .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(enterBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(32, 32, 32)
-                        .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(inputPanelLayout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                .addContainerGap())
-                            .addGroup(inputPanelLayout.createSequentialGroup()
-                                .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(txtItemName)
-                                        .addComponent(txtItemNum)
-                                        .addComponent(priceTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE))
-                                    .addComponent(clearBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(inputPanelLayout.createSequentialGroup()
-                        .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(inputPanelLayout.createSequentialGroup()
-                                .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel8))
-                                .addGap(81, 81, 81)
-                                .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(categoryBox, 0, 287, Short.MAX_VALUE)
-                                    .addGroup(inputPanelLayout.createSequentialGroup()
-                                        .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jRadioButton1)
-                                            .addComponent(jRadioButton3))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jRadioButton4)
-                                            .addComponent(jRadioButton2))
-                                        .addGap(95, 95, 95))))
-                            .addComponent(jLabel9)
-                            .addGroup(inputPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtPrepTime)))
-                        .addContainerGap())))
+                .addGap(192, 192, 192)
+                .addComponent(jLabel10)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(inputPanelLayout.createSequentialGroup()
                 .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(inputPanelLayout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(inputPanelLayout.createSequentialGroup()
+                                .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5)
+                                    .addComponent(enterBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(32, 32, 32)
+                                .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(inputPanelLayout.createSequentialGroup()
+                                        .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(txtItemName)
+                                                .addComponent(txtItemNum)
+                                                .addComponent(priceTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE))
+                                            .addComponent(clearBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(jScrollPane1)))
+                            .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(inputPanelLayout.createSequentialGroup()
+                                    .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel7)
+                                        .addComponent(jLabel8))
+                                    .addGap(81, 81, 81)
+                                    .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(categoryBox, 0, 287, Short.MAX_VALUE)
+                                        .addGroup(inputPanelLayout.createSequentialGroup()
+                                            .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jRadioButton1)
+                                                .addComponent(jRadioButton3))
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jRadioButton4)
+                                                .addComponent(jRadioButton2))
+                                            .addGap(95, 95, 95))))
+                                .addComponent(jLabel9)
+                                .addGroup(inputPanelLayout.createSequentialGroup()
+                                    .addComponent(jLabel6)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtPrepTime)))))
+                    .addGroup(inputPanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jSeparator2))
-                    .addGroup(inputPanelLayout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 489, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inputPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jTabbedPane1)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inputPanelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel10)
-                .addGap(215, 215, 215))
         );
         inputPanelLayout.setVerticalGroup(
             inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -969,8 +1058,8 @@ public class BakeryInfoSys extends javax.swing.JFrame {
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -1270,26 +1359,6 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         operationsPanel.setBackground(new Color(255, 127, 39));
     }//GEN-LAST:event_minimizeIconMousePressed
 
-    private void txtItemNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtItemNumActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtItemNumActionPerformed
-
-    private void txtPrepTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrepTimeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPrepTimeActionPerformed
-
-    private void categoryBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoryBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_categoryBoxActionPerformed
-
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
-
-    private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton4ActionPerformed
-
     private void filesMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_filesMenuMouseEntered
         //Changes the color when mouse enters
         filesMenu.setForeground(Color.WHITE);
@@ -1313,95 +1382,6 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         editMenu.setForeground(Color.BLACK);
         menuBar.setBackground(new Color(243, 194, 114));
     }//GEN-LAST:event_editMenuMouseExited
-
-    private void inputPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inputPanelMouseEntered
-        //Changes the color when mouse enters
-
-        inputPanel.setBackground(new Color(243, 194, 114));
-    }//GEN-LAST:event_inputPanelMouseEntered
-
-    private void inputPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inputPanelMouseExited
-        //Changes the color when mouse exits
-        inputPanel.setBackground(new Color(253, 204, 125));
-    }//GEN-LAST:event_inputPanelMouseExited
-
-    private void enterBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterBtnActionPerformed
-        /**
-         * This method adds value to the table and also performs various
-         * validation functions
-         */
-        DefaultTableModel model = (DefaultTableModel) contentTable.getModel();
-
-        String nutContains = null;
-        String sugarFreeContains = null;
-        if (jRadioButton1.isSelected()) {
-            nutContains = jRadioButton1.getText();
-        } else if (jRadioButton2.isSelected()) {
-            nutContains = jRadioButton2.getText();
-        }
-        if (jRadioButton3.isSelected()) {
-            sugarFreeContains = jRadioButton3.getText();
-        } else if (jRadioButton4.isSelected()) {
-            sugarFreeContains = jRadioButton4.getText();
-        }
-        // DefaultTableModel model = (DefaultTableModel) contentTable.getModel();
-        //model.addRow(new Object[]{txtItemNum.getText(), txtItemName.getText(), categoryBox.getSelectedItem(), itemDescTxt.getText(),
-        // priceTxt.getText(), txtPrepTime.getText(), nutContains, sugarFreeContains});
-
-        // valaditing and adding values to the table 
-        String itemNumValue = txtItemNum.getText();
-        String itemNameValue = txtItemName.getText();
-        String categoryBoxValue = (String) categoryBox.getSelectedItem();
-        String itemDescTxtValue = itemDescTxt.getText();
-        String priceValue = priceTxt.getText();
-        String prepTime = txtPrepTime.getText();
-        checkItemId();
-//validating item id  and price for wrong data type
-        if (!idValidation(itemNumValue)) {
-            JOptionPane.showMessageDialog(this, "Enter valid id");
-        } else if (!priceValidation(priceValue)) {
-            JOptionPane.showMessageDialog(this, "Enter valid price");
-        } else {
-            if (itemNumValue.isEmpty() || itemNameValue.isEmpty() || itemDescTxtValue.isEmpty() || priceValue.isEmpty() || prepTime.isEmpty()) {           //validatiing for empty fields
-                JOptionPane.showMessageDialog(this, "Please enter the details", "Details missing!!", JOptionPane.ERROR_MESSAGE, null);
-            } else {
-                if (isItemIdOk) {
-                    if (nutContains != null && sugarFreeContains != null) {    //validating for unchecked radio buttons
-                        if (categoryBoxValue != "-----") {      //validating for unselected combobox
-                            model.addRow(new Object[]{null, null, null, null});// adding new row
-                            String[] info = {itemNumValue, itemNameValue, categoryBoxValue, itemDescTxtValue, priceValue, prepTime, nutContains, sugarFreeContains};  //adding values to an array
-                            int rowCount = model.getRowCount();
-                            int colCount = model.getColumnCount();
-                            int nextRow = 0;
-                            boolean emptyFlag = false;
-                            if (rowCount != 0) {
-                                do {
-                                    if ((model.getValueAt(nextRow, 0)) != null) {
-                                        nextRow++;
-                                    } else {
-                                        emptyFlag = true;
-                                    }
-                                } while (nextRow < rowCount && !emptyFlag);
-                                for (int i = 0; i < colCount; i++) {
-                                    model.setValueAt(info[i], nextRow, i);
-                                }
-                            } else {
-                                JOptionPane.showMessageDialog(this, "Select the catagory please");
-                            }
-                        } else {
-                            JOptionPane.showMessageDialog(this, "Please select the catagory");
-                        }
-                    } else {
-                        JOptionPane.showMessageDialog(this, "Please selects the contains");
-                    }
-                } else {
-                    JOptionPane.showMessageDialog(this, "Id already exists");
-                }
-            }
-
-        }
-
-    }//GEN-LAST:event_enterBtnActionPerformed
 
     private void fileMenuPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fileMenuPanelMouseClicked
         // TODO add your handling code here:
@@ -1578,89 +1558,6 @@ public class BakeryInfoSys extends javax.swing.JFrame {
                 + "                  \nAny unauthorized use or reproduction/copying of this software is stricly prohibited \n This software is developed as part of the coursework assigned by London Metropolitian University to the developers mentions above");
     }//GEN-LAST:event_aboutMenuItemMouseClicked
 
-    private void searchPriceBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchPriceBtnActionPerformed
-
-    }//GEN-LAST:event_searchPriceBtnActionPerformed
-
-    private void searchPriceBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchPriceBtnMouseEntered
-        // below code sets icon for search Price button while mouse enters
-        searchPriceBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/searchBtnHovered.png")));
-    }//GEN-LAST:event_searchPriceBtnMouseEntered
-
-    private void searchPriceBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchPriceBtnMouseExited
-        //below code sets icon for search Price button while mouse exits
-        searchPriceBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/searchBtn.png")));
-    }//GEN-LAST:event_searchPriceBtnMouseExited
-
-    private void searchPriceBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchPriceBtnMousePressed
-        //below code sets icon for search Price button while mouse is pressed
-        searchPriceBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/searchBtnPressed.png")));
-    }//GEN-LAST:event_searchPriceBtnMousePressed
-
-    private void searchPriceBtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchPriceBtnMouseReleased
-        searchPriceBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/searchBtnHovered.png")));
-    }//GEN-LAST:event_searchPriceBtnMouseReleased
-
-    private void searchPriceBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchPriceBtnMouseClicked
-        JOptionPane.showMessageDialog(this, "Test Message");
-    }//GEN-LAST:event_searchPriceBtnMouseClicked
-
-    private void searchCatagoryBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchCatagoryBtnMouseClicked
-        searchByCatagory();  //calling searchByCatagory method
-    }//GEN-LAST:event_searchCatagoryBtnMouseClicked
-
-    private void searchCatagoryBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchCatagoryBtnMouseEntered
-        searchCatagoryBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/searchBtnHovered.png")));
-    }//GEN-LAST:event_searchCatagoryBtnMouseEntered
-
-    private void searchCatagoryBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchCatagoryBtnMouseExited
-        searchCatagoryBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/searchBtn.png")));
-    }//GEN-LAST:event_searchCatagoryBtnMouseExited
-
-    private void searchCatagoryBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchCatagoryBtnMousePressed
-        searchCatagoryBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/searchBtnPressed.png")));
-    }//GEN-LAST:event_searchCatagoryBtnMousePressed
-
-    private void searchCatagoryBtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchCatagoryBtnMouseReleased
-        searchCatagoryBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/searchBtnHovered.png")));
-    }//GEN-LAST:event_searchCatagoryBtnMouseReleased
-
-    private void searchCatagoryBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchCatagoryBtnActionPerformed
-
-    }//GEN-LAST:event_searchCatagoryBtnActionPerformed
-
-    private void enterBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enterBtnMouseEntered
-        enterBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/enterBtnHovered.png")));
-    }//GEN-LAST:event_enterBtnMouseEntered
-
-    private void enterBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enterBtnMouseExited
-        enterBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/enterBtnNormal.png")));
-    }//GEN-LAST:event_enterBtnMouseExited
-
-    private void enterBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enterBtnMousePressed
-        enterBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/enterBtnPressed.png")));
-    }//GEN-LAST:event_enterBtnMousePressed
-
-    private void enterBtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enterBtnMouseReleased
-        enterBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/enterBtnNormal.png")));
-    }//GEN-LAST:event_enterBtnMouseReleased
-
-    private void clearBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearBtnMouseEntered
-        clearBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/clearBtnHovered.png")));
-    }//GEN-LAST:event_clearBtnMouseEntered
-
-    private void clearBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearBtnMouseExited
-        clearBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/clearBtnNormal.png")));
-    }//GEN-LAST:event_clearBtnMouseExited
-
-    private void clearBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearBtnMousePressed
-        clearBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/clearBtnPressed.png")));
-    }//GEN-LAST:event_clearBtnMousePressed
-
-    private void clearBtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearBtnMouseReleased
-        clearBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/clearBtnNormal.png")));
-    }//GEN-LAST:event_clearBtnMouseReleased
-
     private void clearMenuItemMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearMenuItemMouseEntered
         clearMenuItem.setForeground(Color.RED);
     }//GEN-LAST:event_clearMenuItemMouseEntered
@@ -1669,19 +1566,238 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         clearMenuItem.setForeground(Color.BLACK);
     }//GEN-LAST:event_clearMenuItemMouseExited
 
+    private void clearMenuItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearMenuItemMouseClicked
+        clearInputFields(); //calling clear input fields
+    }//GEN-LAST:event_clearMenuItemMouseClicked
+
+    private void inputPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inputPanelMouseExited
+        //Changes the color when mouse exits
+        inputPanel.setBackground(new Color(253, 204, 125));
+    }//GEN-LAST:event_inputPanelMouseExited
+
+    private void inputPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inputPanelMouseEntered
+        //Changes the color when mouse enters
+
+        inputPanel.setBackground(new Color(243, 194, 114));
+    }//GEN-LAST:event_inputPanelMouseEntered
+
+    private void searchCatagoryBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchCatagoryBtnActionPerformed
+
+    }//GEN-LAST:event_searchCatagoryBtnActionPerformed
+
+    private void searchCatagoryBtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchCatagoryBtnMouseReleased
+        searchCatagoryBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/searchBtnHovered.png")));
+    }//GEN-LAST:event_searchCatagoryBtnMouseReleased
+
+    private void searchCatagoryBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchCatagoryBtnMousePressed
+        searchCatagoryBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/searchBtnPressed.png")));
+    }//GEN-LAST:event_searchCatagoryBtnMousePressed
+
+    private void searchCatagoryBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchCatagoryBtnMouseExited
+        searchCatagoryBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/searchBtn.png")));
+    }//GEN-LAST:event_searchCatagoryBtnMouseExited
+
+    private void searchCatagoryBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchCatagoryBtnMouseEntered
+        searchCatagoryBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/searchBtnHovered.png")));
+    }//GEN-LAST:event_searchCatagoryBtnMouseEntered
+
+    private void searchCatagoryBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchCatagoryBtnMouseClicked
+        searchByCatagory();  //calling searchByCatagory method
+    }//GEN-LAST:event_searchCatagoryBtnMouseClicked
+
     private void clearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBtnActionPerformed
         clearInputFields();
     }//GEN-LAST:event_clearBtnActionPerformed
 
-    private void clearMenuItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearMenuItemMouseClicked
-        clearInputFields(); //calling clear input fields
-    }//GEN-LAST:event_clearMenuItemMouseClicked
+    private void clearBtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearBtnMouseReleased
+        clearBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/clearBtnNormal.png")));
+    }//GEN-LAST:event_clearBtnMouseReleased
+
+    private void clearBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearBtnMousePressed
+        clearBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/clearBtnPressed.png")));
+    }//GEN-LAST:event_clearBtnMousePressed
+
+    private void clearBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearBtnMouseExited
+        clearBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/clearBtnNormal.png")));
+    }//GEN-LAST:event_clearBtnMouseExited
+
+    private void clearBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearBtnMouseEntered
+        clearBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/clearBtnHovered.png")));
+    }//GEN-LAST:event_clearBtnMouseEntered
+
+    private void enterBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterBtnActionPerformed
+        /**
+        * This method adds value to the table and also performs various
+        * validation functions
+        */
+        DefaultTableModel model = (DefaultTableModel) contentTable.getModel();
+
+        String nutContains = null;
+        String sugarFreeContains = null;
+        if (jRadioButton1.isSelected()) {
+            nutContains = jRadioButton1.getText();
+        } else if (jRadioButton2.isSelected()) {
+            nutContains = jRadioButton2.getText();
+        }
+        if (jRadioButton3.isSelected()) {
+            sugarFreeContains = jRadioButton3.getText();
+        } else if (jRadioButton4.isSelected()) {
+            sugarFreeContains = jRadioButton4.getText();
+        }
+        // DefaultTableModel model = (DefaultTableModel) contentTable.getModel();
+        //model.addRow(new Object[]{txtItemNum.getText(), txtItemName.getText(), categoryBox.getSelectedItem(), itemDescTxt.getText(),
+            // priceTxt.getText(), txtPrepTime.getText(), nutContains, sugarFreeContains});
+
+    // valaditing and adding values to the table
+    String itemNumValue = txtItemNum.getText();
+    String itemNameValue = txtItemName.getText();
+    String categoryBoxValue = (String) categoryBox.getSelectedItem();
+    String itemDescTxtValue = itemDescTxt.getText();
+    String priceValue = priceTxt.getText();
+    String prepTime = txtPrepTime.getText();
+    checkItemId();
+    //validating item id  and price for wrong data type
+    if (!idValidation(itemNumValue)) {
+        JOptionPane.showMessageDialog(this, "Enter valid id");
+        } else if (!priceValidation(priceValue)) {
+            JOptionPane.showMessageDialog(this, "Enter valid price");
+        } else {
+            if (itemNumValue.isEmpty() || itemNameValue.isEmpty() || itemDescTxtValue.isEmpty() || priceValue.isEmpty() || prepTime.isEmpty()) {           //validatiing for empty fields
+                JOptionPane.showMessageDialog(this, "Please enter the details", "Details missing!!", JOptionPane.ERROR_MESSAGE, null);
+            } else {
+                if (isItemIdOk) {
+                    if (nutContains != null && sugarFreeContains != null) {    //validating for unchecked radio buttons
+                        if (categoryBoxValue != "-----") {      //validating for unselected combobox
+                            model.addRow(new Object[]{null, null, null, null});// adding new row
+                            String[] info = {itemNumValue, itemNameValue, categoryBoxValue, itemDescTxtValue, priceValue, prepTime, nutContains, sugarFreeContains};  //adding values to an array
+                            int rowCount = model.getRowCount();
+                            int colCount = model.getColumnCount();
+                            int nextRow = 0;
+                            boolean emptyFlag = false;
+                            if (rowCount != 0) {
+                                do {
+                                    if ((model.getValueAt(nextRow, 0)) != null) {
+                                        nextRow++;
+                                    } else {
+                                        emptyFlag = true;
+                                    }
+                                } while (nextRow < rowCount && !emptyFlag);
+                                for (int i = 0; i < colCount; i++) {
+                                    model.setValueAt(info[i], nextRow, i);
+                                }
+                            } else {
+                                JOptionPane.showMessageDialog(this, "Select the catagory please");
+                            }
+                        } else {
+                            JOptionPane.showMessageDialog(this, "Please select the catagory");
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Please selects the contains");
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(this, "Id already exists");
+                }
+            }
+
+        }
+    }//GEN-LAST:event_enterBtnActionPerformed
+
+    private void enterBtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enterBtnMouseReleased
+        enterBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/enterBtnNormal.png")));
+    }//GEN-LAST:event_enterBtnMouseReleased
+
+    private void enterBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enterBtnMousePressed
+        enterBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/enterBtnPressed.png")));
+    }//GEN-LAST:event_enterBtnMousePressed
+
+    private void enterBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enterBtnMouseExited
+        enterBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/enterBtnNormal.png")));
+    }//GEN-LAST:event_enterBtnMouseExited
+
+    private void enterBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enterBtnMouseEntered
+        enterBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/enterBtnHovered.png")));
+    }//GEN-LAST:event_enterBtnMouseEntered
+
+    private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton4ActionPerformed
+
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void categoryBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoryBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_categoryBoxActionPerformed
+
+    private void txtPrepTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrepTimeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPrepTimeActionPerformed
+
+    private void txtItemNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtItemNumActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtItemNumActionPerformed
+
+    private void searchPriceBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchPriceBtnActionPerformed
+
+    }//GEN-LAST:event_searchPriceBtnActionPerformed
+
+    private void searchPriceBtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchPriceBtnMouseReleased
+        searchPriceBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/searchBtnHovered.png")));
+    }//GEN-LAST:event_searchPriceBtnMouseReleased
+
+    private void searchPriceBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchPriceBtnMousePressed
+        //below code sets icon for search Price button while mouse is pressed
+        searchPriceBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/searchBtnPressed.png")));
+    }//GEN-LAST:event_searchPriceBtnMousePressed
+
+    private void searchPriceBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchPriceBtnMouseExited
+        //below code sets icon for search Price button while mouse exits
+        searchPriceBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/searchBtn.png")));
+    }//GEN-LAST:event_searchPriceBtnMouseExited
+
+    private void searchPriceBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchPriceBtnMouseEntered
+        // below code sets icon for search Price button while mouse enters
+        searchPriceBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/searchBtnHovered.png")));
+    }//GEN-LAST:event_searchPriceBtnMouseEntered
+
+    private void searchPriceBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchPriceBtnMouseClicked
+        JOptionPane.showMessageDialog(this, "Test Message");
+    }//GEN-LAST:event_searchPriceBtnMouseClicked
+
+    private void searchCatagoryComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchCatagoryComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchCatagoryComboBoxActionPerformed
+
+    private void searchPriceBtn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchPriceBtn1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchPriceBtn1MouseClicked
+
+    private void searchPriceBtn1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchPriceBtn1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchPriceBtn1MouseEntered
+
+    private void searchPriceBtn1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchPriceBtn1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchPriceBtn1MouseExited
+
+    private void searchPriceBtn1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchPriceBtn1MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchPriceBtn1MousePressed
+
+    private void searchPriceBtn1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchPriceBtn1MouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchPriceBtn1MouseReleased
+
+    private void searchPriceBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchPriceBtn1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchPriceBtn1ActionPerformed
     public void clearInputFields() {
         /**
          * method to clear all input field
          */
-        txtItemName.setText("");
         txtItemNum.setText("");
+        txtItemName.setText("");
         txtPrepTime.setText("");
         nutContains.clearSelection();
         sugarFree.clearSelection();
@@ -1760,6 +1876,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
     private javax.swing.JTextArea itemDescTxt;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -1769,6 +1886,8 @@ public class BakeryInfoSys extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JRadioButton jRadioButton1;
@@ -1782,7 +1901,9 @@ public class BakeryInfoSys extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JLabel maximizeIcon;
     private javax.swing.JPanel menuBar;
@@ -1794,6 +1915,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
     private javax.swing.JButton searchCatagoryBtn;
     private javax.swing.JComboBox<String> searchCatagoryComboBox;
     private javax.swing.JButton searchPriceBtn;
+    private javax.swing.JButton searchPriceBtn1;
     private javax.swing.ButtonGroup sugarFree;
     private javax.swing.JPanel tablePanel;
     private javax.swing.JPanel topPanel;
