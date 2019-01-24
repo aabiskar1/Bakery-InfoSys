@@ -130,7 +130,6 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         for (int i = 0; i < rowCount; i++) {
             valueFromTable = contentTable.getValueAt(i, 2).toString();
 
-            System.out.println(valueFromTable + "khjlkjolhkj");
             if (userItem.equals(valueFromTable)) {
                 li.add(contentTable.getValueAt(i, 1));
                 itemcount++;
@@ -138,8 +137,8 @@ public class BakeryInfoSys extends javax.swing.JFrame {
             } else {
 
             }
-
         }
+
         if (li.isEmpty()) {
             JOptionPane.showMessageDialog(this, "There are no items in this catagory");
         } else {
@@ -209,6 +208,21 @@ public class BakeryInfoSys extends javax.swing.JFrame {
                     .getName()).log(Level.SEVERE, null, ex);
         } catch (NullPointerException ex) {
             JOptionPane.showMessageDialog(this, "No files selected");
+        }
+
+    }
+
+    /**
+     * Setting row count
+     */
+    public void resetTableRow() {
+        DefaultTableModel model = (DefaultTableModel) contentTable.getModel();
+        int rowCount = model.getRowCount()-1;
+        model.removeRow(13);
+        for (int i = 0; i <= rowCount; i++) {
+            //model.removeRow(i);
+            System.out.println(i);
+            
         }
 
     }
@@ -1559,6 +1573,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
     }//GEN-LAST:event_helpUsMenuItemMouseClicked
 
     private void aboutMenuItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutMenuItemMouseClicked
+        resetTableRow();
         JOptionPane.showMessageDialog(this, "Bakery InfoSys ©\nDeveloped by Aabishkar Aryal & Nishan Timalsina"
                 + "                  \nAny unauthorized use or reproduction/copying of this software is stricly prohibited \n This software is developed as part of the coursework assigned by London Metropolitian University to the developers mentions above");
     }//GEN-LAST:event_aboutMenuItemMouseClicked
