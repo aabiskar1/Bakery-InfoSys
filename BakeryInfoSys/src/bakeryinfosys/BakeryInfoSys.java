@@ -1494,6 +1494,17 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         }
         return true;
     }
+    public boolean prepTimeValidation(String time)
+    {
+        for (int i = 0; i < time.length(); i++) {
+            if (Character.isDigit(time.charAt(i))
+                    == false) {
+                //txtItemNum.setEditable(false);
+                return false;
+            }
+        }
+        return true;
+    }
 
     public boolean priceValidation(String price) {
         for (int i = 0; i < price.length(); i++) {
@@ -1659,7 +1670,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
     private void clearBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearBtnMouseEntered
         clearBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/clearBtnHovered.png")));
     }//GEN-LAST:event_clearBtnMouseEntered
-
+   
     private void enterBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterBtnActionPerformed
         /**
         * This method adds value to the table and also performs various
@@ -1696,7 +1707,10 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Enter valid id");
         } else if (!priceValidation(priceValue)) {
             JOptionPane.showMessageDialog(this, "Enter valid price");
-        } else {
+        } else if (!prepTimeValidation(prepTime)){
+            JOptionPane.showMessageDialog(this, "Enter valid preperation time");
+        }
+        else {
             if (itemNumValue.isEmpty() || itemNameValue.isEmpty() || itemDescTxtValue.isEmpty() || priceValue.isEmpty() || prepTime.isEmpty()) {           //validatiing for empty fields
                 JOptionPane.showMessageDialog(this, "Please enter the details", "Details missing!!", JOptionPane.ERROR_MESSAGE, null);
             } else {
