@@ -231,13 +231,13 @@ public class BakeryInfoSys extends javax.swing.JFrame {
     }
     /** This method is used to remove item from the table */ 
     public void deleteItem(){
-        int rowCount = contentTable.getRowCount(); //self explanatory
+        int rowCount = contentTable.getRowCount()-1; //self explanatory
         int colCount = contentTable.getColumnCount();//self explanatory
         boolean flagOk = true;//checks if the condition is tue
         String userNum = txtItemDel.getText();
     DefaultTableModel model = (DefaultTableModel) contentTable.getModel();
          String valueFromTable;
-
+         String temp= contentTable.getValueAt(rowCount,0).toString();
         for (int i = 0; i < rowCount; i++) { //checks for the condition if the id exists or not
             valueFromTable = contentTable.getValueAt(i,0).toString();
             System.out.println(valueFromTable);
@@ -247,9 +247,15 @@ public class BakeryInfoSys extends javax.swing.JFrame {
                     isItemIdOk = false;
                     model.removeRow(i);
                     flagOk = false;
-                   
+                }
+                else if (userNum.equals(temp))
+                         {
+                             isItemIdOk=false;
+                             model.removeRow(rowCount);
+                             flagOk=false;
+                         }
 
-                } else {
+                 else {
                     isItemIdOk = true;
                     System.out.println("item id iOk!!!");
                     break;
