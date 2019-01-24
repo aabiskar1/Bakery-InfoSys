@@ -658,6 +658,7 @@
                 </Property>
               </Properties>
               <Events>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtItemNumMouseEntered"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtItemNumActionPerformed"/>
               </Events>
             </Component>
@@ -681,6 +682,9 @@
                   <Color blue="99" green="99" red="0" type="rgb"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtItemNameMouseEntered"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="itemNamelbl">
               <Properties>
@@ -710,6 +714,9 @@
                   <Color blue="99" green="99" red="0" type="rgb"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="priceTxtMouseEntered"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="itemDescLbl">
               <Properties>
@@ -742,6 +749,9 @@
                     <Property name="rows" type="int" value="5"/>
                     <Property name="wrapStyleWord" type="boolean" value="true"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="itemDescTxtMouseEntered"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -766,6 +776,7 @@
                 </Property>
               </Properties>
               <Events>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtPrepTimeMouseEntered"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPrepTimeActionPerformed"/>
               </Events>
             </Component>
@@ -810,6 +821,7 @@
                 </Property>
               </Properties>
               <Events>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="categoryBoxMouseEntered"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="categoryBoxActionPerformed"/>
               </Events>
               <AuxValues>
@@ -835,6 +847,7 @@
                 <Property name="text" type="java.lang.String" value="Yes"/>
               </Properties>
               <Events>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="nutsYesMouseEntered"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nutsYesActionPerformed"/>
               </Events>
             </Component>
@@ -848,6 +861,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="No"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="nutNoMouseEntered"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="sugarLbl">
               <Properties>
@@ -867,6 +883,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Yes"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="sugarYesMouseEntered"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="sugarNo">
               <Properties>
@@ -879,6 +898,7 @@
                 <Property name="text" type="java.lang.String" value="No"/>
               </Properties>
               <Events>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="sugarNoMouseEntered"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sugarNoActionPerformed"/>
               </Events>
             </Component>
@@ -1438,6 +1458,9 @@
                   <Image iconType="3" name="/bakeryinfosys/images/clearMenu.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Clear All"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Hand Cursor"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="clearMenuItemMouseClicked"/>

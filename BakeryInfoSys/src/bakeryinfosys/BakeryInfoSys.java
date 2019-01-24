@@ -165,7 +165,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         boolean flagOk = true;//checks if the condition is tue
 
         for (int i = 0; i < rowCount; i++) { //checks for the condition if the id already exists or not
-            valueFromTable = contentTable.getValueAt(i,0).toString();
+            valueFromTable = contentTable.getValueAt(i, 0).toString();
             System.out.println(valueFromTable);
             while (flagOk) {
 
@@ -218,28 +218,30 @@ public class BakeryInfoSys extends javax.swing.JFrame {
      */
     public void resetTableRow() {
         DefaultTableModel model = (DefaultTableModel) contentTable.getModel();
-        int rowCount = contentTable.getRowCount()-1;
- 
-        //model.removeRow(13);
+        int rowCount = contentTable.getRowCount() - 1;
 
+        //model.removeRow(13);
         for (int i = 0; i < rowCount; i--) {
             model.removeRow(i);
             System.out.println(i);
-            
+
         }
 
     }
-    /** This method is used to remove item from the table */ 
-    public void deleteItem(){
-        int rowCount = contentTable.getRowCount()-1; //self explanatory
+
+    /**
+     * This method is used to remove item from the table
+     */
+    public void deleteItem() {
+        int rowCount = contentTable.getRowCount() - 1; //self explanatory
         int colCount = contentTable.getColumnCount();//self explanatory
         boolean flagOk = true;//checks if the condition is tue
         String userNum = txtItemDel.getText();
-    DefaultTableModel model = (DefaultTableModel) contentTable.getModel();
-         String valueFromTable;
-         String temp= contentTable.getValueAt(rowCount,0).toString();
+        DefaultTableModel model = (DefaultTableModel) contentTable.getModel();
+        String valueFromTable;
+        String temp = contentTable.getValueAt(rowCount, 0).toString();
         for (int i = 0; i < rowCount; i++) { //checks for the condition if the id exists or not
-            valueFromTable = contentTable.getValueAt(i,0).toString();
+            valueFromTable = contentTable.getValueAt(i, 0).toString();
             System.out.println(valueFromTable);
             while (flagOk) {
 
@@ -247,15 +249,11 @@ public class BakeryInfoSys extends javax.swing.JFrame {
                     isItemIdOk = false;
                     model.removeRow(i);
                     flagOk = false;
-                }
-                else if (userNum.equals(temp))
-                         {
-                             isItemIdOk=false;
-                             model.removeRow(rowCount);
-                             flagOk=false;
-                         }
-
-                 else {
+                } else if (userNum.equals(temp)) {
+                    isItemIdOk = false;
+                    model.removeRow(rowCount);
+                    flagOk = false;
+                } else {
                     isItemIdOk = true;
                     System.out.println("item id iOk!!!");
                     break;
@@ -625,6 +623,11 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         txtItemNum.setBackground(new java.awt.Color(254, 233, 197));
         txtItemNum.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
         txtItemNum.setForeground(new java.awt.Color(0, 153, 153));
+        txtItemNum.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txtItemNumMouseEntered(evt);
+            }
+        });
         txtItemNum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtItemNumActionPerformed(evt);
@@ -637,6 +640,11 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         txtItemName.setBackground(new java.awt.Color(254, 233, 197));
         txtItemName.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
         txtItemName.setForeground(new java.awt.Color(0, 153, 153));
+        txtItemName.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txtItemNameMouseEntered(evt);
+            }
+        });
 
         itemNamelbl.setFont(new java.awt.Font("MV Boli", 0, 18)); // NOI18N
         itemNamelbl.setText("Item Name");
@@ -647,6 +655,11 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         priceTxt.setBackground(new java.awt.Color(254, 233, 197));
         priceTxt.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
         priceTxt.setForeground(new java.awt.Color(0, 153, 153));
+        priceTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                priceTxtMouseEntered(evt);
+            }
+        });
 
         itemDescLbl.setFont(new java.awt.Font("MV Boli", 0, 18)); // NOI18N
         itemDescLbl.setText("Item Description");
@@ -658,6 +671,11 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         itemDescTxt.setLineWrap(true);
         itemDescTxt.setRows(5);
         itemDescTxt.setWrapStyleWord(true);
+        itemDescTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                itemDescTxtMouseEntered(evt);
+            }
+        });
         jScrollPane1.setViewportView(itemDescTxt);
 
         prepTimeLbl.setFont(new java.awt.Font("MV Boli", 0, 18)); // NOI18N
@@ -666,6 +684,11 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         txtPrepTime.setBackground(new java.awt.Color(254, 233, 197));
         txtPrepTime.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
         txtPrepTime.setForeground(new java.awt.Color(0, 153, 153));
+        txtPrepTime.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txtPrepTimeMouseEntered(evt);
+            }
+        });
         txtPrepTime.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPrepTimeActionPerformed(evt);
@@ -679,6 +702,11 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         categoryBox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         categoryBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----", "Cake", "Pie", "Pastries", "Sweets", "Cookies", "Breads", "Desert", "Crackers", "Pizza", "Pudding", "Baked Items", "Ice-Cream", "Drinks", "Muffin", "Waffle" }));
         categoryBox.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        categoryBox.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                categoryBoxMouseEntered(evt);
+            }
+        });
         categoryBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 categoryBoxActionPerformed(evt);
@@ -691,6 +719,11 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         nutsYes.setBackground(new java.awt.Color(253, 204, 125));
         nutContains.add(nutsYes);
         nutsYes.setText("Yes");
+        nutsYes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                nutsYesMouseEntered(evt);
+            }
+        });
         nutsYes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nutsYesActionPerformed(evt);
@@ -700,6 +733,11 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         nutNo.setBackground(new java.awt.Color(253, 204, 125));
         nutContains.add(nutNo);
         nutNo.setText("No");
+        nutNo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                nutNoMouseEntered(evt);
+            }
+        });
 
         sugarLbl.setFont(new java.awt.Font("MV Boli", 0, 18)); // NOI18N
         sugarLbl.setText("Sugar Free");
@@ -707,10 +745,20 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         sugarYes.setBackground(new java.awt.Color(253, 204, 125));
         sugarFree.add(sugarYes);
         sugarYes.setText("Yes");
+        sugarYes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                sugarYesMouseEntered(evt);
+            }
+        });
 
         sugarNo.setBackground(new java.awt.Color(253, 204, 125));
         sugarFree.add(sugarNo);
         sugarNo.setText("No");
+        sugarNo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                sugarNoMouseEntered(evt);
+            }
+        });
         sugarNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sugarNoActionPerformed(evt);
@@ -1176,6 +1224,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         clearMenuItem.setFont(new java.awt.Font("MV Boli", 0, 18)); // NOI18N
         clearMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/clearMenu.png"))); // NOI18N
         clearMenuItem.setText("Clear All");
+        clearMenuItem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         clearMenuItem.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 clearMenuItemMouseClicked(evt);
@@ -1494,8 +1543,8 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         }
         return true;
     }
-    public boolean prepTimeValidation(String time)
-    {
+
+    public boolean prepTimeValidation(String time) {
         for (int i = 0; i < time.length(); i++) {
             if (Character.isDigit(time.charAt(i))
                     == false) {
@@ -1618,12 +1667,19 @@ public class BakeryInfoSys extends javax.swing.JFrame {
 
     private void inputPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inputPanelMouseExited
         //Changes the color when mouse exits
+        nutsYes.setBackground(new Color(253, 204, 125));
+        nutNo.setBackground(new Color(253, 204, 125));
+        sugarYes.setBackground(new Color(253, 204, 125));
+        sugarNo.setBackground(new Color(253, 204, 125));
         inputPanel.setBackground(new Color(253, 204, 125));
     }//GEN-LAST:event_inputPanelMouseExited
 
     private void inputPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inputPanelMouseEntered
         //Changes the color when mouse enters
-
+        nutsYes.setBackground(new Color(243, 194, 114));
+        nutNo.setBackground(new Color(243, 194, 114));
+        sugarYes.setBackground(new Color(243, 194, 114));
+        sugarNo.setBackground(new Color(243, 194, 114));
         inputPanel.setBackground(new Color(243, 194, 114));
     }//GEN-LAST:event_inputPanelMouseEntered
 
@@ -1670,12 +1726,12 @@ public class BakeryInfoSys extends javax.swing.JFrame {
     private void clearBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearBtnMouseEntered
         clearBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/clearBtnHovered.png")));
     }//GEN-LAST:event_clearBtnMouseEntered
-   
+
     private void enterBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterBtnActionPerformed
         /**
-        * This method adds value to the table and also performs various
-        * validation functions
-        */
+         * This method adds value to the table and also performs various
+         * validation functions
+         */
         DefaultTableModel model = (DefaultTableModel) contentTable.getModel();
 
         String nutContains = null;
@@ -1692,25 +1748,24 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         }
         // DefaultTableModel model = (DefaultTableModel) contentTable.getModel();
         //model.addRow(new Object[]{txtItemNum.getText(), txtItemName.getText(), categoryBox.getSelectedItem(), itemDescTxt.getText(),
-            // priceTxt.getText(), txtPrepTime.getText(), nutContains, sugarFreeContains});
+        // priceTxt.getText(), txtPrepTime.getText(), nutContains, sugarFreeContains});
 
-    // valaditing and adding values to the table
-    String itemNumValue = txtItemNum.getText();
-    String itemNameValue = txtItemName.getText();
-    String categoryBoxValue = (String) categoryBox.getSelectedItem();
-    String itemDescTxtValue = itemDescTxt.getText();
-    String priceValue = priceTxt.getText();
-    String prepTime = txtPrepTime.getText();
-    checkItemId();
-    //validating item id  and price for wrong data type
-    if (!idValidation(itemNumValue)) {
-        JOptionPane.showMessageDialog(this, "Enter valid id");
+        // valaditing and adding values to the table
+        String itemNumValue = txtItemNum.getText();
+        String itemNameValue = txtItemName.getText();
+        String categoryBoxValue = (String) categoryBox.getSelectedItem();
+        String itemDescTxtValue = itemDescTxt.getText();
+        String priceValue = priceTxt.getText();
+        String prepTime = txtPrepTime.getText();
+        checkItemId();
+        //validating item id  and price for wrong data type
+        if (!idValidation(itemNumValue)) {
+            JOptionPane.showMessageDialog(this, "Enter valid id");
         } else if (!priceValidation(priceValue)) {
             JOptionPane.showMessageDialog(this, "Enter valid price");
-        } else if (!prepTimeValidation(prepTime)){
+        } else if (!prepTimeValidation(prepTime)) {
             JOptionPane.showMessageDialog(this, "Enter valid preperation time");
-        }
-        else {
+        } else {
             if (itemNumValue.isEmpty() || itemNameValue.isEmpty() || itemDescTxtValue.isEmpty() || priceValue.isEmpty() || prepTime.isEmpty()) {           //validatiing for empty fields
                 JOptionPane.showMessageDialog(this, "Please enter the details", "Details missing!!", JOptionPane.ERROR_MESSAGE, null);
             } else {
@@ -1827,7 +1882,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
     }//GEN-LAST:event_deleteBtnMouseEntered
 
     private void deleteBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteBtnMouseExited
-       deleteBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/deleteBtnNormal.png")));
+        deleteBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/deleteBtnNormal.png")));
     }//GEN-LAST:event_deleteBtnMouseExited
 
     private void deleteBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteBtnMousePressed
@@ -1841,6 +1896,90 @@ public class BakeryInfoSys extends javax.swing.JFrame {
     private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_deleteBtnActionPerformed
+
+    private void txtItemNumMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtItemNumMouseEntered
+        inputPanel.setBackground(new Color(243, 194, 114));
+        nutsYes.setBackground(new Color(243, 194, 114));
+        nutNo.setBackground(new Color(243, 194, 114));
+        sugarYes.setBackground(new Color(243, 194, 114));
+        sugarNo.setBackground(new Color(243, 194, 114));
+    }//GEN-LAST:event_txtItemNumMouseEntered
+
+    private void txtItemNameMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtItemNameMouseEntered
+        inputPanel.setBackground(new Color(243, 194, 114));
+        nutsYes.setBackground(new Color(243, 194, 114));
+        nutNo.setBackground(new Color(243, 194, 114));
+        sugarYes.setBackground(new Color(243, 194, 114));
+        sugarNo.setBackground(new Color(243, 194, 114));
+    }//GEN-LAST:event_txtItemNameMouseEntered
+
+    private void itemDescTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_itemDescTxtMouseEntered
+        inputPanel.setBackground(new Color(243, 194, 114));
+        nutsYes.setBackground(new Color(243, 194, 114));
+        nutNo.setBackground(new Color(243, 194, 114));
+        sugarYes.setBackground(new Color(243, 194, 114));
+        sugarNo.setBackground(new Color(243, 194, 114));
+    }//GEN-LAST:event_itemDescTxtMouseEntered
+
+    private void txtPrepTimeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPrepTimeMouseEntered
+        inputPanel.setBackground(new Color(243, 194, 114));
+        nutsYes.setBackground(new Color(243, 194, 114));
+        nutNo.setBackground(new Color(243, 194, 114));
+        sugarYes.setBackground(new Color(243, 194, 114));
+        sugarNo.setBackground(new Color(243, 194, 114));
+    }//GEN-LAST:event_txtPrepTimeMouseEntered
+
+    private void categoryBoxMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_categoryBoxMouseEntered
+        inputPanel.setBackground(new Color(243, 194, 114));
+        nutsYes.setBackground(new Color(243, 194, 114));
+        nutNo.setBackground(new Color(243, 194, 114));
+        sugarYes.setBackground(new Color(243, 194, 114));
+        sugarNo.setBackground(new Color(243, 194, 114));
+    }//GEN-LAST:event_categoryBoxMouseEntered
+
+    private void priceTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_priceTxtMouseEntered
+        inputPanel.setBackground(new Color(243, 194, 114));
+        nutsYes.setBackground(new Color(243, 194, 114));
+        nutNo.setBackground(new Color(243, 194, 114));
+        sugarYes.setBackground(new Color(243, 194, 114));
+        sugarNo.setBackground(new Color(243, 194, 114));
+    }//GEN-LAST:event_priceTxtMouseEntered
+
+    private void nutsYesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nutsYesMouseEntered
+        inputPanel.setBackground(new Color(243, 194, 114));
+        nutsYes.setBackground(new Color(243, 194, 114));
+        nutNo.setBackground(new Color(243, 194, 114));
+        sugarYes.setBackground(new Color(243, 194, 114));
+        sugarNo.setBackground(new Color(243, 194, 114));
+
+    }//GEN-LAST:event_nutsYesMouseEntered
+
+    private void nutNoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nutNoMouseEntered
+        inputPanel.setBackground(new Color(243, 194, 114));
+        nutsYes.setBackground(new Color(243, 194, 114));
+        nutNo.setBackground(new Color(243, 194, 114));
+        sugarYes.setBackground(new Color(243, 194, 114));
+        sugarNo.setBackground(new Color(243, 194, 114));
+
+    }//GEN-LAST:event_nutNoMouseEntered
+
+    private void sugarYesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sugarYesMouseEntered
+        inputPanel.setBackground(new Color(243, 194, 114));
+        nutsYes.setBackground(new Color(243, 194, 114));
+        nutNo.setBackground(new Color(243, 194, 114));
+        sugarYes.setBackground(new Color(243, 194, 114));
+        sugarNo.setBackground(new Color(243, 194, 114));
+
+    }//GEN-LAST:event_sugarYesMouseEntered
+
+    private void sugarNoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sugarNoMouseEntered
+        inputPanel.setBackground(new Color(243, 194, 114));
+        nutsYes.setBackground(new Color(243, 194, 114));
+        nutNo.setBackground(new Color(243, 194, 114));
+        sugarYes.setBackground(new Color(243, 194, 114));
+        sugarNo.setBackground(new Color(243, 194, 114));
+
+    }//GEN-LAST:event_sugarNoMouseEntered
     public void clearInputFields() {
         /**
          * method to clear all input field
