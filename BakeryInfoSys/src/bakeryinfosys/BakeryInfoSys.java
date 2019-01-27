@@ -244,6 +244,20 @@ public class BakeryInfoSys extends javax.swing.JFrame {
             }
         }
     }
+    public void storter(){
+        ArrayList li = new ArrayList();
+        String userItem = (String) searchCatagoryComboBox.getSelectedItem();
+        String valueFromTable;
+        String itemInTable;
+        int itemcount = 0;
+        int rowCount = contentTable.getRowCount();
+        int colCount = contentTable.getColumnCount();
+        for (int i = 0; i < rowCount; i++) {
+            valueFromTable = contentTable.getValueAt(i, 4).toString();
+            li.add(valueFromTable);            
+        }
+        System.out.println(li);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -1631,7 +1645,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
     }//GEN-LAST:event_helpUsMenuItemMouseClicked
 
     private void aboutMenuItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutMenuItemMouseClicked
-       
+storter();       
         JOptionPane.showMessageDialog(this, "Bakery InfoSys ©\nDeveloped by Aabishkar Aryal & Nishan Timalsina"
                 + "                  \nAny unauthorized use or reproduction/copying of this software is stricly prohibited \n This software is developed as part of the coursework assigned by London Metropolitian University to the developers mentions above");
     }//GEN-LAST:event_aboutMenuItemMouseClicked
