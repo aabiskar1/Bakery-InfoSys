@@ -414,7 +414,7 @@
                         <Column editable="true" title="ItemName" type="java.lang.Object"/>
                         <Column editable="true" title="Catagory" type="java.lang.Object"/>
                         <Column editable="true" title="ItemDescription" type="java.lang.Object"/>
-                        <Column editable="true" title="Price" type="java.lang.Object"/>
+                        <Column editable="true" title="Price" type="java.lang.Integer"/>
                         <Column editable="true" title="PreprationTime" type="java.lang.Object"/>
                         <Column editable="true" title="ContainNuts" type="java.lang.Object"/>
                         <Column editable="true" title="SugarFree" type="java.lang.Object"/>
