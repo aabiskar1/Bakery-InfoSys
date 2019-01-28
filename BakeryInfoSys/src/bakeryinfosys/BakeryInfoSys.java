@@ -13,6 +13,7 @@ import java.awt.List;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
@@ -27,7 +28,8 @@ import javax.swing.table.JTableHeader;
  * @author aabis
  */
 public class BakeryInfoSys extends javax.swing.JFrame {
-int[] a = ArrayUtil.randomIntArray(20, 100);
+//int[] a = ArrayUtil.randomIntArray(20, 100);
+int[] a = {1,80,8,20};
     /**
      * Creates new form BakeryInfoSys
      */
@@ -1648,6 +1650,7 @@ int[] a = ArrayUtil.randomIntArray(20, 100);
     private void aboutMenuItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutMenuItemMouseClicked
         
         MergeSorter.sort(a);
+        System.out.println(Arrays.toString(a));
         JOptionPane.showMessageDialog(this, "Bakery InfoSys ©\nDeveloped by Aabishkar Aryal & Nishan Timalsina"
                 + "                  \nAny unauthorized use or reproduction/copying of this software is stricly prohibited \n This software is developed as part of the coursework assigned by London Metropolitian University to the developers mentions above");
     }//GEN-LAST:event_aboutMenuItemMouseClicked
