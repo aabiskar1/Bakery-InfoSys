@@ -30,7 +30,9 @@ import javax.swing.table.JTableHeader;
  */
 public class BakeryInfoSys extends javax.swing.JFrame {
 //int[] a = ArrayUtil.randomIntArray(20, 100);
-int[] a = {20,1,8,80};
+
+    int[] a = {20, 1, 8, 80};
+
     /**
      * Creates new form BakeryInfoSys
      */
@@ -69,7 +71,7 @@ int[] a = {20,1,8,80};
         String[] list16 = {"16", "Blueberry Muffin", "Muffin", "This muffin contains Blueberry flavour", "200", "10", "No", "No"};
         String[] list17 = {"17", "Mac and Cheese", "Breakfast", "This is made of macaroni and cheese", "435", "10", "No", "No"};
         String[] list18 = {"18", "Burgar", "Breakfast", "A flat round paties of minced beef that is fried or grilled and typically served in a bread roll", "370", "15", "No", "No"};
-        
+
         String[] list20 = {"20", "Americano", "Drinks", "Coffee made with coffee beans inported from arabia", "175", "5", "No", "No"};
         String[] list21 = {"21", "Green Tea", "Drinks", "Made of leaves grown in himalayas", "225", "5", "No", "No"};
         String[] list22 = {"22", "Cinamon Tea", "Drinks", "This tea contains cinamon", "190", "5", "No", "No"};
@@ -218,7 +220,6 @@ int[] a = {20,1,8,80};
 
     }
 
-
     /**
      * This method is used to remove item from the table
      */
@@ -248,7 +249,8 @@ int[] a = {20,1,8,80};
             }
         }
     }
-    public void storter(){
+
+    public void storter() {
         ArrayList li = new ArrayList();
         String userItem = (String) searchCatagoryComboBox.getSelectedItem();
         String valueFromTable;
@@ -260,7 +262,6 @@ int[] a = {20,1,8,80};
             valueFromTable = contentTable.getValueAt(i, 4).toString();
             li.add(valueFromTable);
 
-            
         }
     }
 
@@ -1658,7 +1659,7 @@ int[] a = {20,1,8,80};
     }//GEN-LAST:event_helpUsMenuItemMouseClicked
 
     private void aboutMenuItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutMenuItemMouseClicked
-        
+
         MergeSorter.sort(a);
         System.out.println(Arrays.toString(a));
         JOptionPane.showMessageDialog(this, "Bakery InfoSys ©\nDeveloped by Aabishkar Aryal & Nishan Timalsina"
@@ -1855,8 +1856,8 @@ int[] a = {20,1,8,80};
     }//GEN-LAST:event_txtItemNumActionPerformed
 
     private void searchPriceBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchPriceBtnActionPerformed
-       
-        
+
+
     }//GEN-LAST:event_searchPriceBtnActionPerformed
 
     private void searchPriceBtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchPriceBtnMouseReleased
@@ -1879,41 +1880,45 @@ int[] a = {20,1,8,80};
     }//GEN-LAST:event_searchPriceBtnMouseEntered
 
     private void searchPriceBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchPriceBtnMouseClicked
-        String valueFromRow=null;  
+        String valueFromRow = null;
+        int foundId;
         int valueFromTable;
         String itemInTable;
         int itemcount = 0;
         int rowCount = contentTable.getRowCount();
-        int ab[] = new int [rowCount];
+        int ab[] = new int[rowCount];
         int getSearchRequest = Integer.parseInt(searchPrice.getText());
         int colCount = contentTable.getColumnCount();
         for (int i = 0; i < rowCount; i++) {
-            valueFromTable =  Integer.valueOf((String) contentTable.getValueAt(i, 4));
-            ab[i]=valueFromTable; 
-            
+            valueFromTable = Integer.valueOf((String) contentTable.getValueAt(i, 4));
+            ab[i] = valueFromTable;
+
         }
         Arrays.sort(ab);
-        System.out.println(Arrays.toString(ab));
-        
-        System.out.println(getSearchRequest + " found at index = "
-                           +Arrays.binarySearch(ab,getSearchRequest));
-        int foundId = Arrays.binarySearch(ab,getSearchRequest)+1;
-        String foundString = foundId + "";
-        String message ="Rs."+ getSearchRequest+"" + " item found at ItemID: "+ foundString;
-        int checker = foundId-1;
-                for (int i = 0; i < rowCount; i++) {
-           valueFromRow = contentTable.getValueAt(foundId, 1).toString();
-           
-                }
-                if(checker != -1){
-                    
-                    JOptionPane.showMessageDialog(this, message+"\n Item Name: "+valueFromRow,"Search by Price",JOptionPane.INFORMATION_MESSAGE, null);
-                }
-                
-                else{
-                    JOptionPane.showMessageDialog(this, "No result found","Search Error",JOptionPane.ERROR_MESSAGE, null);
-                        
-                }
+        int before = Arrays.binarySearch(ab, getSearchRequest);
+        int after = Arrays.binarySearch(ab, getSearchRequest);
+        if (before == after) {
+             foundId = Arrays.binarySearch(ab, getSearchRequest) - 1;
+        } else {
+             foundId=Arrays.binarySearch(ab, getSearchRequest);
+        }
+        int foundRealId = foundId + 1;
+        String foundString = foundRealId + "";
+        String message = "Rs." + getSearchRequest + "" + " item found at ItemID: " + foundString;
+        System.out.println(foundString);
+
+        int checker = foundId - 1;
+        for (int i = 0; i < rowCount; i++) {
+            valueFromRow = contentTable.getValueAt(foundId, 1).toString();
+
+        }
+        if (checker != -1) {
+
+            JOptionPane.showMessageDialog(this, message + "\n Item Name: " + valueFromRow, "Search by Price", JOptionPane.INFORMATION_MESSAGE, null);
+        } else {
+            JOptionPane.showMessageDialog(this, "No result found", "Search Error", JOptionPane.ERROR_MESSAGE, null);
+
+        }
     }//GEN-LAST:event_searchPriceBtnMouseClicked
 
     private void searchCatagoryComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchCatagoryComboBoxActionPerformed
@@ -2050,7 +2055,6 @@ int[] a = {20,1,8,80};
 
     public static void main(String args[]) {
 
-        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -2089,16 +2093,16 @@ int[] a = {20,1,8,80};
             }
         });
     }
-    public int Search(LinkedList list,int l,int size, int price)
-    {
+
+    public int Search(LinkedList list, int l, int size, int price) {
         if (l <= size) {//To find the position of the variable.
-            int mid = (l+size) / 2;
+            int mid = (l + size) / 2;
             int intMidVal = Integer.valueOf((String) list.get(mid));
             if (intMidVal == price) {
                 return mid;
             } else if (intMidVal < price) {
 
-                return Search(list, mid + 1, size,price);
+                return Search(list, mid + 1, size, price);
             } else {
 
                 return Search(list, l, mid - 1, price);
