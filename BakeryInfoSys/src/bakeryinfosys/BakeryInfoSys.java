@@ -27,7 +27,7 @@ import javax.swing.table.JTableHeader;
  * @author aabis
  */
 public class BakeryInfoSys extends javax.swing.JFrame {
-
+int[] a = ArrayUtil.randomIntArray(20, 100);
     /**
      * Creates new form BakeryInfoSys
      */
@@ -254,9 +254,10 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         int colCount = contentTable.getColumnCount();
         for (int i = 0; i < rowCount; i++) {
             valueFromTable = contentTable.getValueAt(i, 4).toString();
-            li.add(valueFromTable);            
+            li.add(valueFromTable);
+
+            
         }
-        System.out.println(li);
     }
 
     /**
@@ -1645,7 +1646,8 @@ public class BakeryInfoSys extends javax.swing.JFrame {
     }//GEN-LAST:event_helpUsMenuItemMouseClicked
 
     private void aboutMenuItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutMenuItemMouseClicked
-storter();       
+        
+        MergeSorter.sort(a);
         JOptionPane.showMessageDialog(this, "Bakery InfoSys ©\nDeveloped by Aabishkar Aryal & Nishan Timalsina"
                 + "                  \nAny unauthorized use or reproduction/copying of this software is stricly prohibited \n This software is developed as part of the coursework assigned by London Metropolitian University to the developers mentions above");
     }//GEN-LAST:event_aboutMenuItemMouseClicked
@@ -1999,7 +2001,7 @@ storter();
     static boolean helpMenuCheck = true;
 
     public static void main(String args[]) {
-        
+
         
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
