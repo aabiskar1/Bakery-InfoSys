@@ -1879,7 +1879,25 @@ int[] a = {20,1,8,80};
     }//GEN-LAST:event_searchPriceBtnMouseEntered
 
     private void searchPriceBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchPriceBtnMouseClicked
-        JOptionPane.showMessageDialog(this, "Test Message");
+                
+        int valueFromTable;
+        String itemInTable;
+        int itemcount = 0;
+        int rowCount = contentTable.getRowCount();
+        int ab[] = new int [rowCount];
+        int getSearchRequest = Integer.parseInt(searchPrice.getText());
+        int colCount = contentTable.getColumnCount();
+        for (int i = 0; i < rowCount; i++) {
+            valueFromTable =  Integer.valueOf((String) contentTable.getValueAt(i, 4));
+            ab[i]=valueFromTable; 
+            
+        }
+        Arrays.sort(ab);
+        System.out.println(Arrays.toString(ab));
+        
+        System.out.println(getSearchRequest + " found at index = "
+                           +Arrays.binarySearch(ab,getSearchRequest)); 
+
     }//GEN-LAST:event_searchPriceBtnMouseClicked
 
     private void searchCatagoryComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchCatagoryComboBoxActionPerformed
