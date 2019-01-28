@@ -14,6 +14,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
@@ -29,7 +30,7 @@ import javax.swing.table.JTableHeader;
  */
 public class BakeryInfoSys extends javax.swing.JFrame {
 //int[] a = ArrayUtil.randomIntArray(20, 100);
-int[] a = {1,80,8,20};
+int[] a = {20,1,8,80};
     /**
      * Creates new form BakeryInfoSys
      */
@@ -49,25 +50,26 @@ int[] a = {1,80,8,20};
         /**
          * Creating lists to enter values in table
          */
+        String[] list3 = {"3", "White Bread", "Breads", "This bread is made  of wheat", "45", "5", "No", "No"};
+        String[] list7 = {"7", "Vanilla Pastry", "Pastries", "This pastry is  vanilla flavoured", "55", "5", "No", "No"};
+        String[] list13 = {"13", "Potato Cracker", "Crackers", " This cracker is made up of potato and lightly salted ", "80", "5", "No", "No"};
+        String[] list19 = {"19", "Fruit Yogurt", "Desert", "This contains sweet yogurt and small pieces of fruits", "90", "10", "Yes", "No"};
+        String[] list8 = {"8", "Fruit Cake", "Cake", "This cake contains lots of fruits", "1000", "120", "No", "No"};
         String[] list1 = {"1", "BlackForest", "Cake", "This cake conatins chocolates and cream", "1200", "120", "No", "No"};
         String[] list2 = {"2", "WhiteForest", "Cake", "This cake contains lots of white chocolate", "1050", "120", "No", "No"};
-        String[] list3 = {"3", "White Bread", "Breads", "This bread is made  of wheat", "45", "5", "No", "No"};
         String[] list4 = {"4", "Brown Bread", "Breads", "This bread is gluten free and made of whole grain wheat", "100", "5", "No", "No"};
         String[] list5 = {"5", "Loaf Bread", "Breads", "This is a loaf of a bread", "175", "6", "No", "No"};
         String[] list6 = {"6", "Choco Chip Cookies", "Cookies", "This cookie contains choco chips ", "250", "10", "Yes", "No"};
-        String[] list7 = {"7", "Vanilla Pastry", "Pastries", "This pastry is  vanilla flavoured", "55", "5", "No", "No"};
-        String[] list8 = {"8", "Fruit Cake", "Cake", "This cake contains lots of fruits", "1000", "120", "No", "No"};
         String[] list9 = {"9", "Pineapple pastry", "Pastries", "This pastry is pineapple flavoured", "1000", "5", "No", "No"};
         String[] list10 = {"10", "Mushroom Pizza", "Pizza", "This Pizza contains mushroom with lots of cheese", "550", "10", "No", "No"};
         String[] list11 = {"11", "Rice Pudding", "Pudding", "This pudding is made up of milk and rice", "500", "15", "Yes", "No"};
         String[] list12 = {"12", "Sugarfree Rice Pudding", "Pudding", "This pudding is sugarfree", "575", "15", "Yes", "Yes"};
-        String[] list13 = {"13", "Potato Cracker", "Crackers", " This cracker is made up of potato and lightly salted ", "80", "5", "No", "No"};
         String[] list14 = {"14", "Jelly Beans", "Sweets", "Soft Jelly Beans with fruits flavour", "100", "5", "No", "No"};
         String[] list15 = {"15", "Apple pie", "Pie", "This pie is apple flavoured", "225", "10", "yes", "No"};
         String[] list16 = {"16", "Blueberry Muffin", "Muffin", "This muffin contains Blueberry flavour", "200", "10", "No", "No"};
         String[] list17 = {"17", "Mac and Cheese", "Breakfast", "This is made of macaroni and cheese", "435", "10", "No", "No"};
         String[] list18 = {"18", "Burgar", "Breakfast", "A flat round paties of minced beef that is fried or grilled and typically served in a bread roll", "370", "15", "No", "No"};
-        String[] list19 = {"19", "Fruit Yogurt", "Desert", "This contains sweet yogurt and small pieces of fruits", "90", "10", "Yes", "No"};
+        
         String[] list20 = {"20", "Americano", "Drinks", "Coffee made with coffee beans inported from arabia", "175", "5", "No", "No"};
         String[] list21 = {"21", "Green Tea", "Drinks", "Made of leaves grown in himalayas", "225", "5", "No", "No"};
         String[] list22 = {"22", "Cinamon Tea", "Drinks", "This tea contains cinamon", "190", "5", "No", "No"};
@@ -87,31 +89,31 @@ int[] a = {1,80,8,20};
         for (int i = 0; i < 8; i++) {
 
             for (int a = 0; a < 8; a++) {
-                contentTable.setValueAt(list1[i], 0, i);
-                contentTable.setValueAt(list2[i], 1, i);
-                contentTable.setValueAt(list3[i], 2, i);
-                contentTable.setValueAt(list4[i], 3, i);
-                contentTable.setValueAt(list5[i], 4, i);
-                contentTable.setValueAt(list6[i], 5, i);
-                contentTable.setValueAt(list7[i], 6, i);
-                contentTable.setValueAt(list8[i], 7, i);
-                contentTable.setValueAt(list9[i], 8, i);
-                contentTable.setValueAt(list10[i], 9, i);
-                contentTable.setValueAt(list11[i], 10, i);
-                contentTable.setValueAt(list12[i], 11, i);
-                contentTable.setValueAt(list13[i], 12, i);
-                contentTable.setValueAt(list14[i], 13, i);
-                contentTable.setValueAt(list15[i], 14, i);
-                contentTable.setValueAt(list16[i], 15, i);
+                contentTable.setValueAt(list3[i], 0, i);
+                contentTable.setValueAt(list7[i], 1, i);
+                contentTable.setValueAt(list13[i], 2, i);
+                contentTable.setValueAt(list19[i], 3, i);
+                contentTable.setValueAt(list4[i], 4, i);
+                contentTable.setValueAt(list14[i], 5, i);
+                contentTable.setValueAt(list25[i], 6, i);
+                contentTable.setValueAt(list20[i], 7, i);
+                contentTable.setValueAt(list5[i], 8, i);
+                contentTable.setValueAt(list22[i], 9, i);
+                contentTable.setValueAt(list16[i], 10, i);
+                contentTable.setValueAt(list21[i], 11, i);
+                contentTable.setValueAt(list15[i], 12, i);
+                contentTable.setValueAt(list6[i], 13, i);
+                contentTable.setValueAt(list23[i], 14, i);
+                contentTable.setValueAt(list18[i], 15, i);
                 contentTable.setValueAt(list17[i], 16, i);
-                contentTable.setValueAt(list18[i], 17, i);
-                contentTable.setValueAt(list19[i], 18, i);
-                contentTable.setValueAt(list20[i], 19, i);
-                contentTable.setValueAt(list21[i], 20, i);
-                contentTable.setValueAt(list22[i], 21, i);
-                contentTable.setValueAt(list23[i], 22, i);
-                contentTable.setValueAt(list24[i], 23, i);
-                contentTable.setValueAt(list25[i], 24, i);
+                contentTable.setValueAt(list11[i], 17, i);
+                contentTable.setValueAt(list10[i], 18, i);
+                contentTable.setValueAt(list22[i], 19, i);
+                contentTable.setValueAt(list8[i], 20, i);
+                contentTable.setValueAt(list9[i], 21, i);
+                contentTable.setValueAt(list2[i], 22, i);
+                contentTable.setValueAt(list1[i], 23, i);
+                contentTable.setValueAt(list24[i], 24, i);
 
             }
 
@@ -316,7 +318,7 @@ int[] a = {1,80,8,20};
         searchCatagoryPanel = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         searchPriceLbl = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        searchPrice = new javax.swing.JTextField();
         searchPriceBtn = new javax.swing.JButton();
         searchCatagoryLbl = new javax.swing.JPanel();
         searchCatagoryComboBox = new javax.swing.JComboBox<>();
@@ -586,7 +588,15 @@ int[] a = {1,80,8,20};
             new String [] {
                 "ItemNo", "ItemName", "Catagory", "ItemDescription", "Price", "PreprationTime", "ContainNuts", "SugarFree"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         contentTable.setRowHeight(25);
         contentTable.setSelectionBackground(new java.awt.Color(252, 222, 168));
         jScrollPane3.setViewportView(contentTable);
@@ -824,9 +834,9 @@ int[] a = {1,80,8,20};
         searchPriceLbl.setFont(new java.awt.Font("Cambria Math", 0, 36)); // NOI18N
         searchPriceLbl.setText("Price");
 
-        jTextField1.setBackground(new java.awt.Color(254, 233, 197));
-        jTextField1.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(0, 153, 153));
+        searchPrice.setBackground(new java.awt.Color(254, 233, 197));
+        searchPrice.setFont(new java.awt.Font("Cambria Math", 0, 18)); // NOI18N
+        searchPrice.setForeground(new java.awt.Color(0, 153, 153));
 
         searchPriceBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/searchBtn.png"))); // NOI18N
         searchPriceBtn.setText("Search");
@@ -862,7 +872,7 @@ int[] a = {1,80,8,20};
                 .addGap(48, 48, 48)
                 .addComponent(searchPriceLbl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
+                .addComponent(searchPrice, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(searchPriceBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44))
@@ -872,7 +882,7 @@ int[] a = {1,80,8,20};
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(searchPriceLbl))
                 .addContainerGap(21, Short.MAX_VALUE))
             .addComponent(searchPriceBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -1845,7 +1855,8 @@ int[] a = {1,80,8,20};
     }//GEN-LAST:event_txtItemNumActionPerformed
 
     private void searchPriceBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchPriceBtnActionPerformed
-
+       
+        
     }//GEN-LAST:event_searchPriceBtnActionPerformed
 
     private void searchPriceBtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchPriceBtnMouseReleased
@@ -2044,6 +2055,23 @@ int[] a = {1,80,8,20};
             }
         });
     }
+    public int Search(LinkedList list,int l,int size, int price)
+    {
+        if (l <= size) {//To find the position of the variable.
+            int mid = (l+size) / 2;
+            int intMidVal = Integer.valueOf((String) list.get(mid));
+            if (intMidVal == price) {
+                return mid;
+            } else if (intMidVal < price) {
+
+                return Search(list, mid + 1, size,price);
+            } else {
+
+                return Search(list, l, mid - 1, price);
+            }
+        }
+        return -1;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel aboutMenuItem;
@@ -2083,7 +2111,6 @@ int[] a = {1,80,8,20};
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblItemNumber;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JLabel maximizeIcon;
@@ -2102,6 +2129,7 @@ int[] a = {1,80,8,20};
     private javax.swing.JComboBox<String> searchCatagoryComboBox;
     private javax.swing.JPanel searchCatagoryLbl;
     private javax.swing.JTabbedPane searchCatagoryPanel;
+    private javax.swing.JTextField searchPrice;
     private javax.swing.JButton searchPriceBtn;
     private javax.swing.JLabel searchPriceLbl;
     private javax.swing.ButtonGroup sugarFree;
