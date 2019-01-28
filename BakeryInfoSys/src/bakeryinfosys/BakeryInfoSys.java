@@ -1879,7 +1879,7 @@ int[] a = {20,1,8,80};
     }//GEN-LAST:event_searchPriceBtnMouseEntered
 
     private void searchPriceBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchPriceBtnMouseClicked
-                
+        String valueFromRow=null;  
         int valueFromTable;
         String itemInTable;
         int itemcount = 0;
@@ -1896,8 +1896,24 @@ int[] a = {20,1,8,80};
         System.out.println(Arrays.toString(ab));
         
         System.out.println(getSearchRequest + " found at index = "
-                           +Arrays.binarySearch(ab,getSearchRequest)); 
-
+                           +Arrays.binarySearch(ab,getSearchRequest));
+        int foundId = Arrays.binarySearch(ab,getSearchRequest)+1;
+        String foundString = foundId + "";
+        String message ="Rs."+ getSearchRequest+"" + " item found at ItemID: "+ foundString;
+        int checker = foundId-1;
+                for (int i = 0; i < rowCount; i++) {
+           valueFromRow = contentTable.getValueAt(foundId, 1).toString();
+           
+                }
+                if(checker != -1){
+                    
+                    JOptionPane.showMessageDialog(this, message+"\n Item Name: "+valueFromRow,"Search by Price",JOptionPane.INFORMATION_MESSAGE, null);
+                }
+                
+                else{
+                    JOptionPane.showMessageDialog(this, "No result found","Search Error",JOptionPane.ERROR_MESSAGE, null);
+                        
+                }
     }//GEN-LAST:event_searchPriceBtnMouseClicked
 
     private void searchCatagoryComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchCatagoryComboBoxActionPerformed
