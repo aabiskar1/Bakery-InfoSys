@@ -1772,11 +1772,11 @@ int[] a = {20,1,8,80};
         checkItemId();
         //validating item id  and price for wrong data type
         if (!idValidation(itemNumValue)) {
-            JOptionPane.showMessageDialog(this, "Enter valid id");
+            JOptionPane.showMessageDialog(this, "Enter valid id","Invalid character",JOptionPane.ERROR_MESSAGE);
         } else if (!priceValidation(priceValue)) {
-            JOptionPane.showMessageDialog(this, "Enter valid price");
+            JOptionPane.showMessageDialog(this, "Enter valid price","Invalid character",JOptionPane.ERROR_MESSAGE);
         } else if (!prepTimeValidation(prepTime)) {
-            JOptionPane.showMessageDialog(this, "Enter valid preperation time");
+            JOptionPane.showMessageDialog(this, "Enter valid preperation time","Invalid character",JOptionPane.ERROR_MESSAGE);
         } else {
             if (itemNumValue.isEmpty() || itemNameValue.isEmpty() || itemDescTxtValue.isEmpty() || priceValue.isEmpty() || prepTime.isEmpty()) {           //validatiing for empty fields
                 JOptionPane.showMessageDialog(this, "Please enter the details", "Details missing!!", JOptionPane.ERROR_MESSAGE, null);
@@ -1802,16 +1802,16 @@ int[] a = {20,1,8,80};
                                     model.setValueAt(info[i], nextRow, i);
                                 }
                             } else {
-                                JOptionPane.showMessageDialog(this, "Select the catagory please");
+                                JOptionPane.showMessageDialog(this, "Select the catagory please","Missing detail", JOptionPane.ERROR_MESSAGE, null);
                             }
                         } else {
-                            JOptionPane.showMessageDialog(this, "Please select the catagory");
+                            JOptionPane.showMessageDialog(this, "Please select the catagory","Details missing!!", JOptionPane.ERROR_MESSAGE, null);
                         }
                     } else {
-                        JOptionPane.showMessageDialog(this, "Please selects the contains");
+                        JOptionPane.showMessageDialog(this, "Please selects the contains","Details missing!!", JOptionPane.ERROR_MESSAGE, null);
                     }
                 } else {
-                    JOptionPane.showMessageDialog(this, "Id already exists");
+                    JOptionPane.showMessageDialog(this, "Id already exists","Duplicate id", JOptionPane.ERROR_MESSAGE, null);
                 }
             }
 
@@ -1887,6 +1887,8 @@ int[] a = {20,1,8,80};
         int ab[] = new int [rowCount];
         int getSearchRequest = Integer.parseInt(searchPrice.getText());
         int colCount = contentTable.getColumnCount();
+        
+     
         for (int i = 0; i < rowCount; i++) {
             valueFromTable =  Integer.valueOf((String) contentTable.getValueAt(i, 4));
             ab[i]=valueFromTable; 
@@ -1912,6 +1914,8 @@ int[] a = {20,1,8,80};
                 }
                 JOptionPane.showMessageDialog(this, message+valueFromRow);
         }
+        
+       
 
     }//GEN-LAST:event_searchPriceBtnMouseClicked
 
