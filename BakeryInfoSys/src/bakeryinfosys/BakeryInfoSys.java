@@ -1897,7 +1897,7 @@ int[] a = {20,1,8,80};
         int flagValue = Arrays.binarySearch(ab,getSearchRequest);
         System.out.println(getSearchRequest + " found at index = "
                            +Arrays.binarySearch(ab,getSearchRequest)); 
-        if(flagValue<=1){
+        if(flagValue== -1){
         JOptionPane.showMessageDialog(null,"Search Result not found");
         }
         else{
