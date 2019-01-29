@@ -1879,8 +1879,30 @@ int[] a = {20,1,8,80};
     }//GEN-LAST:event_searchPriceBtnMouseEntered
 
     private void searchPriceBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchPriceBtnMouseClicked
-                
-        int valueFromTable;
+           System.out.println("enetered"); 
+       DefaultTableModel model = (DefaultTableModel) contentTable.getModel();
+       int rowCount=model.getRowCount();
+       String[][] list=new String[rowCount][8];
+       for(int i=0;i<rowCount;i++)
+       {
+          for(int j=0;j<7;j++)
+          {
+              String getValue=model.getValueAt(i, j).toString();
+              list[i][j]=getValue;
+              System.err.println(list[i][j]);
+              
+          }
+         
+       }
+        /*String itemNumber=model.getValueAt(i, 0).toString();
+           String itemName=model.getValueAt(i, 1).toString();
+           String Category=model.getValueAt(i, 2).toString();
+           String itemDesc=model.getValueAt(i, 3).toString();
+           String price=model.getValueAt(i, 4).toString();
+           String prepTime=model.getValueAt(i, 5).toString();
+           String contentNuts=model.getValueAt(i, 6).toString();
+           String sugarFree=model.getValueAt(i, 7).toString();*/
+       /* int valueFromTable;
         String itemInTable;
         int itemcount = 0;
         int rowCount = contentTable.getRowCount();
@@ -1913,7 +1935,7 @@ int[] a = {20,1,8,80};
            
                 }
                 JOptionPane.showMessageDialog(this, message+valueFromRow);
-        }
+        }*/
         
        
 
