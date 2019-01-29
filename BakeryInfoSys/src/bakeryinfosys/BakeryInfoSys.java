@@ -134,23 +134,27 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         int itemcount = 0;
         int rowCount = contentTable.getRowCount();
         int colCount = contentTable.getColumnCount();
-        for (int i = 0; i < rowCount; i++) {
-            valueFromTable = contentTable.getValueAt(i, 2).toString();
-
-            if (userItem.equals(valueFromTable)) {
-                li.add(contentTable.getValueAt(i, 1));
-                itemcount++;
-
-            } else {
-
-            }
-        }
-
-        if (li.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "There are no items in this catagory");
+        if (userItem.equals("-----")) {
+            JOptionPane.showMessageDialog(this, "Please select catagory to search", "Missing Details", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(this, "There are " + itemcount + " items in " + userItem + " catagory"
-                    + "\n List of found items:\n" + li.toString().replace(",", "\n").replace("[", " ").replace("]", ""), "Search by Catagory", JOptionPane.INFORMATION_MESSAGE, null);
+            for (int i = 0; i < rowCount; i++) {
+                valueFromTable = contentTable.getValueAt(i, 2).toString();
+
+                if (userItem.equals(valueFromTable)) {
+                    li.add(contentTable.getValueAt(i, 1));
+                    itemcount++;
+
+                } else {
+
+                }
+            }
+
+            if (li.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "There are no items in this catagory", "No search results", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(this, "There are " + itemcount + " items in " + userItem + " catagory"
+                        + "\n List of found items:\n" + li.toString().replace(",", "\n").replace("[", " ").replace("]", ""), "Search by Catagory", JOptionPane.INFORMATION_MESSAGE, null);
+            }
         }
     }
 
@@ -173,17 +177,17 @@ public class BakeryInfoSys extends javax.swing.JFrame {
 
         for (int i = 0; i < rowCount; i++) { //checks for the condition if the id already exists or not
             valueFromTable = contentTable.getValueAt(i, 0).toString();
-            System.out.println(valueFromTable);
+
             while (flagOk) {
 
                 if (userNum.equals(valueFromTable)) {
                     isItemIdOk = false;
-                    System.out.println("item id is not ok Please check");
+
                     flagOk = false;
 
                 } else {
                     isItemIdOk = true;
-                    System.out.println("item id iOk!!!");
+
                     break;
                 }
             }
@@ -215,7 +219,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
             Logger.getLogger(BakeryInfoSys.class
                     .getName()).log(Level.SEVERE, null, ex);
         } catch (NullPointerException ex) {
-            JOptionPane.showMessageDialog(this, "No files selected");
+            JOptionPane.showMessageDialog(this, "No files selected", "No Files", JOptionPane.INFORMATION_MESSAGE);
         }
 
     }
@@ -329,7 +333,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         deleteLbl = new javax.swing.JLabel();
         txtItemDel = new javax.swing.JTextField();
         deleteBtn = new javax.swing.JButton();
-        jLabel10 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         fileMenuPanel = new javax.swing.JPanel();
         openMenuItem = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -346,11 +350,13 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/bakeryinfosys/images/homeIcon.png")).getImage()
         );
+        setMaximumSize(new java.awt.Dimension(1920, 1080));
         setUndecorated(true);
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
 
         mainPanel.setBackground(new java.awt.Color(249, 224, 184));
         mainPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 2, true));
+        mainPanel.setMaximumSize(new java.awt.Dimension(1920, 1080));
 
         topPanel.setBackground(new java.awt.Color(253, 204, 125));
 
@@ -589,15 +595,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
             new String [] {
                 "ItemNo", "ItemName", "Catagory", "ItemDescription", "Price", "PreprationTime", "ContainNuts", "SugarFree"
             }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
+        ));
         contentTable.setRowHeight(25);
         contentTable.setSelectionBackground(new java.awt.Color(252, 222, 168));
         jScrollPane3.setViewportView(contentTable);
@@ -616,7 +614,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         );
         tablePanelLayout.setVerticalGroup(
             tablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jScrollPane3)
         );
 
         inputPanel.setBackground(new java.awt.Color(253, 204, 125));
@@ -1026,7 +1024,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap(32, Short.MAX_VALUE)
+                .addContainerGap(21, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1040,17 +1038,13 @@ public class BakeryInfoSys extends javax.swing.JFrame {
 
         additionalPanel.addTab("Delete Item", jPanel6);
 
-        jLabel10.setFont(new java.awt.Font("MV Boli", 0, 18)); // NOI18N
-        jLabel10.setText("Additional");
+        jLabel1.setFont(new java.awt.Font("MV Boli", 0, 24)); // NOI18N
+        jLabel1.setText("Utilities");
 
         javax.swing.GroupLayout inputPanelLayout = new javax.swing.GroupLayout(inputPanel);
         inputPanel.setLayout(inputPanelLayout);
         inputPanelLayout.setHorizontalGroup(
             inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(inputPanelLayout.createSequentialGroup()
-                .addGap(192, 192, 192)
-                .addComponent(jLabel10)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(inputPanelLayout.createSequentialGroup()
                 .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(inputPanelLayout.createSequentialGroup()
@@ -1064,17 +1058,21 @@ public class BakeryInfoSys extends javax.swing.JFrame {
                                     .addComponent(priceLbl)
                                     .addComponent(itemDescLbl)
                                     .addComponent(enterBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(32, 32, 32)
                                 .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(inputPanelLayout.createSequentialGroup()
+                                        .addGap(32, 32, 32)
                                         .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(txtItemName)
-                                                .addComponent(txtItemNum)
-                                                .addComponent(priceTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE))
-                                            .addComponent(clearBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(jScrollPane1)))
+                                            .addGroup(inputPanelLayout.createSequentialGroup()
+                                                .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addComponent(txtItemName)
+                                                    .addComponent(txtItemNum)
+                                                    .addComponent(priceTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE))
+                                                .addGap(0, 0, Short.MAX_VALUE))
+                                            .addComponent(jScrollPane1)))
+                                    .addGroup(inputPanelLayout.createSequentialGroup()
+                                        .addGap(28, 28, 28)
+                                        .addComponent(clearBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))))
                             .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(inputPanelLayout.createSequentialGroup()
                                     .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1097,13 +1095,15 @@ public class BakeryInfoSys extends javax.swing.JFrame {
                                     .addComponent(prepTimeLbl)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(txtPrepTime)))))
-                    .addGroup(inputPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jSeparator2))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inputPanelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(additionalPanel)))
+                        .addComponent(additionalPanel))
+                    .addComponent(jSeparator2))
                 .addContainerGap())
+            .addGroup(inputPanelLayout.createSequentialGroup()
+                .addGap(205, 205, 205)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         inputPanelLayout.setVerticalGroup(
             inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1144,17 +1144,17 @@ public class BakeryInfoSys extends javax.swing.JFrame {
                     .addComponent(sugarLbl)
                     .addComponent(sugarYes)
                     .addComponent(sugarNo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(enterBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(clearBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(additionalPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(additionalPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         fileMenuPanel.setBackground(new java.awt.Color(243, 194, 114));
@@ -1365,9 +1365,9 @@ public class BakeryInfoSys extends javax.swing.JFrame {
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(backgroundPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(editMenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(companyLogoImage)
                     .addComponent(fileMenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(helpMenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(helpMenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(companyLogoImage))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(tablePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1654,14 +1654,12 @@ public class BakeryInfoSys extends javax.swing.JFrame {
             Desktop desktop = Desktop.getDesktop();
             desktop.open(new File("helpFile.pdf"));
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "Help file not found");
+            JOptionPane.showMessageDialog(this, "Help file not found", "File missing", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_helpUsMenuItemMouseClicked
 
     private void aboutMenuItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutMenuItemMouseClicked
 
-        MergeSorter.sort(a);
-        System.out.println(Arrays.toString(a));
         JOptionPane.showMessageDialog(this, "Bakery InfoSys ©\nDeveloped by Aabishkar Aryal & Nishan Timalsina"
                 + "                  \nAny unauthorized use or reproduction/copying of this software is stricly prohibited \n This software is developed as part of the coursework assigned by London Metropolitian University to the developers mentions above");
     }//GEN-LAST:event_aboutMenuItemMouseClicked
@@ -1880,7 +1878,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
     }//GEN-LAST:event_searchPriceBtnMouseEntered
 
     private void searchPriceBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchPriceBtnMouseClicked
-        System.out.println("enetered");
+
         try {
             int enteredValue = Integer.parseInt(searchPrice.getText());
             DefaultTableModel model = (DefaultTableModel) contentTable.getModel();
@@ -1899,20 +1897,19 @@ public class BakeryInfoSys extends javax.swing.JFrame {
             list = swap(list, firstPrice, secondPrice, rowCount);
 
             for (int i = 0; i < list.length; i++) {
-                System.out.println(Arrays.toString(list[i]));
 
             }
 
             position = binarySearch(list, l, rowCount - 1, enteredValue);
             if (position == -1) {
-                 JOptionPane.showMessageDialog(rootPane, "it doesnt exist in world");
+                JOptionPane.showMessageDialog(rootPane, "No search result", "No result found", JOptionPane.INFORMATION_MESSAGE);
             } else {
-               
-                JOptionPane.showMessageDialog(rootPane,"Item no:"+list[position][0]+"/n"+"Item name:"+list[position][1]+"/n"+list[position][2]+"/n"+"Price:"+list[position][4]+"/n"+"PreP TIME:"+list[position][5]+"/n"+"ContainNuts:"+list[position][6]+"/n"+"Sugar free:"+ list[position][7]   );
+
+                JOptionPane.showMessageDialog(rootPane, "Item no: " + list[position][0] + "\nItem name: " + list[position][1] + "\nCatagory: " + list[position][2] + "\nPrice: " + list[position][4] + "\nPrepration time:" + list[position][5] + "\n" + "ContainNuts: " + list[position][6] + "\nSugar free: " + list[position][7], "Search Result", JOptionPane.INFORMATION_MESSAGE);
             }
 
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(rootPane, "invalid number");
+            JOptionPane.showMessageDialog(rootPane, "Invalid number", "Error", JOptionPane.ERROR_MESSAGE);
         }
 
 
@@ -1930,7 +1927,6 @@ public class BakeryInfoSys extends javax.swing.JFrame {
                     list[y - 1] = list[y];
                     list[y] = temp;
 
-                    //System.out.println(secondPrice);
                 }
 
             }
@@ -2156,7 +2152,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
     private javax.swing.JLabel itemDescLbl;
     private javax.swing.JTextArea itemDescTxt;
     private javax.swing.JLabel itemNamelbl;
-    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel5;
