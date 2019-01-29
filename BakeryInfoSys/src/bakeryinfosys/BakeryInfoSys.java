@@ -1884,6 +1884,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) contentTable.getModel();
         int rowCount = model.getRowCount();
         int firstPrice;
+        String [] temp;
         int secondPrice;
         String[][] list = new String[rowCount][7];
         for (int i = 0; i < rowCount; i++) {
@@ -1896,16 +1897,20 @@ public class BakeryInfoSys extends javax.swing.JFrame {
             for (int y = 1; y < (rowCount - z); y++) {
                 firstPrice=Integer.parseInt(list[y-1][4]);
                 secondPrice=Integer.parseInt(list[y][4]);
-                /*if (list[y - 1][4] > list[y][4]) {
+                 if(firstPrice > secondPrice) {
                     //swap elements  
-                    temp = arr[j - 1];
-                    arr[j - 1] = arr[j];
-                    arr[j] = temp;*/
-                System.out.println(firstPrice);
+                    temp = list[y-1];
+                    list[y-1] = list[y];
+                    list[y] = temp;
+                
                 //System.out.println(secondPrice);
                 }
 
             }
+        }
+          for(int i=0; i < list.length; i++){  
+                        System.out.print(Arrays.toString(list[i]));  
+                }  
         
 
         /*String itemNumber=model.getValueAt(i, 0).toString();
