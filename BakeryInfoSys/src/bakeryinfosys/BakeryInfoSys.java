@@ -30,7 +30,9 @@ import javax.swing.table.JTableHeader;
  */
 public class BakeryInfoSys extends javax.swing.JFrame {
 //int[] a = ArrayUtil.randomIntArray(20, 100);
-int[] a = {20,1,8,80};
+
+    int[] a = {20, 1, 8, 80};
+
     /**
      * Creates new form BakeryInfoSys
      */
@@ -69,7 +71,7 @@ int[] a = {20,1,8,80};
         String[] list16 = {"16", "Blueberry Muffin", "Muffin", "This muffin contains Blueberry flavour", "200", "10", "No", "No"};
         String[] list17 = {"17", "Mac and Cheese", "Breakfast", "This is made of macaroni and cheese", "435", "10", "No", "No"};
         String[] list18 = {"18", "Burgar", "Breakfast", "A flat round paties of minced beef that is fried or grilled and typically served in a bread roll", "370", "15", "No", "No"};
-        
+
         String[] list20 = {"20", "Americano", "Drinks", "Coffee made with coffee beans inported from arabia", "175", "5", "No", "No"};
         String[] list21 = {"21", "Green Tea", "Drinks", "Made of leaves grown in himalayas", "225", "5", "No", "No"};
         String[] list22 = {"22", "Cinamon Tea", "Drinks", "This tea contains cinamon", "190", "5", "No", "No"};
@@ -89,31 +91,31 @@ int[] a = {20,1,8,80};
         for (int i = 0; i < 8; i++) {
 
             for (int a = 0; a < 8; a++) {
-                contentTable.setValueAt(list3[i], 0, i);
-                contentTable.setValueAt(list7[i], 1, i);
-                contentTable.setValueAt(list13[i], 2, i);
-                contentTable.setValueAt(list19[i], 3, i);
-                contentTable.setValueAt(list4[i], 4, i);
-                contentTable.setValueAt(list14[i], 5, i);
-                contentTable.setValueAt(list25[i], 6, i);
-                contentTable.setValueAt(list20[i], 7, i);
-                contentTable.setValueAt(list5[i], 8, i);
-                contentTable.setValueAt(list22[i], 9, i);
-                contentTable.setValueAt(list16[i], 10, i);
-                contentTable.setValueAt(list21[i], 11, i);
-                contentTable.setValueAt(list15[i], 12, i);
-                contentTable.setValueAt(list6[i], 13, i);
-                contentTable.setValueAt(list23[i], 14, i);
-                contentTable.setValueAt(list18[i], 15, i);
+                contentTable.setValueAt(list1[i], 0, i);
+                contentTable.setValueAt(list2[i], 1, i);
+                contentTable.setValueAt(list3[i], 2, i);
+                contentTable.setValueAt(list4[i], 3, i);
+                contentTable.setValueAt(list5[i], 4, i);
+                contentTable.setValueAt(list6[i], 5, i);
+                contentTable.setValueAt(list7[i], 6, i);
+                contentTable.setValueAt(list8[i], 7, i);
+                contentTable.setValueAt(list9[i], 8, i);
+                contentTable.setValueAt(list10[i], 9, i);
+                contentTable.setValueAt(list11[i], 10, i);
+                contentTable.setValueAt(list12[i], 11, i);
+                contentTable.setValueAt(list13[i], 12, i);
+                contentTable.setValueAt(list14[i], 13, i);
+                contentTable.setValueAt(list15[i], 14, i);
+                contentTable.setValueAt(list16[i], 15, i);
                 contentTable.setValueAt(list17[i], 16, i);
-                contentTable.setValueAt(list11[i], 17, i);
-                contentTable.setValueAt(list10[i], 18, i);
-                contentTable.setValueAt(list22[i], 19, i);
-                contentTable.setValueAt(list8[i], 20, i);
-                contentTable.setValueAt(list9[i], 21, i);
-                contentTable.setValueAt(list2[i], 22, i);
-                contentTable.setValueAt(list1[i], 23, i);
-                contentTable.setValueAt(list24[i], 24, i);
+                contentTable.setValueAt(list18[i], 17, i);
+                contentTable.setValueAt(list19[i], 18, i);
+                contentTable.setValueAt(list20[i], 19, i);
+                contentTable.setValueAt(list21[i], 20, i);
+                contentTable.setValueAt(list22[i], 21, i);
+                contentTable.setValueAt(list23[i], 22, i);
+                contentTable.setValueAt(list24[i], 23, i);
+                contentTable.setValueAt(list25[i], 24, i);
 
             }
 
@@ -218,7 +220,6 @@ int[] a = {20,1,8,80};
 
     }
 
-
     /**
      * This method is used to remove item from the table
      */
@@ -248,7 +249,8 @@ int[] a = {20,1,8,80};
             }
         }
     }
-    public void storter(){
+
+    public void storter() {
         ArrayList li = new ArrayList();
         String userItem = (String) searchCatagoryComboBox.getSelectedItem();
         String valueFromTable;
@@ -260,7 +262,6 @@ int[] a = {20,1,8,80};
             valueFromTable = contentTable.getValueAt(i, 4).toString();
             li.add(valueFromTable);
 
-            
         }
     }
 
@@ -1658,7 +1659,7 @@ int[] a = {20,1,8,80};
     }//GEN-LAST:event_helpUsMenuItemMouseClicked
 
     private void aboutMenuItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutMenuItemMouseClicked
-        
+
         MergeSorter.sort(a);
         System.out.println(Arrays.toString(a));
         JOptionPane.showMessageDialog(this, "Bakery InfoSys ©\nDeveloped by Aabishkar Aryal & Nishan Timalsina"
@@ -1772,11 +1773,11 @@ int[] a = {20,1,8,80};
         checkItemId();
         //validating item id  and price for wrong data type
         if (!idValidation(itemNumValue)) {
-            JOptionPane.showMessageDialog(this, "Enter valid id","Invalid character",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Enter valid id", "Invalid character", JOptionPane.ERROR_MESSAGE);
         } else if (!priceValidation(priceValue)) {
-            JOptionPane.showMessageDialog(this, "Enter valid price","Invalid character",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Enter valid price", "Invalid character", JOptionPane.ERROR_MESSAGE);
         } else if (!prepTimeValidation(prepTime)) {
-            JOptionPane.showMessageDialog(this, "Enter valid preperation time","Invalid character",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Enter valid preperation time", "Invalid character", JOptionPane.ERROR_MESSAGE);
         } else {
             if (itemNumValue.isEmpty() || itemNameValue.isEmpty() || itemDescTxtValue.isEmpty() || priceValue.isEmpty() || prepTime.isEmpty()) {           //validatiing for empty fields
                 JOptionPane.showMessageDialog(this, "Please enter the details", "Details missing!!", JOptionPane.ERROR_MESSAGE, null);
@@ -1802,16 +1803,16 @@ int[] a = {20,1,8,80};
                                     model.setValueAt(info[i], nextRow, i);
                                 }
                             } else {
-                                JOptionPane.showMessageDialog(this, "Select the catagory please","Missing detail", JOptionPane.ERROR_MESSAGE, null);
+                                JOptionPane.showMessageDialog(this, "Select the catagory please", "Missing detail", JOptionPane.ERROR_MESSAGE, null);
                             }
                         } else {
-                            JOptionPane.showMessageDialog(this, "Please select the catagory","Details missing!!", JOptionPane.ERROR_MESSAGE, null);
+                            JOptionPane.showMessageDialog(this, "Please select the catagory", "Details missing!!", JOptionPane.ERROR_MESSAGE, null);
                         }
                     } else {
-                        JOptionPane.showMessageDialog(this, "Please selects the contains","Details missing!!", JOptionPane.ERROR_MESSAGE, null);
+                        JOptionPane.showMessageDialog(this, "Please selects the contains", "Details missing!!", JOptionPane.ERROR_MESSAGE, null);
                     }
                 } else {
-                    JOptionPane.showMessageDialog(this, "Id already exists","Duplicate id", JOptionPane.ERROR_MESSAGE, null);
+                    JOptionPane.showMessageDialog(this, "Id already exists", "Duplicate id", JOptionPane.ERROR_MESSAGE, null);
                 }
             }
 
@@ -1855,8 +1856,8 @@ int[] a = {20,1,8,80};
     }//GEN-LAST:event_txtItemNumActionPerformed
 
     private void searchPriceBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchPriceBtnActionPerformed
-       
-        
+
+
     }//GEN-LAST:event_searchPriceBtnActionPerformed
 
     private void searchPriceBtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchPriceBtnMouseReleased
@@ -1879,21 +1880,34 @@ int[] a = {20,1,8,80};
     }//GEN-LAST:event_searchPriceBtnMouseEntered
 
     private void searchPriceBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchPriceBtnMouseClicked
-           System.out.println("enetered"); 
-       DefaultTableModel model = (DefaultTableModel) contentTable.getModel();
-       int rowCount=model.getRowCount();
-       String[][] list=new String[rowCount][8];
-       for(int i=0;i<rowCount;i++)
-       {
-          for(int j=0;j<7;j++)
-          {
-              String getValue=model.getValueAt(i, j).toString();
-              list[i][j]=getValue;
-              System.err.println(list[i][j]);
-              
-          }
-         
-       }
+        System.out.println("enetered");
+        DefaultTableModel model = (DefaultTableModel) contentTable.getModel();
+        int rowCount = model.getRowCount();
+        int firstPrice;
+        int secondPrice;
+        String[][] list = new String[rowCount][7];
+        for (int i = 0; i < rowCount; i++) {
+            for (int j = 0; j < 7; j++) {
+                String getValue = model.getValueAt(i, j).toString();
+                list[i][j] = getValue;
+            }
+        }
+        for (int z = 0; z < rowCount; z++) {
+            for (int y = 1; y < (rowCount - z); y++) {
+                firstPrice=Integer.parseInt(list[y-1][4]);
+                secondPrice=Integer.parseInt(list[y][4]);
+                /*if (list[y - 1][4] > list[y][4]) {
+                    //swap elements  
+                    temp = arr[j - 1];
+                    arr[j - 1] = arr[j];
+                    arr[j] = temp;*/
+                System.out.println(firstPrice);
+                //System.out.println(secondPrice);
+                }
+
+            }
+        
+
         /*String itemNumber=model.getValueAt(i, 0).toString();
            String itemName=model.getValueAt(i, 1).toString();
            String Category=model.getValueAt(i, 2).toString();
@@ -1902,7 +1916,7 @@ int[] a = {20,1,8,80};
            String prepTime=model.getValueAt(i, 5).toString();
            String contentNuts=model.getValueAt(i, 6).toString();
            String sugarFree=model.getValueAt(i, 7).toString();*/
-       /* int valueFromTable;
+ /* int valueFromTable;
         String itemInTable;
         int itemcount = 0;
         int rowCount = contentTable.getRowCount();
@@ -1936,8 +1950,6 @@ int[] a = {20,1,8,80};
                 }
                 JOptionPane.showMessageDialog(this, message+valueFromRow);
         }*/
-        
-       
 
     }//GEN-LAST:event_searchPriceBtnMouseClicked
 
@@ -2075,7 +2087,6 @@ int[] a = {20,1,8,80};
 
     public static void main(String args[]) {
 
-        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -2114,16 +2125,16 @@ int[] a = {20,1,8,80};
             }
         });
     }
-    public int Search(LinkedList list,int l,int size, int price)
-    {
+
+    public int Search(LinkedList list, int l, int size, int price) {
         if (l <= size) {//To find the position of the variable.
-            int mid = (l+size) / 2;
+            int mid = (l + size) / 2;
             int intMidVal = Integer.valueOf((String) list.get(mid));
             if (intMidVal == price) {
                 return mid;
             } else if (intMidVal < price) {
 
-                return Search(list, mid + 1, size,price);
+                return Search(list, mid + 1, size, price);
             } else {
 
                 return Search(list, l, mid - 1, price);
