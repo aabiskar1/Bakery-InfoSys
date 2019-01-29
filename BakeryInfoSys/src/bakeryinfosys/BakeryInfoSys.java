@@ -1881,10 +1881,13 @@ public class BakeryInfoSys extends javax.swing.JFrame {
 
     private void searchPriceBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchPriceBtnMouseClicked
         System.out.println("enetered");
+        int enteredValue=Integer.parseInt(searchPrice.getText());
         DefaultTableModel model = (DefaultTableModel) contentTable.getModel();
         int rowCount = model.getRowCount();
         int firstPrice;
         String [] temp;
+        int l=0;
+        int position;
         int secondPrice;
         String[][] list = new String[rowCount][7];
         for (int i = 0; i < rowCount; i++) {
@@ -1909,10 +1912,20 @@ public class BakeryInfoSys extends javax.swing.JFrame {
             }
         }
           for(int i=0; i < list.length; i++){  
-                        System.out.print(Arrays.toString(list[i]));  
+                        System.out.print(Arrays.toString(list[i]))
+                                ;  
+                        
                 }  
-        
-
+          position=binarySearch(list, l, rowCount,enteredValue);
+          if(position==-1)
+          {
+              JOptionPane.showMessageDialog(rootPane, "Entered price of product does not exist.");
+          }
+          else
+          {
+              JOptionPane.showMessageDialog(rootPane, "it exist in world");
+          }
+          
         /*String itemNumber=model.getValueAt(i, 0).toString();
            String itemName=model.getValueAt(i, 1).toString();
            String Category=model.getValueAt(i, 2).toString();
@@ -2131,19 +2144,23 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         });
     }
 
-    public int Search(LinkedList list, int l, int size, int price) {
-        if (l <= size) {//To find the position of the variable.
-            int mid = (l + size) / 2;
-            int intMidVal = Integer.valueOf((String) list.get(mid));
-            if (intMidVal == price) {
-                return mid;
-            } else if (intMidVal < price) {
-
-                return Search(list, mid + 1, size, price);
-            } else {
-
-                return Search(list, l, mid - 1, price);
-            }
+    public int binarySearch(String[][] list, int l, int size, int price) {
+        if (size >= l) { 
+        int mid = l + (size - l) / 2; 
+  
+        // If the element is present at the middle 
+        // itself 
+        if (Integer.parseInt(list[mid][4]) == price) 
+            return mid; 
+  
+        // If element is smaller than mid, then 
+        // it can only be present in left subarray 
+        if (Integer.parseInt(list[mid][4]) > price) 
+            return binarySearch(list, l, mid - 1, price); 
+  
+        // Else the element can only be present 
+        // in right subarray 
+        return binarySearch(list, mid + 1, size, price); 
         }
         return -1;
     }
