@@ -1884,11 +1884,11 @@ public class BakeryInfoSys extends javax.swing.JFrame {
         int enteredValue=Integer.parseInt(searchPrice.getText());
         DefaultTableModel model = (DefaultTableModel) contentTable.getModel();
         int rowCount = model.getRowCount();
-        int firstPrice;
-        String [] temp;
+        int firstPrice=0;
+        
         int l=0;
         int position;
-        int secondPrice;
+        int secondPrice=0;
         String[][] list = new String[rowCount][7];
         for (int i = 0; i < rowCount; i++) {
             for (int j = 0; j < 7; j++) {
@@ -1896,7 +1896,8 @@ public class BakeryInfoSys extends javax.swing.JFrame {
                 list[i][j] = getValue;
             }
         }
-        for (int z = 0; z < rowCount; z++) {
+        list=swap(list,firstPrice,secondPrice,rowCount);
+        /*for (int z = 0; z < rowCount; z++) {
             for (int y = 1; y < (rowCount - z); y++) {
                 firstPrice=Integer.parseInt(list[y-1][4]);
                 secondPrice=Integer.parseInt(list[y][4]);
@@ -1910,12 +1911,18 @@ public class BakeryInfoSys extends javax.swing.JFrame {
                 }
 
             }
-        }
+        }*/
+        //System.out.println(Integer.parseInt(list[rowCount][4]));
+          //System.out.println(enteredValue);
           for(int i=0; i < list.length; i++){  
-                        System.out.print(Arrays.toString(list[i]))
-                                ;  
+                        System.out.println(Arrays.toString(list[i])) ;  
                         
-                }  
+                } 
+          
+          //if(enteredValue<=Integer.parseInt(list[rowCount][4]))
+          //{
+              
+          
           position=binarySearch(list, l, rowCount,enteredValue);
           if(position==-1)
           {
@@ -1925,52 +1932,34 @@ public class BakeryInfoSys extends javax.swing.JFrame {
           {
               JOptionPane.showMessageDialog(rootPane, "it exist in world");
           }
-          
-        /*String itemNumber=model.getValueAt(i, 0).toString();
-           String itemName=model.getValueAt(i, 1).toString();
-           String Category=model.getValueAt(i, 2).toString();
-           String itemDesc=model.getValueAt(i, 3).toString();
-           String price=model.getValueAt(i, 4).toString();
-           String prepTime=model.getValueAt(i, 5).toString();
-           String contentNuts=model.getValueAt(i, 6).toString();
-           String sugarFree=model.getValueAt(i, 7).toString();*/
- /* int valueFromTable;
-        String itemInTable;
-        int itemcount = 0;
-        int rowCount = contentTable.getRowCount();
-        int ab[] = new int [rowCount];
-        int getSearchRequest = Integer.parseInt(searchPrice.getText());
-        int colCount = contentTable.getColumnCount();
-        
-     
-        for (int i = 0; i < rowCount; i++) {
-            valueFromTable =  Integer.valueOf((String) contentTable.getValueAt(i, 4));
-            ab[i]=valueFromTable; 
-            
-        }
-        Arrays.sort(ab);
-        System.out.println(Arrays.toString(ab));
-        int flagValue = Arrays.binarySearch(ab,getSearchRequest);
-        System.out.println(getSearchRequest + " found at index = "
-                           +Arrays.binarySearch(ab,getSearchRequest)); 
-        if(flagValue== -1){
-        JOptionPane.showMessageDialog(null,"Search Result not found");
-        }
-        else{
-            String valueFromRow=null;
-            int foundId = Arrays.binarySearch(ab,getSearchRequest);
-        String foundString = foundId + "";
-        String message =getSearchRequest + " found at index = "+ foundString;
-        
-                for (int i = 0; i < rowCount; i++) {
-            valueFromRow = contentTable.getValueAt(foundId, 1).toString();
-           
-                }
-                JOptionPane.showMessageDialog(this, message+valueFromRow);
-        }*/
+         // }
+          //else
+          //{
+              //JOptionPane.showMessageDialog(this,"the value does exits");
+          //}
 
     }//GEN-LAST:event_searchPriceBtnMouseClicked
+    
+    public String[][] swap(String[][] list,int fPrice,int sPrice,int rowValue)
+    {
+        String [] temp;
+        for (int z = 0; z < rowValue; z++) {
+            for (int y = 1; y < (rowValue - z); y++) {
+                fPrice=Integer.parseInt(list[y-1][4]);
+                sPrice=Integer.parseInt(list[y][4]);
+                 if(fPrice > sPrice) {
+                    //swap elements  
+                    temp = list[y-1];
+                    list[y-1] = list[y];
+                    list[y] = temp;
+                
+                //System.out.println(secondPrice);
+                }
 
+            }
+        }
+        return list;
+    }
     private void searchCatagoryComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchCatagoryComboBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_searchCatagoryComboBoxActionPerformed
@@ -2145,7 +2134,7 @@ public class BakeryInfoSys extends javax.swing.JFrame {
     }
 
     public int binarySearch(String[][] list, int l, int size, int price) {
-        if (size >= l) { 
+       /* if (size >= l) { 
         int mid = l + (size - l) / 2; 
   
         // If the element is present at the middle 
@@ -2160,10 +2149,26 @@ public class BakeryInfoSys extends javax.swing.JFrame {
   
         // Else the element can only be present 
         // in right subarray 
-        return binarySearch(list, mid + 1, size, price); 
+        return binarySearch(list, mid +l, size, price); 
+        }
+        return -1;*/
+       
+        if (l <= size) {//To find the position of the variable.
+            int mid = (l+size) / 2;
+            int intMidVal = Integer.parseInt(list[mid][4]);
+            if (intMidVal == price) {
+                return mid;
+            } else if (intMidVal < price) {
+
+                return binarySearch(list, mid + 1, size, price);
+            } else {
+
+                return binarySearch(list, l, mid - 1, price);
+            }
         }
         return -1;
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel aboutMenuItem;
