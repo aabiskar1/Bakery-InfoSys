@@ -1888,19 +1888,19 @@ public class BakeryInfoSys extends javax.swing.JFrame {
             int position;
             int secondPrice = 0;
             String[][] list = new String[rowCount][8];
-            for (int i = 0; i < rowCount; i++) { //Adds the
+            for (int i = 0; i < rowCount; i++) { //Adds all the value from table to two dimensional array
                 for (int j = 0; j < 8; j++) {
                     String getValue = model.getValueAt(i, j).toString();
                     list[i][j] = getValue;
                 }
             }
-            list = swap(list, firstPrice, secondPrice, rowCount);
+            list = swap(list, firstPrice, secondPrice, rowCount); //calls the swap method
 
             for (int i = 0; i < list.length; i++) {
 
             }
 
-            position = binarySearch(list, l, rowCount - 1, enteredValue);
+            position = binarySearch(list, l, rowCount - 1, enteredValue); //calls the binary search method
             if (position == -1) {
                 JOptionPane.showMessageDialog(rootPane, "No search result", "No result found", JOptionPane.INFORMATION_MESSAGE);
             } else {
@@ -1915,8 +1915,8 @@ public class BakeryInfoSys extends javax.swing.JFrame {
 
     }//GEN-LAST:event_searchPriceBtnMouseClicked
 
-    public String[][] swap(String[][] list, int fPrice, int sPrice, int rowValue) {
-        String[] temp;
+    public String[][] swap(String[][] list, int fPrice, int sPrice, int rowValue) {  //sorts the array in ascending order with respect to price
+        String[] temp;    
         for (int z = 0; z < rowValue; z++) {
             for (int y = 1; y < (rowValue - z); y++) {
                 fPrice = Integer.parseInt(list[y - 1][4]);
